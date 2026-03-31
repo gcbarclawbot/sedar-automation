@@ -548,7 +548,7 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
                 "notes": f"active={best_filing_pnum} date={best_filing_date} > stored={known_pnum}"}
 
 
-def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0):
+def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0, skip_checked: bool = False):
     """
     Audit all universe companies with stored party numbers.
     Logs a report of CONFIRMED / WRONG / AMBIGUOUS / NOT_FOUND.
@@ -570,6 +570,16 @@ def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0):
         candidates = candidates[:limit]
 
     log.info(f"  Checking {len(candidates)} companies with stored party numbers")
+
+    if skip_checked:
+        report_path = SCRIPT_DIR / "sedar_party_audit.csv"
+        if report_path.exists():
+            import csv as _csv
+            with open(report_path, newline="", encoding="utf-8-sig") as _f:
+                already_done = {r["symbol"] for r in _csv.DictReader(_f)}
+            before = len(candidates)
+            candidates = [r for r in candidates if r.get("symbol","") not in already_done]
+            log.info(f"  --skip-checked: skipping {before - len(candidates)} already audited, {len(candidates)} remaining")
 
     if not _ensure_cdp_ready():
         log.error("CDP not available")
@@ -622,9 +632,11 @@ def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0):
     # Save audit report
     report_path = SCRIPT_DIR / "sedar_party_audit.csv"
     report_fields = ["symbol", "outcome", "known", "top_pnum", "top_score", "notes", "candidates"]
-    with open(report_path, "w", newline="", encoding="utf-8-sig") as f:
+    write_mode = "a" if skip_checked and report_path.exists() else "w"
+    with open(report_path, write_mode, newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=report_fields, extrasaction="ignore")
-        writer.writeheader()
+        if write_mode == "w":
+            writer.writeheader()
         for r in results:
             r["candidates"] = _json.dumps(r.get("candidates", []))
             writer.writerow(r)
@@ -647,6 +659,8 @@ def main():
     ap.add_argument("--symbol",  type=str, default="")
     ap.add_argument("--recheck", action="store_true",
                     help="Audit mode: check all stored party numbers for correctness (read-only)")
+    ap.add_argument("--skip-checked", action="store_true",
+                    help="Skip symbols already in sedar_party_audit.csv (resume interrupted run)")
     args = ap.parse_args()
 
     now = datetime.now(TORONTO_TZ)
@@ -660,7 +674,7 @@ def main():
         return
 
     if args.recheck:
-        run_recheck(universe, symbol_filter=args.symbol, limit=args.limit)
+        run_recheck(universe, symbol_filter=args.symbol, limit=args.limit, skip_checked=args.skip_checked)
         elapsed = (datetime.now(TORONTO_TZ) - now).total_seconds()
         log.info(f"DONE in {elapsed:.0f}s")
         return

@@ -3,8 +3,8 @@ AAUC,Allied Gold Corporation,TSX,1,NOT_FOUND,,2026-03-30 07:17:56 EDT
 ABRA,AbraSilver Resource Corp.,TSX,1,000001147,AbraSilver Resource Corp. / AbraSilver Resource Corp.,2026-03-30 07:18:04 EDT
 ABX,Barrick Mining Corporation,TSX,1,000000923,Barrick Mining Corporation / Societe Miniere Barrick,2026-03-30 07:18:12 EDT
 AEM,Agnico Eagle Mines Limited,TSX,1,000000834,Agnico Eagle Mines Limited / Mines Agnico Eagle Limitée,2026-03-30 07:18:20 EDT
-AGI,Alamos Gold Inc.,TSX,1,000005505,Alamos Gold Inc. / Alamos Gold Inc.,2026-03-30 07:18:27 EDT
-AII,Almonty Industries Inc.,TSX,1,000032313,Almonty Industries Inc. / Almonty Industries Inc.,2026-03-30 07:18:34 EDT
+AGI,Alamos Gold Inc.,TSX,1,000037377,Alamos Gold Inc. / Alamos Gold Inc.,2026-03-30 07:18:27 EDT
+AII,Almonty Industries Inc.,TSX,1,000029658,Almonty Industries Inc. / Almonty Industries Inc.,2026-03-30 07:18:34 EDT
 ALK,Alkane Resources Limited,TSX,1,000109167,Alkane Resources Limited,2026-03-30 07:18:43 EDT
 ALS,Altius Minerals Corporation,TSX,1,000008222,Altius Minerals Corporation / Altius Minerals Corporation,2026-03-30 07:18:51 EDT
 AMC,Arizona Metals Corp.,TSX,1,000044022,Arizona Metals Corp. / Arizona Metals Corp.,2026-03-30 07:18:58 EDT
@@ -17,7 +17,7 @@ BGAU,Blossom Gold Inc.,TSX,1,000052072,Blossom Gold Inc. (formerly 1290448 B.C. 
 BKI,Black Iron Inc.,TSX,1,000031138,Black Iron Inc. / Black Iron Inc.,2026-03-30 07:19:52 EDT
 BNKR,Bunker Hill Mining Corp.,TSX,1,000032649,Bunker Hill Mining Corp. / Bunker Hill Mining Corp.,2026-03-30 07:19:59 EDT
 BSX,Belo Sun Mining Corp.,TSX,1,000006215,Belo Sun Mining Corp. / Belo Sun Mining Corp.,2026-03-30 07:20:06 EDT
-BTO,B2Gold Corp.,TSX,1,000024989,B2Gold Corp. / B2Gold Corp.,2026-03-30 07:20:13 EDT
+BTO,B2Gold Corp.,TSX,1,000026119,B2Gold Corp. / B2Gold Corp.,2026-03-30 07:20:13 EDT
 CCM,Canagold Resources Ltd.,TSX,1,000000187,Canagold Resources Ltd. / Canagold Resources Ltd.,2026-03-30 07:20:21 EDT
 CDE,"Coeur Mining, Inc.",TSX,1,000021638,"Coeur Mining, Inc. / Coeur Mining, Inc.",2026-03-30 07:20:28 EDT
 CG,Centerra Gold Inc.,TSX,1,000020738,Centerra Gold Inc. / Centerra Gold Inc.,2026-03-30 07:20:35 EDT
@@ -33,14 +33,14 @@ DSV,Discovery Silver Corp.,TSX,1,000007580,Discovery Silver Corp. / Discovery Si
 ECOR,Ecora Royalties PLC,TSX,1,000030202,Ecora Resources PLC / Ecora Resources PLC,2026-03-30 07:21:53 EDT
 ELD,Eldorado Gold Corporation,TSX,1,000001610,Eldorado Gold Corporation / Eldorado Gold Corporation,2026-03-30 07:22:01 EDT
 ELEF,Silver Elephant Mining Corp.,TSX,1,000005981,Silver Elephant Mining Corp. / Silver Elephant Mining Corp.,2026-03-30 07:22:09 EDT
-ELO,Eloro Resources Ltd.,TSX,1,000004057,Deloro Resources Ltd. / Deloro Resources Ltd.,2026-03-30 07:22:16 EDT
-ELR,Eastern Platinum Limited,TSX,1,000051481,Eastern Platinum Limited / Eastern Platinum Limited,2026-03-30 07:22:24 EDT
+ELO,Eloro Resources Ltd.,TSX,1,000007851,Eloro Resources Ltd. / Eloro Resources Ltd.,2026-03-30 07:22:16 EDT
+ELR,Eastern Platinum Limited,TSX,1,000022081,Eastern Platinum Limited / Eastern Platinum Limite,2026-03-30 07:22:24 EDT
 EQX,Equinox Gold Corp.,TSX,1,000025296,Equinox Gold Corp. / Equinox Gold Corp.,2026-03-30 07:22:32 EDT
-ERO,Ero Copper Corp.,TSX,1,000054218,Cascadero Copper Corporation / Cascadero Copper Corporation,2026-03-30 07:22:39 EDT
+ERO,Ero Copper Corp.,TSX,1,000043429,Ero Copper Corp. / Ero Copper Corp.,2026-03-30 07:22:39 EDT
 FAR,Foraco International SA,TSX,1,000025480,Foraco International SA / Foraco International SA,2026-03-30 07:22:46 EDT
 FDY,Faraday Copper Corp.,TSX,1,000036463,Faraday Copper Corp.,2026-03-30 07:22:54 EDT
 FFM,FireFly Metals Ltd.,TSX,1,000106287,FireFly Metals Ltd.,2026-03-30 07:23:02 EDT
-FM,First Quantum Minerals Ltd.,TSX,1,000033579,First Quantum Minerals Ltd. / First Quantum Minerals Ltd.,2026-03-30 07:23:10 EDT
+FM,First Quantum Minerals Ltd.,TSX,1,000006237,First Quantum Minerals Ltd / First Quantum Mineral,2026-03-30 07:23:10 EDT
 FMR,Future Mineral Resources Inc.,TSX,1,000036187,FUTURE MINERAL RESOURCES INC. / FUTURE MINERAL RESOURCES INC.,2026-03-30 07:23:19 EDT
 FNV,Franco-Nevada Corporation,TSX,1,000026091,Franco-Nevada Corporation,2026-03-30 07:23:27 EDT
 FOM,Foran Mining Corporation,TSX,1,000008811,Foran Mining Corporation / Foran Mining Corporation,2026-03-30 07:23:35 EDT
@@ -54,15 +54,15 @@ GGD,GoGold Resources Inc.,TSX,1,000029249,GoGold Resources Inc. / GoGold Resourc
 GLO,Global Atomic Corporation,TSX,1,000010721,Global Atomic Corporation / Global Atomic Corporation,2026-03-30 07:24:35 EDT
 GMX,Globex Mining Enterprises Inc.,TSX,1,000002319,Globex Mining Enterprises Inc. / Entreprises Minières Globex Inc.,2026-03-30 07:24:44 EDT
 GRC,Gold Springs Resource Corp.,TSX,1,000024750,Gold Springs Resource Corp. / Gold Springs Resource Corp.,2026-03-30 07:24:53 EDT
-HBM,Hudbay Minerals Inc.,TSX,1,000030377,Hudbay Minerals Inc. / Hudbay Minerals Inc.,2026-03-30 07:25:02 EDT
+HBM,Hudbay Minerals Inc.,TSX,1,000001691,Hudbay Minerals Inc. / Hudbay Minerals Inc.,2026-03-30 07:25:02 EDT
 IE,Ivanhoe Electric Inc.,TSX,1,000055085,Ivanhoe Electric Inc. / Ivanhoe Electric Inc.,2026-03-30 07:25:11 EDT
 III,Imperial Metals Corporation,TSX,1,000017753,Imperial Metals Corporation,2026-03-30 07:25:21 EDT
-IMG,IAMGOLD Corporation,TSX,1,000052560,IAMGOLD Corporation / IAMGOLD Corporation,2026-03-30 07:25:29 EDT
-IVN,Ivanhoe Mines Ltd.,TSX,1,000002549,Turquoise Hill Resources Ltd. / Turquoise Hill Resources Ltd.,2026-03-30 07:25:39 EDT
+IMG,IAMGOLD Corporation,TSX,1,000009025,IAMGOLD Corporation / IAMGOLD Corporation,2026-03-30 07:25:29 EDT
+IVN,Ivanhoe Mines Ltd.,TSX,1,000033595,Ivanhoe Mines Ltd. / Ivanhoe Mines Ltd.,2026-03-30 07:25:39 EDT
 JAG,Jaguar Mining Inc.,TSX,1,000019963,Jaguar Mining Inc. / Jaguar Mining Inc.,2026-03-30 07:25:47 EDT
-K,Kinross Gold Corporation,TSX,1,000012878,Kinross Gold Corporation / Kinross Gold Corporation,2026-03-30 07:25:57 EDT
+K,Kinross Gold Corporation,TSX,1,000002968,Kinross Gold Corporation / Kinross Gold Corporatio,2026-03-30 07:25:57 EDT
 KNT,K92 Mining Inc.,TSX,1,000030617,K92 Mining Inc. / K92 Mining Inc.,2026-03-30 07:26:05 EDT
-LAC,Lithium Americas Corp.,TSX,1,000027103,Lithium Argentina AG,2026-03-30 07:26:14 EDT
+LAC,Lithium Americas Corp.,TSX,1,000100081,Lithium Americas Corp.,2026-03-30 07:26:14 EDT
 LAR,Lithium Argentina AG,TSX,1,000027103,Lithium Argentina AG,2026-03-30 07:26:23 EDT
 LGD,Liberty Gold Corp.,TSX,1,000031453,Liberty Gold Corp. / Liberty Gold Corp.,2026-03-30 07:26:32 EDT
 LGO,Largo Inc.,TSX,1,000005504,Largo Inc. / Largo Inc.,2026-03-30 07:26:40 EDT
@@ -73,9 +73,9 @@ MAU,Montage Gold Corp.,TSX,1,000048267,Montage Gold Corp. / Montage Gold Corp.,2
 MDI,Major Drilling Group International Inc.,TSX,1,000002179,Major Drilling Group International Inc. / Groupe Forage Major International Inc.,2026-03-30 07:27:25 EDT
 MOLY,Greenland Resources Inc.,TSX,1,000027137,Greenland Resources Inc. / Greenland Resources Inc.,2026-03-30 07:27:35 EDT
 MPVD,Mountain Province Diamonds Inc.,TSX,1,000005311,Mountain Province Diamonds Inc. / Mountain Province Diamonds Inc.,2026-03-30 07:27:44 EDT
-MSA,Mineros S.A.,TSX,1,000032740,Mineros S.A. / Mineros S.A.,2026-03-30 07:27:53 EDT
+MSA,Mineros S.A.,TSX,1,000051967,Mineros S.A. / Mineros S.A.,2026-03-30 07:27:53 EDT
 MSV,Minco Silver Corporation,TSX,1,000022426,MINCO SILVER CORPORATION / MINCO SILVER CORPORATION,2026-03-30 07:28:01 EDT
-MUX,McEwen Inc.,TSX,1,000023668,"McEwen Inc., formerly McEwen Mining Inc. / McEwen Inc., formerly McEwen Mining Inc.",2026-03-30 07:28:10 EDT
+MUX,McEwen Inc.,TSX,1,000039656,Robert McEwen / Robert McEwen,2026-03-30 07:28:10 EDT
 NCF,Northcliff Resources Ltd.,TSX,1,000030606,Northcliff Resources Ltd. / Northcliff Resources Ltd.,2026-03-30 07:28:19 EDT
 NDM,Northern Dynasty Minerals Ltd.,TSX,1,000003151,Northern Dynasty Minerals Ltd. / Northern Dynasty Minerals Ltd.,2026-03-30 07:28:28 EDT
 NEXT,NextSource Materials Inc.,TSX,1,000025651,NextSource Materials Inc. / NextSource Materials Inc.,2026-03-30 07:28:37 EDT
@@ -90,8 +90,8 @@ ORE,Orezone Gold Corporation,TSX,1,000028221,Orezone Gold Corporation / Orezone 
 PMET,PMET Resources Inc.,TSX,1,000028959,"PMET Resources Inc. (formerly, Patriot Battery Metals Inc.) / Ressources PMET Inc.",2026-03-30 07:30:12 EDT
 PRU,Perseus Mining Limited,TSX,1,000029380,PERSEUS MINING LIMITED / PERSEUS MINING LIMITED,2026-03-30 07:30:21 EDT
 PTM,Platinum Group Metals Ltd.,TSX,1,000015722,Platinum Group Metals Ltd. / Platinum Group Metals Ltd.,2026-03-30 07:30:31 EDT
-RIO,Rio2 Limited,TSX,1,000008132,Rio2 Limited (OLD) / Rio2 Limited,2026-03-30 07:30:39 EDT
-S,Sherritt International Corporation,TSX,1,000035720,Dissident Shareholders of Sherritt International Corporation / Dissident Shareholders of Sherritt International Corporation,2026-03-30 07:30:49 EDT
+RIO,Rio2 Limited,TSX,1,000045741,Rio2 Limited / Rio2 Limited,2026-03-30 07:30:39 EDT
+S,Sherritt International Corporation,TSX,1,000002460,Sherritt International Corporation / Sherritt Inte,2026-03-30 07:30:49 EDT
 SAM,Starcore International Mines Ltd.,TSX,1,000009020,Starcore International Mines Ltd. / Starcore International Mines Ltd.,2026-03-30 07:30:59 EDT
 SBI,Serabi Gold plc,TSX,1,000031148,Serabi Gold plc / Serabi Gold plc,2026-03-30 07:31:08 EDT
 SEA,Seabridge Gold Inc.,TSX,1,000007531,Seabridge Gold Inc. / Seabridge Gold Inc.,2026-03-30 07:31:21 EDT
@@ -114,7 +114,7 @@ VZLA,Vizsla Silver Corp.,TSX,1,000045314,Vizsla Silver Corp. / Vizsla Silver Cor
 WDO,Wesdome Gold Mines Ltd.,TSX,1,000001108,Wesdome Gold Mines Ltd. / Wesdome Gold Mines Ltd.,2026-03-30 07:33:58 EDT
 WGX,Westgold Resources Limited,TSX,1,000047807,Westgold Resources Limited / Westgold Resources Limited,2026-03-30 07:34:07 EDT
 WPM,Wheaton Precious Metals Corp.,TSX,1,000009161,Wheaton Precious Metals Corp. formerly Silver Wheaton Corp. / Wheaton Precious Metals Corp. formerly Silver Wheaton Corp.,2026-03-30 07:34:17 EDT
-WRX,Western Resources Corp.,TSX,1,000002996,0848818 B.C. Ltd. (formerly Southwestern Resources Corp.) / 0848818 B.C. Ltd. (formerly Southwestern Resources Corp.),2026-03-30 07:34:26 EDT
+WRX,Western Resources Corp.,TSX,1,000042546,Western Resources Corp. / Western Resources Corp.,2026-03-30 07:34:26 EDT
 XTG,Xtra-Gold Resources Corp.,TSX,1,000030485,Xtra-Gold Resources Corp. / Xtra-Gold Resources Corp.,2026-03-30 07:34:35 EDT
 YRB,Yorbeau Resources Inc.,TSX,1,000004947,Yorbeau Resources Inc. / Les Ressources Yorbeau Inc.,2026-03-30 07:34:44 EDT
 AAG,Aftermath Silver Ltd.,TSXV,1,000031873,Aftermath Silver Ltd.,2026-03-30 07:34:53 EDT
@@ -136,7 +136,7 @@ AEMC,Alaska Energy Metals Corporation,TSXV,1,000004733,Alaska Energy Metals Corp
 AFM,Alphamin Resources Corp.,TSXV,1,000005769,Alphamin Resources Corp. / Alphamin Resources Corp.,2026-03-30 07:37:18 EDT
 AFR,AFR NuVenture Resources Inc.,TSXV,1,000009748,AFR NuVenture Resources Inc.,2026-03-30 07:37:27 EDT
 AGA,Silver47 Exploration Corp.,TSXV,1,000053421,Silver47 Exploration Corp. / Silver47 Exploration Corp.,2026-03-30 07:37:36 EDT
-AGLD,Austral Gold Limited,TSXV,1,000035154,Austral Gold Limited / Austral Gold Limited,2026-03-30 07:37:46 EDT
+AGLD,Austral Gold Limited,TSXV,1,000038853,Austral Gold Limited / Austral Gold Limited,2026-03-30 07:37:46 EDT
 AGT,Applied Graphite Technologies Corporation,TSXV,1,000052728,Applied Graphite Technologies Corporation,2026-03-30 07:37:56 EDT
 AGX,Silver X Mining Corp.,TSXV,1,000029200,Silver X Mining Corp. / Silver X Mining Corp.,2026-03-30 07:38:05 EDT
 AHR,Amarc Resources Ltd.,TSXV,1,000004170,Amarc Resources Ltd. / Amarc Resources Ltd.,2026-03-30 07:38:14 EDT
@@ -197,7 +197,7 @@ AZT,Aztec Minerals Corp.,TSXV,1,000040087,Aztec Minerals Corp. / Aztec Minerals 
 B,BCM Resources Corporation,TSXV,1,000023628,BCM Resources Corporation / BCM Resources Corporation,2026-03-30 07:45:17 EDT
 BAG,Blende Silver Corp.,TSXV,1,000030605,Blende Silver Corp. / Blende Silver Corp.,2026-03-30 07:45:24 EDT
 BARK,Black Spruce Exploration Inc.,TSXV,1,000030435,Black Spruce Exploration Inc.,2026-03-30 07:45:32 EDT
-BARU,Baru Gold Corp.,TSXV,1,000013815,"Baru Gold Corp. formerly, East Asia Minerals Corporation / Baru Gold Corp. formerly East Asia Minerals Corporation",2026-03-30 07:45:39 EDT
+BARU,Baru Gold Corp.,TSXV,1,000100599,Baru Gold Corp.,2026-03-30 07:45:39 EDT
 BAT,Batero Gold Corp.,TSXV,1,000027051,Batero Gold Corp. / Batero Gold Corp.,2026-03-30 07:45:47 EDT
 BAU,Blue Star Gold Corp.,TSXV,1,000029100,Blue Star Gold Corp. / Blue Star Gold Corp.,2026-03-30 07:45:54 EDT
 BAY,Aston Bay Holdings Ltd.,TSXV,1,000031503,Aston Bay Holdings Ltd. / Aston Bay Holdings Ltd.,2026-03-30 07:46:02 EDT
@@ -224,7 +224,7 @@ BMR,Battery Mineral Resources Corp.,TSXV,1,000045092,Battery Mineral Resources C
 BMV,Bathurst Metals Corp.,TSXV,1,000023514,Bathurst Metals Corp. / Bathurst Metals Corp.,2026-03-30 07:48:43 EDT
 BNZ,Bonanza Mining Corporation,TSXV,1,000042644,Bonanza Mining Corporation / Bonanza Mining Corporation,2026-03-30 07:48:50 EDT
 BOCA,Bocana Resources Corp.,TSXV,1,000026882,Bocana Resources Corp.,2026-03-30 07:48:58 EDT
-BOGO,Borealis Mining Company Limited,TSXV,1,000054533,"Borealis Mining Company Limited (formerly, 1329300 B.C. Ltd.) / Borealis Mining Company Limited (formerly, 1329300 B.C. Ltd.)",2026-03-30 07:49:06 EDT
+BOGO,Borealis Mining Company Limited,TSXV,1,000057177,Borealis Mining Company Limited / Borealis Mining ,2026-03-30 07:49:06 EDT
 BONE,Boron One Holdings Inc.,TSXV,1,000007555,Boron One Holdings Inc. / Boron One Holdings Inc.,2026-03-30 07:49:14 EDT
 BPAG,BP Silver Corp.,TSXV,1,000045600,BP Silver Corp. / BP Silver Corp.,2026-03-30 07:49:21 EDT
 BRAU,Big Ridge Gold Corp.,TSXV,1,000007807,BIG RIDGE GOLD CORP. / BIG RIDGE GOLD CORP.,2026-03-30 07:49:29 EDT
@@ -237,7 +237,7 @@ BST,Bessor Minerals Inc.,TSXV,1,000025743,Bessor Minerals Inc. / Bessor Minerals
 BTR,BonTerra Resources Inc.,TSXV,1,000026953,Bonterra Resources Inc. / Bonterra Resources Inc.,2026-03-30 07:50:20 EDT
 BTT,Bitterroot Resources Ltd.,TSXV,1,000007506,Bitterroot Resources Ltd. / Bitterroot Resources Ltd.,2026-03-30 07:50:28 EDT
 BTU,BTU Metals Corp.,TSXV,1,000028634,BTU Metals Corp. / BTU Metals Corp.,2026-03-30 07:50:36 EDT
-BVA,Bravada Gold Corporation,TSXV,1,000029576,Bravada Gold Corporation / Bravada Gold Corporation,2026-03-30 07:50:43 EDT
+BVA,Bravada Gold Corporation,TSXV,1,000031052,Bravada Gold Corporation / Bravada Gold Corporatio,2026-03-30 07:50:43 EDT
 BWR,BWR Exploration Inc.,TSXV,1,000033869,BWR Exploration Inc. / BWR Exploration Inc.,2026-03-30 07:50:51 EDT
 BYN,Banyan Gold Corp.,TSXV,1,000030589,Banyan Gold Corp. / Banyan Gold Corp.,2026-03-30 07:50:58 EDT
 BZ,Benz Mining Corp.,TSXV,1,000033110,Benz Mining Corp. / Benz Mining Corp.,2026-03-30 07:51:06 EDT
@@ -246,7 +246,7 @@ CAMB,Cambria Gold Mines Inc.,TSXV,1,000004132,Cambria Gold Mines Inc. / Cambria 
 CAN,Canadian Gold Resources Ltd.,TSXV,1,000015354,CANADIAN GOLD RESOURCES LTD.,2026-03-30 07:51:29 EDT
 CANX,Canex Metals Inc,TSXV,1,000003808,CANEX Metals Inc. (formerly Northern Abitibi Mining Corp.),2026-03-30 07:51:37 EDT
 CAPT,Capitan Silver Corp.,TSXV,1,000050258,Capitan Silver Corp. - formerly Capitan Mining Inc. / Capitan Silver Corp. - formerly Capitan Mining Inc.,2026-03-30 07:51:44 EDT
-CASA,CASA Minerals Inc.,TSXV,1,000031882,Casa Minerals Inc / Casa Minerals Inc,2026-03-30 07:51:52 EDT
+CASA,CASA Minerals Inc.,TSXV,1,000032250,Casa Minerals Inc. / Casa Minerals Inc.,2026-03-30 07:51:52 EDT
 CBA,Champion Bear Resources Ltd.,TSXV,1,000003964,Champion Bear Resources Ltd. / Champion Bear Resources Ltd.,2026-03-30 07:52:00 EDT
 CBG,Chibougamau Independent Mines Inc.,TSXV,1,000034067,Chibougamau Independent Mines Inc. / Mines Indépendantes Chibougamau Inc.,2026-03-30 07:52:08 EDT
 CBI,Colibri Resource Corporation,TSXV,1,000021936,Colibri Resource Corporation / Colibri Resource Corporation,2026-03-30 07:52:16 EDT
@@ -930,7 +930,7 @@ DRX,ADF Group Inc.,TSX,2,000011963,ADF Group Inc. / Groupe ADF Inc.,2026-03-30 0
 DS,Dividend Select 15 Corp.,TSX,2,000030461,Dividend Select 15 Corp. / Dividend Select 15 Corp.,2026-03-30 09:39:34 EDT
 DYA,dynaCERT Inc.,TSX,2,000020269,dynaCERT Inc. / dynaCERT Inc.,2026-03-30 09:39:41 EDT
 ECO,EcoSynthetix Inc.,TSX,2,000031853,EcoSynthetix Inc. / EcoSynthetix Inc.,2026-03-30 09:39:48 EDT
-EFR,Energy Fuels Inc.,TSX,2,000034170,Energy Fuels Inc. / Energy Fuels Inc.,2026-03-30 09:39:55 EDT
+EFR,Energy Fuels Inc.,TSX,2,000004321,Energy Fuels Inc. / Energy Fuels Inc.,2026-03-30 09:39:55 EDT
 EIT.PR.A,Canoe EIT Income Fund,TSX,2,000005843,Canoe EIT Income Fund / Canoe EIT Income Fund,2026-03-30 09:40:01 EDT
 ELVA,Electrovaya Inc.,TSX,2,000008204,Electrovaya Inc. / Electrovaya Inc.,2026-03-30 09:40:08 EDT
 ENI.UN,Energy Income Fund,TSX,2,000042662,ACTIVE Resources Income Fund (formerly ACTIVEnergy Income Fund) / Fonds de revenu du secteur des ressources ACTIVE (auparavant Fonds de revenu ACTIVEnergy),2026-03-30 09:40:15 EDT
@@ -1012,7 +1012,7 @@ U.U,Sprott Physical Uranium Trust,TSX,2,NOT_FOUND,,2026-03-30 09:50:54 EDT
 UNC,United Corporations Limited,TSX,2,000001250,United Corporations Limited / United Corporations Limited,2026-03-30 09:51:05 EDT
 URB,Urbana Corporation,TSX,2,000005150,Urbana Corporation / Urbana Corporation,2026-03-30 09:51:12 EDT
 URC,Uranium Royalty Corp.,TSX,2,000043712,Uranium Royalty Corp.,2026-03-30 09:51:19 EDT
-URE,Ur-Energy Inc.,TSX,2,000007811,HTC Purenergy Inc. / HTC Purenergy Inc.,2026-03-30 09:51:26 EDT
+URE,Ur-Energy Inc.,TSX,2,000021840,Ur-Energy Inc. / Ur-Energy Inc.,2026-03-30 09:51:26 EDT
 VISA,Visa CDR (CAD Hedged),TSX,2,000010934,Visa Gold Explorations Inc. / Visa Gold Explorations Inc.,2026-03-30 09:51:39 EDT
 VLN,Velan Inc.,TSX,2,000003547,Velan Inc. / Velan Inc.,2026-03-30 09:51:46 EDT
 VNP,5N Plus Inc.,TSX,2,000026114,5N Plus Inc. / 5N Plus Inc.,2026-03-30 09:51:52 EDT
@@ -1290,7 +1290,7 @@ FF,First Mining Gold Corp.,TSX,1,000022404,First Mining Gold Corp. / First Minin
 FURY,Fury Gold Mines Limited,TSX,1,000027371,Fury Gold Mines Limited / Fury Gold Mines Limited,2026-03-30 22:51:13 EDT
 FVL,Freegold Ventures Limited,TSX,1,000004004,Freegold Ventures Limited / Freegold Ventures Limited,2026-03-30 22:51:13 EDT
 GCU,Gunnison Copper Corp,TSX,1,000025928,Gunnison Copper Corp. / Gunnison Copper Corp.,2026-03-30 22:51:13 EDT
-GMIN,G Mining Ventures Corp.,TSX,1,000032359,Canoe Mining Ventures Corp. / Canoe Mining Ventures Corp.,2026-03-30 22:51:13 EDT
+GMIN,G Mining Ventures Corp.,TSX,1,000105535,G Mining Ventures Corp.,2026-03-30 22:51:13 EDT
 GOLD,GoldMining Inc.,TSX,1,000031036,GoldMining Inc. / GoldMining Inc.,2026-03-30 22:51:13 EDT
 GTWO,G2 Goldfields Inc.,TSX,1,000030528,G2 Goldfields Inc.,2026-03-30 22:51:13 EDT
 HSLV,Highlander Silver Corp.,TSX,1,000045337,Highlander Silver Corp. / Highlander Silver Corp.,2026-03-30 22:51:13 EDT
@@ -1308,7 +1308,7 @@ PAAS,Pan American Silver Corp.,TSX,1,000002432,Pan American Silver Corp. / Pan A
 PPTA,Perpetua Resources Corp.,TSX,1,000031687,Perpetua Resources Corp.,2026-03-30 22:51:13 EDT
 RM,Roxmore Resources Inc.,TSX,1,000004744,"Roxmore Resources Inc., formerly Axcap Ventures Inc.",2026-03-30 22:51:13 EDT
 RTG,RTG Mining Inc.,TSX,1,000034365,RTG Mining Inc. / RTG Mining Inc.,2026-03-30 22:51:13 EDT
-RUA,Rua Gold Inc.,TSX,1,000046287,"Rua Gold Inc. (formerly, First Uranium Resources Ltd.) / Rua Gold Inc. (formerly, First Uranium Resources Ltd.)",2026-03-30 22:51:13 EDT
+RUA,Rua Gold Inc.,TSX,1,000034605,"Ruane, Cunniff & Goldfarb Inc. / Ruane, Cunniff & ",2026-03-30 22:51:13 EDT
 RUP,Rupert Resources Ltd.,TSX,1,000004604,Rupert Resources Ltd. / Rupert Resources Ltd.,2026-03-30 22:51:13 EDT
 SAU,St. Augustine Gold and Copper Limited,TSX,1,000029999,St. Augustine Gold and Copper Limited / St. Augustine Gold and Copper Limited,2026-03-30 22:51:13 EDT
 SGD,Snowline Gold Corp.,TSX,1,000046277,Snowline Gold Corp.,2026-03-30 22:51:13 EDT
