@@ -20,6 +20,18 @@ from datetime import datetime
 from pathlib import Path
 import pytz, requests
 
+# Legal suffix stripping - module-level, used consistently everywhere.
+# Word-boundary anchored: 'co' won't match inside 'Commodore', etc.
+LEGAL_RE = re.compile(
+    r"\b(inc\.?|corp\.?|ltd\.?|limited|llc|lp|plc|co\.?|pty\.?|"
+    r"incorporated|corporation|s\.a\.?|n\.v\.?)\b",
+    re.IGNORECASE
+)
+
+def _strip_legal(s: str) -> str:
+    return re.sub(r"\s+", " ", LEGAL_RE.sub(" ", s)).strip()
+
+
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -124,16 +136,10 @@ def _name_similarity(our_name: str, candidate_text: str) -> float:
     """
     from difflib import SequenceMatcher
 
-    LEGAL = re.compile(
-        r'\b(inc\.?|corp\.?|ltd\.?|limited|llc|lp|plc|co\.?|incorporated|'
-        r'corporation|s\.a\.?|n\.v\.?|mining|resources?|metals?|gold|silver|'
-        r'copper|exploration|ventures?|energy)\b',
-        re.IGNORECASE)
-
     def _norm(s: str) -> str:
         s = re.sub(r'\s*\(\d{9}\).*$', '', s)  # strip party number
         s = re.sub(r'\s*/\s*.*$', '', s)        # strip "/ Former Name" part
-        s = LEGAL.sub(' ', s)
+        s = _strip_legal(s)
         s = re.sub(r'[^\w\s]', ' ', s)
         return re.sub(r'\s+', ' ', s).strip().lower()
 
@@ -142,7 +148,7 @@ def _name_similarity(our_name: str, candidate_text: str) -> float:
 
     # Also try the full candidate text (before stripping / part) in case current name matches better
     cand_full = re.sub(r'\s*\(\d{9}\).*$', '', candidate_text)
-    cand_full = re.sub(r'[^\w\s]', ' ', LEGAL.sub(' ', cand_full))
+    cand_full = re.sub(r'[^\w\s]', ' ', LEGAL_RE.sub(' ', cand_full))
     cand_full = re.sub(r'\s+', ' ', cand_full).strip().lower()
 
     score1 = SequenceMatcher(None, our, cand).ratio()
@@ -283,13 +289,6 @@ def lookup_party(page, symbol: str, name: str) -> tuple[str, str]:
     the similarity score of "Ero Copper Corp." vs "Ero Copper Corp." (~1.0) will
     beat "Ero Copper Corp." vs "Cascadero Copper Corporation" (~0.55) decisively.
     """
-    LEGAL = re.compile(
-        r'\b(inc\.?|corp\.?|ltd\.?|limited|llc|lp|plc|co\.?|incorporated|corporation)\b',
-        re.IGNORECASE)
-
-    def _strip_legal(s):
-        return re.sub(r'\s+', ' ', LEGAL.sub(' ', s)).strip()
-
     SIMILARITY_THRESHOLD  = 0.40   # minimum score to even consider a candidate
     CLEAR_WIN_THRESHOLD   = 0.85   # score high enough to accept without filing count check
     CLEAR_WIN_GAP         = 0.15   # gap over next candidate to call it a clear win
@@ -346,7 +345,7 @@ def lookup_party(page, symbol: str, name: str) -> tuple[str, str]:
 
             if not scored:
                 log.debug(f"  {symbol}: no candidates above threshold for '{term}'")
-                continue
+                continue  # try shorter term
 
             # Sort by score descending
             scored.sort(key=lambda x: x[0], reverse=True)
@@ -416,14 +415,6 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
 
     SIMILARITY_THRESHOLD = 0.40
     CLEAR_WIN_GAP        = 0.15
-
-    LEGAL = re.compile(
-        r'\b(inc\.?|corp\.?|ltd\.?|limited|llc|lp|plc|co\.?|incorporated|'
-        r'corporation|s\.a\.?|n\.v\.?|mining|resources?|metals?|gold|silver|'
-        r'copper|exploration|ventures?|energy)\b', re.IGNORECASE)
-
-    def _strip_legal(s):
-        return re.sub(r'\s+', ' ', LEGAL.sub(' ', s)).strip()
 
     try:
         page.goto(
