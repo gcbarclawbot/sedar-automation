@@ -225,7 +225,7 @@ def _ensure_cdp_ready(timeout: int = 30) -> bool:
     log.warning(f"  CDP not reachable after {timeout}s")
     return False
 
-SESSION_PATH = SCRIPT_DIR / "2. Canadian Batch Run" / "stockwatch_session.json"
+SESSION_PATH = SCRIPT_DIR / "stockwatch_session.json"
 
 def _get_sw_cookies() -> dict:
     """
