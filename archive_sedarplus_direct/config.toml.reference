@@ -1,0 +1,35 @@
+[general]
+# How many days back to search for news releases (used when no last_run date exists)
+default_lookback_days = 1
+
+# Delay between page requests in seconds (be polite)
+request_delay_sec = 1.5
+
+# How many results per page (10, 30, or 50)
+page_size = 50
+
+# Filing type to fetch - "News releases" on SEDAR+
+filing_type = "NEWS_RELEASES"
+
+# Filing category
+filing_category = "CONTINUOUS_DISCLOSURE"
+
+# Output folder for daily batches
+output_dir = "Daily"
+
+# State file tracking last successful run
+state_file = "state.json"
+
+[filters]
+# Only fetch filings from these principal jurisdictions (empty = all)
+# Common values: "British Columbia", "Ontario", "Alberta", "Quebec"
+jurisdictions = []
+
+# Industry type keywords to filter company names (empty = no filter, fetch everything)
+# e.g. ["Mining", "Exploration", "Resources", "Gold", "Silver", "Copper"]
+# Note: SEDAR+ doesn't expose SIC codes so filtering is name-based only
+company_name_keywords = []
+
+[notifications]
+# WhatsApp numbers to alert on errors (empty = no alerts)
+error_notify = ["+61417725442"]

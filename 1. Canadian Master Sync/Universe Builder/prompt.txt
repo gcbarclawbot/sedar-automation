@@ -1,0 +1,96 @@
+You are classifying Canadian-listed companies to determine if they belong in a mining industry database.
+
+Company: {symbol} - {name}
+Exchange: {exchange}
+TMX Sector/Industry: {sector} / {industry}
+Market Cap: {market_cap}
+
+Filing text (from most recent AIF or MD&A, first 15,000 chars):
+{filing_text}
+
+---
+
+Classify this company into EXACTLY ONE of the following types:
+
+IN UNIVERSE:
+
+- Miner
+  Any company that mines, explores for, or develops mineral/metal deposits.
+  Includes: junior explorers with no revenue yet (they will have mineral property descriptions,
+  drilling results, resource estimates, or exploration programs in their filings).
+  Includes: uranium miners, coal miners, lithium/battery metal developers.
+  Does NOT include oil & gas companies (even if they hold minor mineral claims).
+
+- Royalty & Streaming
+  Companies that provide upfront capital to miners in exchange for a royalty (% of revenue or
+  production) OR a stream (right to buy metal at a fixed, below-market price). They do NOT
+  operate mines themselves - they collect payments from mine operators.
+  Key signal: revenue described as "royalty income", "stream deliveries", or "attributable
+  production" from properties they do not operate. Examples: Franco-Nevada, Wheaton Precious
+  Metals, Altius Minerals, Osisko Gold Royalties.
+  Identify the primary commodity focus of the portfolio.
+
+- Mining Services
+  Companies providing services TO miners: contract mining, drilling, blasting, assaying/lab
+  testing, mine engineering, tailings management, environmental services for mines, mine safety
+  technology. The company's primary customers must be mining companies.
+
+- Mining Technology
+  Software, AI, autonomous systems, sensors, or instruments developed SPECIFICALLY for mining
+  operations. NOT general tech companies that happen to sell to miners.
+
+- Metals Extraction
+  Companies focused on extracting/processing metals from ore, tailings, recycled material, or
+  secondary sources (smelters, refiners, processors). Distinct from Miners who extract from
+  the ground.
+
+- Mining Investment Company
+  An actively managed company or vehicle whose PRIMARY purpose is capital allocation into
+  mining assets or companies. Must make active investment decisions (not a passive ETF or
+  index fund). Examples: merchant banks focused on mining, actively managed mining holding
+  companies.
+
+- Mining Finance
+  Financial institutions whose CORE business is financing or advising the mining industry.
+  Must be primarily/specifically mining-focused. General banks that happen to have mining
+  clients do NOT qualify.
+
+- Conglomerate
+  A large diversified company with a SIGNIFICANT mining division (>20% of revenue/assets)
+  alongside other major business lines. Very rare - only if mining is genuinely material.
+
+OUT OF UNIVERSE:
+
+- Not Mining
+  Clearly unrelated to mining: oil & gas companies, banks, tech, retail, pharma, real estate,
+  clean energy without mining exposure, general industrials, etc.
+  Oil & gas companies with minor mineral claims (not material to the business) → Not Mining.
+
+- Uncertain
+  Use ONLY when:
+  (a) The filing text is insufficient to make a confident determination, OR
+  (b) The company is primarily oil & gas BUT has SIGNIFICANT mining/mineral assets that
+      represent a material part of the business (e.g. >30% of assets/revenue). In this case,
+      explain the O&G/mining split.
+  ALWAYS explain specifically WHY you are uncertain in the reasoning field.
+
+---
+
+RULES:
+- Uranium is a mineral → uranium miners are Miner (commodity: Uranium)
+- Thermal coal miners are Miner (commodity: Coal)
+- If a company both mines AND provides services, classify by its primary activity
+- For Royalty & Streaming companies, identify the primary commodity focus (e.g. Gold, Silver, Diversified)
+- Be decisive - only use Uncertain if you genuinely cannot determine the answer
+- Do not use Uncertain just because the company is small or obscure
+
+Respond in JSON only. No text outside the JSON.
+
+{
+  "company_type": "<exact type from list above>",
+  "company_type_confidence": <0-100>,
+  "primary_commodity": "<for Miner and Royalty & Streaming: primary metal/mineral e.g. Gold, Silver, Copper, Lithium, Uranium, Coal, Diversified. Empty string for all other types.>",
+  "primary_commodity_confidence": <0-100 if primary_commodity is set, else 0>,
+  "adjacent_category": "<for non-Miner IN UNIVERSE types: brief descriptor e.g. 'contract drilling', 'royalty portfolio focused on gold', 'mine engineering software'. Empty for Miner and Out of Universe.>",
+  "reasoning": "<2-3 sentences explaining your classification. For Uncertain, MUST explain specifically why.>"
+}

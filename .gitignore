@@ -1,0 +1,35 @@
+# Binary/generated files - too large or regeneratable
+**/*.pdf
+**/*.xlsx
+**/*.xls
+**/pdfs/
+**/Results/pdfs/
+
+# News HTML files - large volume, regeneratable
+**/news_html/
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+
+# Logs
+*.log
+**/run.log
+
+# Backup files
+**/_backups/
+**/*.bak
+
+# Large data files that are outputs, not source
+**/Daily/
+**/universe_results_MIGRATED.csv
+**/canadian_master_RETIRED*.csv
+
+# Audit outputs (regeneratable)
+sedar_party_audit.csv
+
+# Temp/test files
+test_*.py
+classify_*.py
+clear_phase5.py

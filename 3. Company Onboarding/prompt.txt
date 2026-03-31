@@ -1,0 +1,65 @@
+You are analysing a mining company news release to classify whether it definitively changed the company's mineral resources or reserves portfolio.
+
+Be decisive. Default to NONE unless the evidence is explicit and clear.
+
+CHANGED - only if the release EXPLICITLY states one of these:
+- A new or updated mineral resource estimate (MRE) with tonnage/grade numbers
+- A new or updated mineral reserve estimate with numbers
+- A maiden resource or reserve declaration
+- A PEA, PFS, or DFS that contains a resource/reserve table
+- An acquisition where the release explicitly states the acquired asset has a current or historical resource/reserve (numbers must be mentioned OR the resource is the stated purpose of the deal)
+- A disposal/sale of an asset that the release explicitly states had a resource/reserve
+- A new NI 43-101 technical report that contains updated resource estimates
+
+IMPORTANT DISTINCTIONS:
+
+1. FUTURE vs PRESENT: Only use CHANGED if the resource/reserve update has ALREADY HAPPENED.
+   - "Resource update expected in H2 2026" → NONE (future)
+   - "Company announces MRE of 100 Moz Ag" → CHANGED (present)
+
+2. RESULTS RELEASES (quarterly, annual, operational): If the release is a financial or operational results announcement covering a period of time (e.g. "Q1 2025 Results", "Year Ended December 31, 2025"), be careful about MRE mentions. Ask yourself: is the company announcing a new MRE right now, or are they recapping something that already happened during the period?
+   - Strong signal it is OLD NEWS: the release says "On [specific past date], the Corporation announced updated mineral resources of X Moz" → NONE
+   - Strong signal it is OLD NEWS: the MRE appears in a section labelled "Highlights", "Year to Date Highlights", "Corporate Highlights", "Subsequent Events", or any section that lists events that occurred during or after the reporting period → NONE (these are recaps of prior announcements, not new ones)
+   - Strong signal it is OLD NEWS: the MRE is presented in past tense alongside other events ("Reported significant increase in mineral reserves", "Released Feasibility Study", "Commenced construction") in a bullet list of period activities → NONE. Even if explicit numbers follow (e.g. "Proven and Probable reserves increased to 6.7 million ounces"), if it is one bullet among several period highlights, it is a recap of a prior announcement → NONE
+   - Strong signal it IS NEW: the release title and body are dedicated to the MRE update itself (not a results format), and the numbers are presented as current → CHANGED
+   - When genuinely uncertain in a results release context, lean toward NONE
+
+3. PEA/PFS/DFS RELEASES: A study (PEA/PFS/DFS) is CHANGED only if it introduces a NEW mineral resource estimate OR if the release explicitly states a new/updated technical report has been filed simultaneously.
+   - If the study explicitly references an EXISTING or PREVIOUSLY PUBLISHED technical report as its resource base → NONE (no new resource data)
+   - If the study was prepared alongside a new NI 43-101 technical report that is being filed at the same time → CHANGED
+   - A release announcing the filing of a new NI 43-101 technical report with "Updated Mineral Resource Estimate" in its title → CHANGED, even if it notes "no material differences" from a prior announcement.
+
+4. PLANNED work announcements are NOT CHANGED:
+   - "Commencement of feasibility study work program" → NONE
+   - "Drill program to support upcoming resource update" → NONE
+
+NONE - everything else, including:
+- Drill results, assay results, exploration updates (even high-grade) without a stated resource update
+- Production updates, operational results, throughput, recovery
+- Quarterly/annual financial results (even if they reference a prior MRE update)
+- Corporate appointments, financing, bought deals, warrants
+- Agreements, permits, regulatory approvals, partnerships
+- General exploration programs or drill campaign launches
+- Analyst coverage, ratings, price targets
+- Annual general meetings, proxy materials
+- Any release where "resource" or "reserve" does not appear at all
+
+Do NOT use POSSIBLE. Use CHANGED or NONE only.
+If you are uncertain, use NONE.
+
+Respond in JSON only. No text outside the JSON.
+
+{
+  "flag": "CHANGED" or "NONE",
+  "summary": "For CHANGED: up to 20 words - state which project(s) the change occurred at and what changed (e.g. 'Updated MRE at Zgounder: 485 Moz Ag M&I; maiden reserve at Boumadine 73 Moz Ag'). For NONE: up to 8 words describing what the release is about (e.g. 'Q3 2025 production results' or 'Bought deal financing completed'). Never start with 'No resource change'.",
+  "project": "Only include this field if flag is CHANGED. Return either: the specific project name (e.g. 'Zgounder', 'Boumadine', 'Oko West') if the change applies to a specific project, OR 'Group' if the change covers multiple projects or the company's consolidated portfolio. Use the headline as the primary clue - 'for the XXX Project' in a headline means project-specific; a consolidated/year-end reserves release means 'Group'. Omit this field entirely if flag is NONE."
+}
+
+Examples of good responses:
+  CHANGED project-specific: {"flag":"CHANGED","summary":"Maiden reserve at Zgounder: P&P 73 Moz Ag at 290 g/t","project":"Zgounder"}
+  CHANGED consolidated: {"flag":"CHANGED","summary":"Year-end 2025 reserves: 6.52 Moz Au total, 221% increase","project":"Group"}
+  CHANGED acquisition: {"flag":"CHANGED","summary":"Acquired Amizmiz with 340,000 oz Au historical resource","project":"Amizmiz"}
+  NONE: {"flag":"NONE","summary":"Q3 2025 production results"}
+
+News release text:
+{text}

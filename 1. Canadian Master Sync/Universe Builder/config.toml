@@ -1,0 +1,80 @@
+# Universe Builder Configuration
+# ================================
+
+[phase2]
+
+# Search mode:
+#   "specific"   - search for each filing type separately (slower, ~80s/company)
+#                  gives precise control over exactly which types are fetched
+#   "any_recent" - one search with no filing type filter, get 30 most recent filings
+#                  infer type from filename, download best AIF/MD&A/Annual Report
+#                  much faster (~25s/company) but less precise
+search_mode = "specific"
+
+# ---------------------------------------------------------------------------
+# SPECIFIC mode settings
+# Only used when search_mode = "specific"
+# ---------------------------------------------------------------------------
+
+# Filing types to search for, in priority order.
+# fallback_only = true  means this type is only searched if no other type found
+# generate_url  = true  adds ~15s per filing but gives permanent document links
+[[phase2.filing_types]]
+type         = "ANNUAL_INFORMATION_FORMS"
+label        = "AIF"
+generate_url = true
+fallback_only = false
+
+# MD&A and Annual Report disabled for AIF-only pass
+# [[phase2.filing_types]]
+# type         = "INTERIM_MDA"
+# ...
+# [[phase2.filing_types]]
+# type         = "ANNUAL_MDA"
+# ...
+# [[phase2.filing_types]]
+# type         = "ANNUAL_REPORTS"
+# fallback_only = true
+
+# ---------------------------------------------------------------------------
+# ANY_RECENT mode settings
+# Only used when search_mode = "any_recent"
+# ---------------------------------------------------------------------------
+
+[phase2.any_recent]
+# Max number of result pages to scan (30 results per page).
+# SEDAR returns newest filings first across all types, so press releases
+# and news items appear before AIFs/MD&As. We scan multiple pages until
+# we find a preferred filing type or hit the page limit.
+max_pages = 5
+
+# Generate permanent URL for the downloaded filing
+generate_url = false
+
+# Date range for the search (keep broad to catch recent filings)
+date_from = "01/01/2020"
+date_to   = "31/12/2026"
+
+# Filing type priority for inferring from filename.
+# Script will scan results table, classify each row's filename into one of
+# these categories, then pick the most recent of the highest-priority type found.
+# Order = priority (first = most preferred)
+[[phase2.any_recent.preferred_types]]
+label    = "AIF"
+keywords = ["annual information form"]
+sedar_type = "ANNUAL_INFORMATION_FORMS"
+
+[[phase2.any_recent.preferred_types]]
+label    = "Interim MD&A"
+keywords = ["interim md&a", "interim management"]
+sedar_type = "INTERIM_MDA"
+
+[[phase2.any_recent.preferred_types]]
+label    = "Annual MD&A"
+keywords = ["annual md&a", "annual management"]
+sedar_type = "ANNUAL_MDA"
+
+[[phase2.any_recent.preferred_types]]
+label    = "Annual Report"
+keywords = ["annual report"]
+sedar_type = "ANNUAL_REPORTS"

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MM Company Onboarding</title>
+<link rel="icon" type="image/png" href="/static/favicon.png">
+<style>
+  :root {
+    --bg:#0f1117; --card:#1a1d2e; --card2:#141624; --border:#252838;
+    --text:#e2e8f0; --muted:#64748b; --accent:#6366f1;
+    --red:#ef4444; --amber:#f59e0b; --green:#22c55e; --blue:#3b82f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;min-height:100vh;}
+
+  /* ── Header ── */
+  .hdr{background:var(--card);border-bottom:1px solid var(--border);padding:10px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .logo{font-size:15px;font-weight:700;color:var(--accent);white-space:nowrap;}
+  .ticker-in{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:5px 10px;border-radius:5px;font-size:14px;font-weight:700;width:110px;text-transform:uppercase;}
+  .ticker-in:focus{outline:none;border-color:var(--accent);}
+  .co-block{flex:1;min-width:180px;}
+  .co-name{font-size:15px;font-weight:600;}
+  .co-meta{color:var(--muted);font-size:11px;margin-top:2px;}
+  .btn{padding:6px 14px;border-radius:5px;border:none;cursor:pointer;font-size:12px;font-weight:600;transition:opacity .15s;}
+  .btn:hover{opacity:.85;} .btn:disabled{opacity:.45;cursor:not-allowed;}
+  .btn-run{background:var(--accent);color:#fff;}
+  .badge{display:inline-flex;align-items:center;gap:3px;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:700;}
+  .b-full{background:rgba(99,102,241,.2);color:var(--accent);}
+  .b-upd{background:rgba(34,197,94,.2);color:var(--green);}
+  .b-new{background:rgba(99,102,241,.2);color:var(--accent);font-size:9px;}
+
+  /* ── Progress ── */
+  .prog-wrap{background:var(--card);border-bottom:1px solid var(--border);padding:8px 18px;display:none;}
+  .prog-wrap.on{display:block;}
+  .prog-hdr{display:flex;justify-content:space-between;margin-bottom:5px;font-size:11px;}
+  .prog-bg{background:var(--border);border-radius:3px;height:5px;overflow:hidden;}
+  .prog-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .3s;}
+  .prog-detail{color:var(--muted);font-size:10px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .log-box{background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:6px 10px;margin-top:6px;max-height:120px;overflow-y:auto;font-family:monospace;font-size:10px;color:var(--muted);display:none;}
+  .log-box.on{display:block;}
+  .log-toggle{background:none;border:1px solid var(--border);color:var(--muted);padding:2px 8px;border-radius:3px;cursor:pointer;font-size:10px;margin-top:5px;}
+
+  /* ── Layout ── */
+  .layout{display:grid;grid-template-columns:320px 1fr;gap:0;height:calc(100vh - 56px);overflow:hidden;}
+  .col-left{border-right:1px solid var(--border);overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;}
+  .col-right{overflow-y:auto;padding:14px 14px;}
+
+  /* ── Cards ── */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:7px;overflow:hidden;}
+  .card-hdr{padding:8px 12px;background:var(--card2);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+  .card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+  .card-cnt{font-size:10px;background:var(--border);padding:1px 6px;border-radius:8px;}
+  .card-cnt.red{background:rgba(239,68,68,.25);color:var(--red);}
+  .card-body{padding:0;}
+
+  /* ── AIF card ── */
+  .aif-inner{padding:10px 12px;}
+  .aif-date{font-size:14px;font-weight:700;}
+  .aif-as-at{color:var(--muted);font-size:11px;margin-top:2px;}
+  .aif-link{color:var(--accent);text-decoration:none;font-size:11px;margin-top:6px;display:inline-flex;align-items:center;gap:3px;}
+  .aif-link:hover{text-decoration:underline;}
+
+  /* ── Doc rows ── */
+  .doc-row{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;border-bottom:1px solid var(--border);font-size:12px;}
+  .doc-row:last-child{border-bottom:none;}
+  .doc-row.is-new{background:rgba(99,102,241,.06);border-left:2px solid var(--accent);}
+  .doc-date{color:var(--muted);font-size:10px;white-space:nowrap;}
+  .doc-name{flex:1;padding:0 8px;line-height:1.4;}
+  .doc-type{color:var(--muted);font-size:10px;}
+  .doc-link{color:var(--accent);text-decoration:none;font-size:11px;white-space:nowrap;}
+  .doc-link:hover{text-decoration:underline;}
+  .empty-msg{padding:12px;color:var(--muted);font-size:11px;text-align:center;}
+
+  /* ── News feed ── */
+  .feed-hdr{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+  .feed-title{font-size:14px;font-weight:700;}
+  .feed-sub{color:var(--muted);font-size:11px;}
+  .flag-counts{display:flex;gap:6px;margin-left:auto;}
+
+  .news-item{background:var(--card);border:1px solid var(--border);border-radius:6px;margin-bottom:6px;overflow:hidden;transition:border-color .15s;}
+  .news-item.changed{border-left:3px solid var(--red);}
+  .news-item.possible{border-left:3px solid var(--amber);}
+  .news-item.none-item{border-left:3px solid var(--border);opacity:.7;}
+  .news-item.is-new{box-shadow:0 0 0 1px var(--accent);}
+
+  .ni-main{display:flex;align-items:flex-start;gap:8px;padding:9px 11px;cursor:pointer;}
+  .ni-main:hover{background:rgba(255,255,255,.02);}
+  .ni-date{color:var(--muted);font-size:10px;white-space:nowrap;width:88px;flex-shrink:0;padding-top:1px;line-height:1.4;}
+  .ni-flag{flex-shrink:0;font-size:13px;width:18px;text-align:center;}
+  .ni-content{flex:1;min-width:0;}
+  .ni-summary{font-size:12px;font-weight:500;line-height:1.4;}
+  .ni-headline{color:var(--muted);font-size:10px;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ni-actions{display:flex;gap:8px;margin-top:4px;align-items:center;}
+  .ni-pdf{color:var(--accent);text-decoration:none;font-size:10px;}
+  .ni-pdf:hover{text-decoration:underline;}
+  .ni-expand{background:none;border:1px solid var(--border);color:var(--muted);padding:1px 6px;border-radius:3px;cursor:pointer;font-size:10px;}
+  .ni-text{display:none;padding:0 11px 10px 117px;font-size:11px;line-height:1.6;color:var(--muted);white-space:pre-wrap;max-height:250px;overflow-y:auto;}
+  .ni-text.on{display:block;}
+
+  /* NONE section collapsed */
+  .none-section-hdr{display:flex;align-items:center;gap:6px;padding:6px 0;cursor:pointer;color:var(--muted);font-size:11px;border-top:1px solid var(--border);margin-top:4px;}
+  .none-section-hdr:hover{color:var(--text);}
+  .none-section-body{display:none;}
+  .none-section-body.on{display:block;}
+
+  /* Not onboarded */
+  .splash{text-align:center;padding:80px 20px;color:var(--muted);}
+  .splash h2{font-size:18px;color:var(--text);margin-bottom:8px;}
+
+  /* Clickable news tile hover */
+  .news-item[onclick] { transition: background 0.12s; }
+  .news-item[onclick]:hover { background: rgba(255,255,255,0.04); }
+
+  /* Spinner */
+  .spin{display:inline-block;width:12px;height:12px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* Modal copy button */
+  #modalNiBtn:hover {
+    background: rgba(99,102,241,.35) !important;
+    color: #e0e7ff !important;
+  }
+
+  #modalCopyBtn {
+    background: rgba(99,102,241,.15);
+    border: 1px solid rgba(99,102,241,.4);
+    color: #818cf8;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    letter-spacing: 0.02em;
+  }
+  #modalCopyBtn:hover {
+    background: rgba(99,102,241,.35);
+    color: #e0e7ff;
+  }
+  #modalCopyBtn.copied {
+    background: rgba(34,197,94,.2);
+    border-color: rgba(34,197,94,.4);
+    color: #4ade80;
+  }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">⛏ MM</div>
+  <input class="ticker-in" id="tickerIn" placeholder="AYA" autocomplete="off" spellcheck="false">
+  <div class="co-block">
+    <div class="co-name" id="coName">—</div>
+    <div class="co-meta" id="coMeta"></div>
+  </div>
+  <div id="runBadge"></div>
+  <button class="btn btn-run" id="runBtn" onclick="triggerRun()" disabled>▶ Update</button>
+</div>
+
+<div class="prog-wrap" id="progWrap" style="display:none;">
+  <div class="prog-hdr"><span id="progLabel">—</span><span id="progPct">0%</span></div>
+  <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+  <div class="prog-detail" id="progDetail"></div>
+  <div class="log-box" id="logBox"></div>
+  <button class="log-toggle" id="logTgl" onclick="toggleLog()">Show log ▼</button>
+</div>
+
+<div id="globalRunBanner" style="display:none;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);border-radius:6px;padding:8px 14px;margin:8px 0;font-size:12px;color:#818cf8;display:none;align-items:center;gap:8px;">
+  <span class="spin" style="border-color:rgba(99,102,241,.3);border-top-color:#818cf8;"></span>
+  <span id="globalRunText"></span>
+</div>
+
+<div id="splash" class="splash" style="display:none">
+  <h2>Company not onboarded</h2>
+  <p>Type a ticker above. If onboarded, data loads automatically.</p>
+</div>
+
+<div class="layout" id="mainLayout" style="display:none">
+  <!-- LEFT: documents -->
+  <div class="col-left">
+
+    <!-- AIF -->
+    <div class="card" id="cardAif">
+      <div class="card-hdr"><span class="card-title">Annual Information Form</span></div>
+      <div class="card-body" id="aifBody"></div>
+    </div>
+
+    <!-- MD&As -->
+    <div class="card">
+      <div class="card-hdr">
+        <span class="card-title">MD&amp;A</span>
+        <span class="card-cnt" id="cntMda">0</span>
+      </div>
+      <div class="card-body" id="mdaBody"></div>
+    </div>
+
+    <!-- Technical Reports -->
+    <div class="card" id="cardTech">
+      <div class="card-hdr">
+        <span class="card-title">NI 43-101 Technical Reports</span>
+        <span class="card-cnt" id="cntTech">0</span>
+      </div>
+      <div class="card-body" id="techBody"></div>
+    </div>
+
+    <!-- Material Changes -->
+    <div class="card" id="cardMat">
+      <div class="card-hdr">
+        <span class="card-title">Material Changes</span>
+        <span class="card-cnt" id="cntMat">0</span>
+      </div>
+      <div class="card-body" id="matBody"></div>
+    </div>
+
+    <!-- Prospectus / Acquisitions -->
+    <div class="card" id="cardOther">
+      <div class="card-hdr">
+        <span class="card-title">Prospectus &amp; Acquisitions</span>
+        <span class="card-cnt" id="cntOther">0</span>
+      </div>
+      <div class="card-body" id="otherBody"></div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: news feed -->
+  <div class="col-right">
+    <div class="feed-hdr">
+      <div>
+        <div class="feed-title">News Feed since AIF</div>
+        <div class="feed-sub" id="feedSub"></div>
+      </div>
+      <div class="flag-counts" id="flagCounts"></div>
+    </div>
+    <div id="newsFeed"></div>
+  </div>
+</div>
+
+<!-- News HTML modal -->
+<div id="newsModal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.75);align-items:center;justify-content:center;">
+  <div style="background:#0f1117;border:1px solid #252838;border-radius:8px;width:90vw;max-width:960px;height:85vh;display:flex;flex-direction:column;overflow:hidden;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #252838;flex-shrink:0;">
+      <span id="modalTitle" style="font-size:13px;font-weight:600;color:#e2e8f0"></span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a id="modalNiBtn" href="#" target="_blank" style="display:none;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.4);color:#818cf8;font-size:11px;font-weight:600;padding:4px 12px;border-radius:5px;text-decoration:none;white-space:nowrap;">📄 NI 43-101 ↗</a>
+        <button id="modalCopyBtn" style="display:none;">🔗 Copy link</button>
+        <button onclick="closeNewsModal()" style="background:none;border:none;color:#94a3b8;font-size:18px;cursor:pointer;padding:0 4px;">✕</button>
+      </div>
+    </div>
+    <iframe id="modalFrame" src="" style="flex:1;border:none;width:100%;"></iframe>
+  </div>
+</div>
+
+<script src="/static/dashboard.js?v={{ now }}"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+[general]
+# How many days back to search when no prior run exists
+default_lookback_days = 1
+
+# Delay between requests in seconds (be polite - server is shared)
+request_delay_sec = 0.5
+
+# Output folder
+output_dir = "Daily"
+
+[stockwatch]
+# Fetch full article text (saves .txt files to text/ subfolder)
+fetch_article_text = true
+
+# Exchange filter: "" = all Canadian, "T" = TSX only, "V" = TSX-V only, "C" = CSE only
+exchange_filter = ""
+
+[sedar_filings]
+# Filing types to fetch daily - comment out any you don't need
+filing_types = [
+    "ANNUAL_INFORMATION_FORMS",
+    "TECHNICAL_REPORTS_NI_43101",
+    "ANNUAL_MDA",
+    "INTERIM_MDA",
+    "ANNUAL_FINANCIAL_STATEMENTS",
+    "INTERIM_FINANCIAL_STATEMENTSREPORT",
+    "MATERIAL_CHANGE_REPORT",
+    "NEWS_RELEASES",
+    "BUSINESS_ACQUISITION_REPORT",
+    "FILING_STATEMENT",
+]
+# Download actual PDFs (set false to metadata-only)
+download_pdfs = true
+
+[notifications]
+# WhatsApp numbers for error alerts
+error_notify = ["+61417725442"]
