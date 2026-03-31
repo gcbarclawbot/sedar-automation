@@ -445,7 +445,9 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
 
     pn = page.locator('input[placeholder="Profile name or number"]')
 
-    # Collect ALL unique candidates across all search terms
+    # Try search terms from longest to shortest.
+    # Stop as soon as a term returns at least one result above threshold.
+    # Only fall through to shorter terms if the current term returns nothing.
     all_candidates = {}  # pnum -> (score, pnum, pname)
 
     for term in terms:
@@ -463,6 +465,7 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
             if count == 0:
                 continue
 
+            found_above_threshold = False
             for i in range(min(count, 10)):
                 text  = items.nth(i).inner_text()
                 m     = re.search(r'\((\d{9})\)', text)
@@ -474,6 +477,10 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
                     pname = re.sub(r'\s*\(\d{9}\).*$', '', text).strip()
                     if cpnum not in all_candidates or score > all_candidates[cpnum][0]:
                         all_candidates[cpnum] = (score, cpnum, pname)
+                    found_above_threshold = True
+
+            if found_above_threshold:
+                break  # good results found - don't try shorter terms
 
         except Exception as e:
             log.debug(f"  {symbol}: audit search error for '{term}': {e}")
