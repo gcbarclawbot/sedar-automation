@@ -189,10 +189,15 @@ def _get_most_recent_filing_date(page, party_number: str) -> str:
         if not triggered:
             return ""
 
+        # ac._trigger causes a page navigation - wait for it to settle before continuing
+        try:
+            page.wait_for_load_state("domcontentloaded", timeout=10000)
+        except Exception:
+            pass
         page.wait_for_selector("#SubmissionDate", timeout=10000)
         page.wait_for_timeout(300)
 
-        # Search with date sorted descending (default) - first result = most recent filing
+        # Search - no date filter needed when chip is applied
         page.evaluate("""() => {
             window._done = false;
             const orig = XMLHttpRequest.prototype.open;
@@ -207,15 +212,24 @@ def _get_most_recent_filing_date(page, party_number: str) -> str:
             page.wait_for_function("()=>window._done", timeout=8000)
         except Exception:
             pass
-        page.wait_for_timeout(200)
+        # Wait for table OR no-results message to appear in DOM
+        try:
+            page.wait_for_selector(
+                'table[aria-label="List of data items"], .no-results, [class*="no-result"]',
+                timeout=5000)
+        except Exception:
+            pass
+        page.wait_for_timeout(300)
 
         # Extract date of first result row
         # Table columns: checkbox | profile | document | date | jurisdiction | size | actions
         # Date cell (index 3) contains e.g. "March 30 2026 at 21:54:20 Eastern Daylight Time"
         # OR the shorter form "28 Nov 2025" depending on locale/rendering
         from bs4 import BeautifulSoup
-        soup = BeautifulSoup(page.content(), "html.parser")
+        html = page.content()
+        soup = BeautifulSoup(html, "html.parser")
         tbl  = soup.find("table", attrs={"aria-label": "List of data items"})
+        log.debug(f"  [{party_number}] table_found={tbl is not None}, html_len={len(html)}")
         if not tbl:
             return ""
         rows = (tbl.find("tbody") or tbl).find_all("tr")
@@ -351,6 +365,7 @@ def lookup_party(page, symbol: str, name: str) -> tuple[str, str]:
             # Ambiguous - candidates too close in score, use filing count to break tie
             close = [(s, pn_, pname) for s, pn_, pname, _ in scored
                      if best_score - s <= CLEAR_WIN_GAP]
+            log.info(f"  {symbol}: close={[(round(s,2),p) for s,p,_ in close]}")
             log.info(f"  {symbol}: {len(close)} close candidates (scores "
                      f"{', '.join(f'{s:.2f}' for s,_,_ in close)}) - checking filing counts")
 
@@ -391,15 +406,9 @@ def lookup_party(page, symbol: str, name: str) -> tuple[str, str]:
 def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
     """
     Audit-mode lookup: score autocomplete results against known party number.
-    Does NOT call _get_most_recent_filing_date (too slow for bulk audit).
-    Returns a result dict describing the outcome.
-
-    Outcome codes:
-      CONFIRMED   - top scored result matches known party number (clear win)
-      WRONG       - top scored result differs from known, and it's a clear win
-      AMBIGUOUS   - multiple candidates within 0.15 of each other, can't tell without filing date
-      NOT_FOUND   - no autocomplete results at all
-      NO_STORED   - company has no stored party number (skip)
+    Collects ALL candidates across all search terms (deduped by pnum) before scoring.
+    Does NOT call _get_most_recent_filing_date for clear wins (score gap >= threshold).
+    Returns a result dict: CONFIRMED / WRONG / AMBIGUOUS / NOT_FOUND / NO_STORED / ERROR
     """
     if not known_pnum or known_pnum == "NOT_FOUND":
         return {"symbol": symbol, "outcome": "NO_STORED", "known": known_pnum,
@@ -407,6 +416,14 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
 
     SIMILARITY_THRESHOLD = 0.40
     CLEAR_WIN_GAP        = 0.15
+
+    LEGAL = re.compile(
+        r'\b(inc\.?|corp\.?|ltd\.?|limited|llc|lp|plc|co\.?|incorporated|'
+        r'corporation|s\.a\.?|n\.v\.?|mining|resources?|metals?|gold|silver|'
+        r'copper|exploration|ventures?|energy)\b', re.IGNORECASE)
+
+    def _strip_legal(s):
+        return re.sub(r'\s+', ' ', LEGAL.sub(' ', s)).strip()
 
     try:
         page.goto(
@@ -416,13 +433,10 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
         page.wait_for_selector("#SubmissionDate", timeout=15000)
     except Exception as e:
         return {"symbol": symbol, "outcome": "ERROR", "known": known_pnum,
-                "top_pnum": "", "top_score": 0, "candidates": [], "notes": str(e)[:80]}
+                "top_pnum": "", "top_score": 0, "candidates": [],
+                "notes": str(e)[:80]}
 
-    LEGAL = re.compile(
-        r'\b(inc\.?|corp\.?|ltd\.?|limited|llc|lp|plc|co\.?|incorporated|'
-        r'corporation|s\.a\.?|n\.v\.?|mining|resources?|metals?|gold|silver|'
-        r'copper|exploration|ventures?|energy)\b', re.IGNORECASE)
-    clean = re.sub(r'\s+', ' ', LEGAL.sub(' ', name)).strip()
+    clean = _strip_legal(name)
     words = clean.split()
     terms = []
     for s in ([name, clean] + [" ".join(words[:i]) for i in range(len(words)-1, 0, -1)]):
@@ -430,6 +444,9 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
             terms.append(s)
 
     pn = page.locator('input[placeholder="Profile name or number"]')
+
+    # Collect ALL unique candidates across all search terms
+    all_candidates = {}  # pnum -> (score, pnum, pname)
 
     for term in terms:
         if not term or len(term) < 3:
@@ -446,7 +463,6 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
             if count == 0:
                 continue
 
-            scored = []
             for i in range(min(count, 10)):
                 text  = items.nth(i).inner_text()
                 m     = re.search(r'\((\d{9})\)', text)
@@ -455,87 +471,83 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
                 cpnum = m.group(1)
                 score = _name_similarity(name, text)
                 if score >= SIMILARITY_THRESHOLD:
-                    scored.append((score, cpnum, re.sub(r'\s*\(\d{9}\).*$','',text).strip()))
-
-            if not scored:
-                continue
-
-            scored.sort(reverse=True)
-            best_score  = scored[0][0]
-            best_pnum   = scored[0][1]
-            second_score = scored[1][0] if len(scored) > 1 else 0.0
-            gap = best_score - second_score
-
-            cands = [{"pnum": p, "score": round(s, 3), "name": n[:50]}
-                     for s, p, n in scored[:5]]
-
-            if gap >= CLEAR_WIN_GAP:
-                # Clear winner - similarity alone is definitive, no filing date check needed
-                if best_pnum == known_pnum:
-                    return {"symbol": symbol, "outcome": "CONFIRMED",
-                            "known": known_pnum, "top_pnum": best_pnum,
-                            "top_score": round(best_score, 3),
-                            "candidates": cands, "notes": f"score={best_score:.2f} gap={gap:.2f}"}
-                else:
-                    return {"symbol": symbol, "outcome": "WRONG",
-                            "known": known_pnum, "top_pnum": best_pnum,
-                            "top_score": round(best_score, 3),
-                            "candidates": cands,
-                            "notes": f"clear winner={best_pnum} (score={best_score:.2f} gap={gap:.2f}) "
-                                     f"but stored={known_pnum}"}
-
-            # Scores are ambiguous (gap < 0.15) - need filing dates to break the tie.
-            # Compare most recent filing dates for the top candidate vs stored party.
-            # This handles:
-            # - Same name two parties (AAB): stored may not appear in autocomplete at all
-            # - Clear winner but different from stored (ERO): filing date confirms which is active
-            # - Ambiguous scores: filing date breaks the tie
-            log.debug(f"  {symbol}: uncertain - comparing filing dates for "
-                      f"top={best_pnum} vs stored={known_pnum}")
-
-            date_top    = _get_most_recent_filing_date(page, best_pnum)
-            # Re-navigate before checking stored
-            try:
-                page.goto(
-                    f"{SEDAR_BASE}/csa-party/service/create.html"
-                    "?targetAppCode=csa-party&service=searchDocuments&_locale=en",
-                    wait_until="domcontentloaded", timeout=20000)
-                page.wait_for_selector("#SubmissionDate", timeout=15000)
-                pn = page.locator('input[placeholder="Profile name or number"]')
-            except Exception:
-                pass
-            date_stored = _get_most_recent_filing_date(page, known_pnum)
-
-            log.debug(f"  {symbol}: top={best_pnum} date={date_top} | "
-                      f"stored={known_pnum} date={date_stored}")
-
-            if not date_top and not date_stored:
-                return {"symbol": symbol, "outcome": "AMBIGUOUS",
-                        "known": known_pnum, "top_pnum": best_pnum,
-                        "top_score": round(best_score, 3), "candidates": cands,
-                        "notes": f"cannot determine dates for either candidate"}
-
-            if date_stored >= date_top:
-                # Stored party has equal or more recent filing - it's correct
-                return {"symbol": symbol, "outcome": "CONFIRMED",
-                        "known": known_pnum, "top_pnum": best_pnum,
-                        "top_score": round(best_score, 3), "candidates": cands,
-                        "notes": f"stored={known_pnum} date={date_stored} >= "
-                                 f"top={best_pnum} date={date_top} - stored is active"}
-            else:
-                # Top candidate has more recent filing - stored is likely wrong/dormant
-                return {"symbol": symbol, "outcome": "WRONG",
-                        "known": known_pnum, "top_pnum": best_pnum,
-                        "top_score": round(best_score, 3), "candidates": cands,
-                        "notes": f"top={best_pnum} date={date_top} > "
-                                 f"stored={known_pnum} date={date_stored} - stored is dormant"}
+                    pname = re.sub(r'\s*\(\d{9}\).*$', '', text).strip()
+                    if cpnum not in all_candidates or score > all_candidates[cpnum][0]:
+                        all_candidates[cpnum] = (score, cpnum, pname)
 
         except Exception as e:
-            log.debug(f"  {symbol}: audit error for '{term}': {e}")
+            log.debug(f"  {symbol}: audit search error for '{term}': {e}")
             continue
 
-    return {"symbol": symbol, "outcome": "NOT_FOUND", "known": known_pnum,
-            "top_pnum": "", "top_score": 0, "candidates": [], "notes": "no autocomplete results"}
+    if not all_candidates:
+        return {"symbol": symbol, "outcome": "NOT_FOUND", "known": known_pnum,
+                "top_pnum": "", "top_score": 0, "candidates": [],
+                "notes": "no autocomplete results"}
+
+    scored = sorted(all_candidates.values(), reverse=True)
+    best_score   = scored[0][0]
+    best_pnum    = scored[0][1]
+    second_score = scored[1][0] if len(scored) > 1 else 0.0
+    gap          = best_score - second_score
+
+    cands = [{"pnum": p, "score": round(s, 3), "name": n[:50]}
+             for s, p, n in scored[:5]]
+
+    if gap >= CLEAR_WIN_GAP:
+        # Clear winner - similarity alone is definitive, no filing date check needed
+        if best_pnum == known_pnum:
+            return {"symbol": symbol, "outcome": "CONFIRMED",
+                    "known": known_pnum, "top_pnum": best_pnum,
+                    "top_score": round(best_score, 3),
+                    "candidates": cands, "notes": f"score={best_score:.2f} gap={gap:.2f}"}
+        else:
+            return {"symbol": symbol, "outcome": "WRONG",
+                    "known": known_pnum, "top_pnum": best_pnum,
+                    "top_score": round(best_score, 3), "candidates": cands,
+                    "notes": f"clear winner={best_pnum} (score={best_score:.2f} gap={gap:.2f}) "
+                             f"but stored={known_pnum}"}
+
+    # Scores are ambiguous (gap < 0.15) - use most recent filing date to break tie
+    close = [(s, p, n) for s, p, n in scored if best_score - s <= CLEAR_WIN_GAP]
+    log.info(f"  {symbol}: {len(close)} close candidates "
+             f"({', '.join(p for _,p,_ in close)}) - checking filing dates")
+
+    best_filing_pnum = best_filing_pname = ""
+    best_filing_date = ""
+    for _, cpnum, cpname in close:
+        recent = _get_most_recent_filing_date(page, cpnum)
+        log.info(f"  {symbol}: {cpnum} ({cpname[:35]}) -> most recent: {recent or 'none'}")
+        if recent > best_filing_date:
+            best_filing_date  = recent
+            best_filing_pnum  = cpnum
+            best_filing_pname = cpname
+        # Re-navigate for next candidate
+        try:
+            page.goto(
+                f"{SEDAR_BASE}/csa-party/service/create.html"
+                "?targetAppCode=csa-party&service=searchDocuments&_locale=en",
+                wait_until="domcontentloaded", timeout=20000)
+            page.wait_for_selector("#SubmissionDate", timeout=15000)
+            pn = page.locator('input[placeholder="Profile name or number"]')
+        except Exception:
+            pass
+
+    if not best_filing_date:
+        return {"symbol": symbol, "outcome": "AMBIGUOUS",
+                "known": known_pnum, "top_pnum": best_pnum,
+                "top_score": round(best_score, 3), "candidates": cands,
+                "notes": "cannot determine dates for either candidate"}
+
+    if best_filing_pnum == known_pnum:
+        return {"symbol": symbol, "outcome": "CONFIRMED",
+                "known": known_pnum, "top_pnum": best_filing_pnum,
+                "top_score": round(best_score, 3), "candidates": cands,
+                "notes": f"stored={known_pnum} date={best_filing_date} - active"}
+    else:
+        return {"symbol": symbol, "outcome": "WRONG",
+                "known": known_pnum, "top_pnum": best_filing_pnum,
+                "top_score": round(best_score, 3), "candidates": cands,
+                "notes": f"active={best_filing_pnum} date={best_filing_date} > stored={known_pnum}"}
 
 
 def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0):
@@ -594,14 +606,14 @@ def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0):
 
                 outcome = result["outcome"]
                 if   outcome == "CONFIRMED":  confirmed += 1
-                elif outcome == "WRONG":      wrong     += 1; log.warning(f"  ❌ WRONG: {sym} - {result['notes']}")
-                elif outcome == "AMBIGUOUS":  ambiguous += 1; log.info(f"  🔶 AMBIGUOUS: {sym} - {result['notes']}")
-                elif outcome == "NOT_FOUND":  not_found += 1; log.info(f"  ❓ NOT_FOUND: {sym}")
-                elif outcome == "ERROR":      errors    += 1; log.warning(f"  💥 ERROR: {sym} - {result['notes']}")
+                elif outcome == "WRONG":      wrong     += 1; log.warning(f"  âŒ WRONG: {sym} - {result['notes']}")
+                elif outcome == "AMBIGUOUS":  ambiguous += 1; log.info(f"  ðŸ”¶ AMBIGUOUS: {sym} - {result['notes']}")
+                elif outcome == "NOT_FOUND":  not_found += 1; log.info(f"  â“ NOT_FOUND: {sym}")
+                elif outcome == "ERROR":      errors    += 1; log.warning(f"  ðŸ’¥ ERROR: {sym} - {result['notes']}")
 
                 if i % 50 == 0 or i == len(candidates):
                     log.info(f"  Progress: {i}/{len(candidates)} | "
-                             f"✅{confirmed} ❌{wrong} 🔶{ambiguous} ❓{not_found}")
+                             f"âœ…{confirmed} âŒ{wrong} ðŸ”¶{ambiguous} â“{not_found}")
 
         finally:
             try: page.close()
@@ -621,11 +633,11 @@ def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0):
 
     log.info("=" * 60)
     log.info(f"AUDIT COMPLETE: {len(candidates)} companies checked")
-    log.info(f"  ✅ CONFIRMED:  {confirmed}")
-    log.info(f"  ❌ WRONG:      {wrong}")
-    log.info(f"  🔶 AMBIGUOUS:  {ambiguous}  (need filing date to confirm)")
-    log.info(f"  ❓ NOT_FOUND:  {not_found}  (name changed on SEDAR?)")
-    log.info(f"  💥 ERROR:      {errors}")
+    log.info(f"  âœ… CONFIRMED:  {confirmed}")
+    log.info(f"  âŒ WRONG:      {wrong}")
+    log.info(f"  ðŸ”¶ AMBIGUOUS:  {ambiguous}  (need filing date to confirm)")
+    log.info(f"  â“ NOT_FOUND:  {not_found}  (name changed on SEDAR?)")
+    log.info(f"  ðŸ’¥ ERROR:      {errors}")
     log.info(f"  Report saved:  {report_path.name}")
     log.info("=" * 60)
 
