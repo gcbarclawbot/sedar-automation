@@ -596,6 +596,25 @@ def _stockwatch_browser_login(page) -> bool:
         return False
 
 
+def _test_stockwatch_session(cookies: dict) -> bool:
+    """Quick check: does this cookie set yield an authenticated Stockwatch session?"""
+    try:
+        sess = requests.Session()
+        sess.headers.update({"User-Agent": "Mozilla/5.0"})
+        for k, v in cookies.items():
+            sess.cookies.set(k, v, domain="www.stockwatch.com")
+        r = sess.get(SW_SEDAR_URL, timeout=15)
+        body = r.text
+        # Authenticated page has __VIEWSTATE; logged-out page has login form or NotLoggedIn
+        if "NotLoggedIn" in body or "PowerUserName" in body:
+            return False
+        soup = BeautifulSoup(body, "html.parser")
+        vs = (soup.find("input", {"id": "__VIEWSTATE"}) or {}).get("value", "")
+        return bool(vs)
+    except Exception:
+        return False
+
+
 def get_stockwatch_cookies() -> dict:
     """Load Stockwatch cookies from browser or saved session. Auto-logins if session expired."""
     ensure_cdp_ready()
@@ -621,21 +640,22 @@ def get_stockwatch_cookies() -> dict:
             ctx = browser.contexts[0]
             cookies = _extract_cookies(ctx)
 
-            if "XXX" not in cookies:
-                # Not logged in - try auto-login via browser
+            # Test if the current browser cookies are actually authenticated
+            if not _test_stockwatch_session(cookies):
+                log.info("  Stockwatch session not authenticated - attempting auto-login via browser...")
                 page = ctx.new_page()
                 try:
                     logged_in = _stockwatch_browser_login(page)
                     if logged_in:
-                        page.wait_for_timeout(1000)
+                        page.wait_for_timeout(1500)
                         cookies = _extract_cookies(ctx)
                 finally:
                     page.close()
 
             browser.close()
 
-        if "XXX" in cookies:
-            log.info(f"  Got {len(cookies)} Stockwatch cookies from browser")
+        if _test_stockwatch_session(cookies):
+            log.info(f"  Got {len(cookies)} Stockwatch cookies from browser (session verified)")
             _cache_cookies(cookies)
             return cookies
 
@@ -648,9 +668,11 @@ def get_stockwatch_cookies() -> dict:
         try:
             data = json.loads(SESSION_PATH.read_text(encoding="utf-8"))
             cookies = data.get("cookies", {})
-            if "XXX" in cookies:
-                log.info(f"  Using saved session from {data.get('saved_at','?')}")
+            if _test_stockwatch_session(cookies):
+                log.info(f"  Using saved session from {data.get('saved_at','?')} (session verified)")
                 return cookies
+            else:
+                log.warning(f"  Saved session from {data.get('saved_at','?')} is expired")
         except Exception:
             pass
 
@@ -691,13 +713,19 @@ class StockwatchSedarSession:
     def _load_form(self):
         resp = self.session.get(SW_SEDAR_URL, timeout=30)
         resp.raise_for_status()
-        if "NotLoggedIn" in resp.url or "notloggedin" in resp.url.lower():
+        # Detect expired session: Stockwatch returns NotLoggedIn inline (not a redirect)
+        body = resp.text
+        if ("NotLoggedIn" in resp.url or "notloggedin" in resp.url.lower() or
+                "NotLoggedIn" in body or
+                ("PowerUserName" in body and "PowerPassword" in body)):
             raise RuntimeError("Stockwatch session expired - re-login required")
-        soup = BeautifulSoup(resp.text, "html.parser")
+        soup = BeautifulSoup(body, "html.parser")
         self._vs  = (soup.find("input", {"id": "__VIEWSTATE"})          or {}).get("value", "")
         self._vsg = (soup.find("input", {"id": "__VIEWSTATEGENERATOR"}) or {}).get("value", "")
-        logged_in = "logged in" in resp.text.lower() or "imxgadeita" in resp.text
+        logged_in = bool(self._vs)  # VIEWSTATE only present on authenticated search page
         log.info(f"  Stockwatch SEDAR form loaded (logged_in={logged_in})")
+        if not logged_in:
+            raise RuntimeError("Stockwatch session expired - no VIEWSTATE found (not authenticated)")
         self._sleep()
 
     def _post_search(self, symbol: str, date_from: date, date_to: date,
