@@ -1694,6 +1694,96 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
 
 
 # ---------------------------------------------------------------------------
+# Reclassify (re-run LLM on existing news releases without a full re-scrape)
+# ---------------------------------------------------------------------------
+def reclassify_llm(symbols: list[str] | None = None):
+    """
+    Re-run LLM classification on news releases that are already stored in
+    filings_log.csv, without touching any other pipeline stages.
+
+    Use this after updating prompt.txt to retroactively re-flag all releases.
+
+    symbols: list of ticker strings to process, or None to process ALL companies
+             that have a Results/<SYMBOL>/filings_log.csv.
+    """
+    _cfg = {}
+    try:
+        with open(SCRIPT_DIR / "config.toml", "rb") as _f:
+            _cfg = tomllib.load(_f)
+    except Exception:
+        pass
+    llm_model   = _cfg.get("llm", {}).get("model", "gpt-4o-mini")
+    llm_workers = _cfg.get("llm", {}).get("max_workers", 80)
+
+    fieldnames = [
+        "source", "symbol", "issuer", "filing_date", "doc_type", "industry",
+        "category", "synopsis", "article_url", "article_id",
+        "pdf_url", "pdf_path", "page_count", "pdf_size_kb",
+        "downloaded", "r2_url", "news_text", "news_html_path", "news_html_r2_url", "mat_summary",
+        "llm_flag", "llm_summary", "llm_project", "llm_error",
+        "as_at_date", "aif_filed",
+    ]
+
+    # Resolve which companies to process
+    if symbols:
+        targets = [s.upper() for s in symbols]
+    else:
+        targets = sorted(p.name for p in RESULTS_DIR.iterdir()
+                         if p.is_dir() and (p / "filings_log.csv").exists())
+
+    log.info(f"Reclassify: {len(targets)} company/companies to process")
+
+    for sym in targets:
+        csv_path = RESULTS_DIR / sym / "filings_log.csv"
+        if not csv_path.exists():
+            log.warning(f"  {sym}: no filings_log.csv found, skipping")
+            continue
+
+        # Attach per-company log file
+        company_log_handler = attach_company_log(sym)
+
+        log.info(f"  {sym}: loading {csv_path.name}")
+        with open(csv_path, newline="", encoding="utf-8-sig") as f:
+            rows = list(csv.DictReader(f))
+
+        news_rows = [r for r in rows if r.get("category") == "NewsRelease" and r.get("news_text")]
+        log.info(f"  {sym}: {len(news_rows)} news releases with text (of {len(rows)} total rows)")
+        if not news_rows:
+            log.info(f"  {sym}: nothing to reclassify")
+            detach_company_log(company_log_handler)
+            continue
+
+        # Clear existing LLM columns so run_llm_classification picks them up
+        for r in rows:
+            if r.get("category") == "NewsRelease" and r.get("news_text"):
+                r["llm_flag"]    = ""
+                r["llm_summary"] = ""
+                r["llm_project"] = ""
+                r["llm_error"]   = ""
+
+        # Run classification
+        rows = run_llm_classification(sym, rows, llm_model, llm_workers)
+
+        # Write back
+        tmp = csv_path.with_suffix(".tmp")
+        with open(tmp, "w", newline="", encoding="utf-8-sig") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            writer.writeheader()
+            writer.writerows(rows)
+        tmp.replace(csv_path)
+
+        changed  = sum(1 for r in rows if r.get("llm_flag") == "CHANGED")
+        none_    = sum(1 for r in rows if r.get("llm_flag") == "NONE")
+        errors   = sum(1 for r in rows if r.get("llm_error"))
+        log.info(f"  {sym}: reclassify done - CHANGED={changed}, NONE={none_}, errors={errors}")
+        log.info(f"  {sym}: CSV written -> {csv_path.name}")
+
+        detach_company_log(company_log_handler)
+
+    log.info("Reclassify complete")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main():
@@ -1704,11 +1794,20 @@ def main():
                     help="Onboard a single symbol only")
     ap.add_argument("--limit",    type=int, default=0,
                     help="Limit number of companies (for testing)")
+    ap.add_argument("--reclassify", action="store_true",
+                    help="Re-run LLM classification only on existing news releases (no scraping). "
+                         "Use after updating prompt.txt. Works with --symbol or processes all companies.")
     args = ap.parse_args()
 
     log.info("=" * 70)
     log.info(f"MM COMPANY ONBOARDING - {datetime.now(TORONTO_TZ).strftime('%Y-%m-%d %H:%M:%S %Z')}")
     log.info("=" * 70)
+
+    # --reclassify: re-run LLM only, no scraping
+    if args.reclassify:
+        symbols = [args.symbol.upper()] if args.symbol else None
+        reclassify_llm(symbols)
+        return
 
     # Load companies list
     companies_path = Path(args.companies) if args.companies else COMPANIES_CSV
