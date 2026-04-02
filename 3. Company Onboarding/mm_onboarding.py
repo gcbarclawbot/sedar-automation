@@ -566,13 +566,9 @@ def _stockwatch_browser_login(page) -> bool:
         page.goto("https://www.stockwatch.com/User/NotLoggedIn", wait_until="domcontentloaded", timeout=30000)
         page.wait_for_timeout(1500)
         # Fill Login ID
-        login_input = page.locator("input[name='ctl00$LoginID']").first
-        login_input.fill(username)
-        # Fill Password
-        pw_input = page.locator("input[name='ctl00$Password']").first
-        pw_input.fill(password)
-        # Click Login button
-        page.locator("input[name='ctl00$cmdLogin']").first.click()
+        page.locator("input[name='ctl00$PowerUserName']").first.fill(username)
+        page.locator("input[name='ctl00$PowerPassword']").first.fill(password)
+        page.locator("input[name='ctl00$Login']").first.click()
         page.wait_for_timeout(2500)
         # Confirm logged in
         if "NotLoggedIn" in page.url or "notloggedin" in page.url.lower():

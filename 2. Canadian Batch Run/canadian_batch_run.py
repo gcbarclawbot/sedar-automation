@@ -337,9 +337,9 @@ def _stockwatch_browser_login(page) -> bool:
         log.info("Stockwatch session expired - attempting auto-login via browser...")
         page.goto("https://www.stockwatch.com/User/NotLoggedIn", wait_until="domcontentloaded", timeout=30000)
         page.wait_for_timeout(1500)
-        page.locator("input[name='ctl00$LoginID']").first.fill(username)
-        page.locator("input[name='ctl00$Password']").first.fill(password)
-        page.locator("input[name='ctl00$cmdLogin']").first.click()
+        page.locator("input[name='ctl00$PowerUserName']").first.fill(username)
+        page.locator("input[name='ctl00$PowerPassword']").first.fill(password)
+        page.locator("input[name='ctl00$Login']").first.click()
         page.wait_for_timeout(2500)
         if "NotLoggedIn" in page.url or "notloggedin" in page.url.lower():
             log.warning("Auto-login failed - still on NotLoggedIn page")
