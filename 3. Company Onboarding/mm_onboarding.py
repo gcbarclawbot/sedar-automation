@@ -1722,6 +1722,34 @@ def main():
             continue
 
         log.info(f"\n[{i}/{len(companies)}] {sym} - {name}")
+
+        # If no party number, try to find it via find_sedar_parties.py before onboarding
+        if not party:
+            log.info(f"  {sym}: no SEDAR party number - running find_sedar_parties.py --symbol {sym}")
+            finder_script = SCRIPT_DIR.parent / "1. Canadian Master Sync" / "find_sedar_parties.py"
+            if finder_script.exists():
+                import subprocess as _sp
+                result = _sp.run(
+                    [sys.executable, str(finder_script), "--symbol", sym],
+                    cwd=str(finder_script.parent),
+                    timeout=120
+                )
+                if result.returncode == 0:
+                    # Reload universe to pick up newly written party number
+                    fresh = load_universe_lookup()
+                    party = fresh.get(sym, {}).get("sedar_party_number", "").strip()
+                    if party:
+                        log.info(f"  {sym}: party number found: {party}")
+                        company["sedar_party_number"] = party
+                        name = name or fresh.get(sym, {}).get("name", "")
+                        exch = exch or fresh.get(sym, {}).get("exchange", "")
+                    else:
+                        log.warning(f"  {sym}: party number still not found after lookup - SEDAR+ Phase 2 will be skipped")
+                else:
+                    log.warning(f"  {sym}: find_sedar_parties.py failed (rc={result.returncode}) - SEDAR+ Phase 2 will be skipped")
+            else:
+                log.warning(f"  {sym}: find_sedar_parties.py not found at {finder_script} - SEDAR+ Phase 2 will be skipped")
+
         lock_file = LOCK_DIR / f"{sym}.lock"
         lock_file.write_text(datetime.now().isoformat(), encoding="utf-8")
         _write_batch_meta(i - 1, sym)
