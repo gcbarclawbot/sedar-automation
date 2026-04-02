@@ -36,14 +36,14 @@ Logged only (not downloaded):
   - News Releases (all logged in CSV for reference)
   - Everything else
 
-Input:  companies.csv  (symbol, company_name, exchange, sedar_party_number)
+Input:  custom_run_or_onboarding_list.csv  (symbol, company_name, exchange, sedar_party_number)
 Output per company:
   Results/{SYMBOL}/filings_log.csv   - every filing with full metadata
   Results/{SYMBOL}/pdfs/{category}/  - downloaded relevant PDFs
 
 Usage:
-  python mm_onboarding.py --companies companies.csv
-  python mm_onboarding.py --companies companies.csv --limit 3   # test
+  python mm_onboarding.py --companies custom_run_or_onboarding_list.csv
+  python mm_onboarding.py --companies custom_run_or_onboarding_list.csv --limit 3   # test
   python mm_onboarding.py --symbol AYA                          # single
 
 Backup:  _backups/mm_onboarding_YYYY-MM-DD_HHMM.bak  (always before editing)
@@ -75,7 +75,7 @@ if hasattr(sys.stderr, "reconfigure"):
 # Paths
 # ---------------------------------------------------------------------------
 SCRIPT_DIR    = Path(__file__).parent
-COMPANIES_CSV = SCRIPT_DIR / "companies.csv"
+COMPANIES_CSV = SCRIPT_DIR / "custom_run_or_onboarding_list.csv"
 RESULTS_DIR   = SCRIPT_DIR / "Results"
 LOG_PATH      = SCRIPT_DIR / "mm_onboarding.log"
 SESSION_PATH  = SCRIPT_DIR.parent / "2. Canadian Batch Run" / "stockwatch_session.json"
@@ -1609,7 +1609,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
 # ---------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser(description="MM Company Onboarding")
-    ap.add_argument("--companies", type=str, default="companies.csv",
+    ap.add_argument("--companies", type=str, default="custom_run_or_onboarding_list.csv",
                     help="CSV with columns: symbol, company_name, exchange, sedar_party_number")
     ap.add_argument("--symbol",   type=str, default="",
                     help="Onboard a single symbol only")
@@ -1638,7 +1638,7 @@ def main():
         if not matched:
             log.error(
                 f"Symbol '{sym_upper}' not found in {companies_path.name}. "
-                f"Please add it to companies.csv (symbol, company_name, exchange, sedar_party_number) "
+                f"Please add it to custom_run_or_onboarding_list.csv (symbol, company_name, exchange, sedar_party_number) "
                 f"before running."
             )
             sys.exit(1)

@@ -186,7 +186,7 @@ def api_company(symbol):
     exchange = ""
     sedar_party = ""
     try:
-        with open(SCRIPT_DIR / "companies.csv", encoding="utf-8") as cf:
+        with open(SCRIPT_DIR / "custom_run_or_onboarding_list.csv", encoding="utf-8-sig") as cf:
             for row in csv.DictReader(cf):
                 if row.get("symbol","").upper() == symbol:
                     exchange    = row.get("exchange", "")
@@ -311,7 +311,7 @@ def api_run(symbol):
             return jsonify({"error": f"{symbol} already running"}), 409
 
     # Find the company in companies.csv
-    companies_csv = SCRIPT_DIR / "companies.csv"
+    companies_csv = SCRIPT_DIR / "custom_run_or_onboarding_list.csv"
     company_row = None
     if companies_csv.exists():
         with open(companies_csv, newline="", encoding="utf-8-sig") as f:
