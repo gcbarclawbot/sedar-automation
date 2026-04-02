@@ -743,8 +743,11 @@ async function checkGlobalRunning() {
         if (!runBtn.classList.contains('onboard')) runBtn.textContent = '▶ Update';
       }
       if (resetBtn && !resetBtn.querySelector('.spin')) {
-        resetBtn.disabled = false;
-        resetBtn.textContent = '↺ Reset';
+        // Only re-enable Reset if company is actually onboarded (run btn not in onboard mode)
+        if (!document.getElementById('runBtn').classList.contains('onboard')) {
+          resetBtn.disabled = false;
+          resetBtn.textContent = '↺ Reset';
+        }
       }
       return;
     }
