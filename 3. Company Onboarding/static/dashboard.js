@@ -59,6 +59,7 @@ async function loadCompany(symbol) {
     if (data.is_running) startPolling();
   } catch(e) {
     document.getElementById('coMeta').textContent = 'Error loading';
+    console.error('loadCompany error:', e);
   }
 }
 
