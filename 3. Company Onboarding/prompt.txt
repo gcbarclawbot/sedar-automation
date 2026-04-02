@@ -30,6 +30,20 @@ IMPORTANT DISTINCTIONS:
    - Strong signal it is OLD NEWS: the MRE is presented in past tense alongside other events ("Reported significant increase in mineral reserves", "Released Feasibility Study", "Commenced construction") in a bullet list of period activities → NONE. Even if explicit numbers follow (e.g. "Proven and Probable reserves increased to 6.7 million ounces"), if it is one bullet among several period highlights, it is a recap of a prior announcement → NONE
    - Strong signal it IS NEW: the release title and body are dedicated to the MRE update itself (not a results format), and the numbers are presented as current → CHANGED
    - When genuinely uncertain in a results release context, lean toward NONE
+
+3b. ATTRIBUTED DATES - critical signal:
+   If the MRE or reserve data is attributed to ANY specific date that is prior to the date of this news release, it is a recap of a prior announcement. Classify NONE.
+   This includes any of these forms:
+   - A section header: "December 2025 update", "Year-End 2025 reserves", "September 2024 resource estimate"
+   - An "as at" or "as of" qualifier: "as at December 31, 2025", "as of June 30, 2024"
+   - An "effective date" phrase: "effective February 24, 2025", "effective date of January 1, 2024"
+   - A year-end reference: "year-end 2024", "year-end 2025 update"
+   - Any date, in any format, that is earlier than the release date shown at the top of the news release
+   If the resource data carries ANY attribution date that predates this release → NONE.
+   ONE EXCEPTION: if the release is explicitly announcing the FILING of a new NI 43-101 technical report (phrases like "files NI 43-101", "filing of a new technical report", "technical report has been filed"), the effective date on that report is the survey/estimation date, not a prior announcement. NI 43-101 reports always carry a past effective date by their nature. In this case, use the NI43-101 filing rules in section 3 instead.
+   - Example: release dated January 21, 2026 — body says "Net Reserve and Resource Growth – December 2025 update: P&P Reserves 73 Moz Ag" → December 2025 is before January 2026 → NONE
+   - Example: release dated March 15, 2026 — body says "Updated MRE as at December 31, 2025" → Dec 31 2025 is before March 2026 → NONE
+   - Contrast: release dedicated to announcing a new MRE with no prior date attribution, published the same day as the NI43-101 filing → CHANGED
    - TRAP: A quarterly/annual results release that says "Q1-2025 Results", "Q4-2025", "Full Year", "Annual Results", or similar in the title, then mentions an MRE update in a highlights or development bullet, is ALWAYS recapping a prior announcement. Use NONE. This is true even if the MRE numbers appear to be stated in present tense ("estimating M&I resources of 100 Moz") — in a results release context these are highlights of work completed during the reporting period, not a new announcement being made in this release.
    - TRAP: Any bullet that refers to a named technical report ("Updated post-construction technical report", "filed NI 43-101", "Preliminary Economic Assessment") within a results/financial release is a recap. The technical report filing itself is a separate event that was (or will be) captured separately — do not double-count it here.
    - CRITICAL: The presence of explicit MRE numbers (e.g. "100 Moz Ag M&I at 165 g/t") does NOT override the results-release rule. When those numbers appear inside a quarterly or annual results release as a Development highlight bullet, they are recapping a previously announced update — classify NONE regardless of how specific the numbers are.
