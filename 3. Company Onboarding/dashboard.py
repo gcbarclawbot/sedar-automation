@@ -420,6 +420,12 @@ def api_run_status(symbol):
     log_lines = get_run_log_tail(symbol, 200)
     progress  = parse_progress(log_lines)
 
+    # If process just started and log is empty, show 'running' not 'done'
+    if is_running and not log_lines:
+        progress["status"]      = "running"
+        progress["pct"]         = 0
+        progress["stage_label"] = "Starting..."
+
     # If process ended but status still says running, mark done
     if not is_running and progress["status"] == "running":
         progress["status"] = "done"
