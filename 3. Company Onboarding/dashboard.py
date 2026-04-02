@@ -278,6 +278,30 @@ def api_pdf(symbol, filepath):
         return "PDF not found", 404
     return send_file(str(full_path), mimetype="application/pdf")
 
+@app.route("/api/reset/<symbol>", methods=["POST"])
+def api_reset(symbol):
+    """Reset a company: delete state.json + filings_log.csv, then trigger a fresh FULL run."""
+    symbol = symbol.upper()
+    with _running_lock:
+        if symbol in _running:
+            return jsonify({"error": f"{symbol} is currently running - stop it first"}), 409
+
+    company_dir = RESULTS_DIR / symbol
+    if not company_dir.exists():
+        return jsonify({"error": f"{symbol} not found"}), 404
+
+    # Delete state and filings so next run is a FULL scrape from scratch
+    deleted = []
+    for fname in ["state.json", "filings_log.csv", "run.log"]:
+        p = company_dir / fname
+        if p.exists():
+            p.unlink()
+            deleted.append(fname)
+
+    # Now trigger a fresh run (reuse api_run logic)
+    return api_run(symbol)
+
+
 @app.route("/api/run/<symbol>", methods=["POST"])
 def api_run(symbol):
     """Trigger an update run for a company."""

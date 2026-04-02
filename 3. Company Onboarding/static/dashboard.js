@@ -50,6 +50,7 @@ async function loadCompany(symbol) {
       document.getElementById('coMeta').textContent = '';
       document.getElementById('splash').style.display = 'block';
       document.getElementById('runBtn').disabled = true;
+      document.getElementById('resetBtn').disabled = true;
       return;
     }
     const data = await res.json();
@@ -84,6 +85,7 @@ function renderAll(data) {
     + `Last run: ${fmtDate(lastRun)} <span class="badge ${mode==='UPDATE'?'b-upd':'b-full'}">${mode}</span>`;
 
   document.getElementById('runBtn').disabled = is_running;
+  document.getElementById('resetBtn').disabled = is_running;
   document.getElementById('mainLayout').style.display = 'grid';
   document.getElementById('splash').style.display = 'none';
 
@@ -591,13 +593,45 @@ async function triggerRun() {
   if (!currentSymbol) return;
   const btn = document.getElementById('runBtn');
   btn.disabled = true;
+  document.getElementById('resetBtn').disabled = true;
   btn.innerHTML = '<span class="spin"></span>';
   try {
     const res = await fetch(`/api/run/${currentSymbol}`, { method:'POST' });
-    if (!res.ok) { alert((await res.json()).error||'Failed'); btn.disabled=false; btn.textContent='▶ Update'; return; }
+    if (!res.ok) { alert((await res.json()).error||'Failed'); btn.disabled=false; document.getElementById('resetBtn').disabled=false; btn.textContent='▶ Update'; return; }
     showProg(true);
     startPolling();
-  } catch(e) { alert('Error'); btn.disabled=false; btn.textContent='▶ Update'; }
+  } catch(e) { alert('Error'); btn.disabled=false; document.getElementById('resetBtn').disabled=false; btn.textContent='▶ Update'; }
+}
+
+async function triggerReset() {
+  if (!currentSymbol) return;
+  const confirmed = confirm(
+    `Reset ${currentSymbol}?\n\nThis will delete all scraped data and re-run a full scrape from scratch.\n\nThis cannot be undone.`
+  );
+  if (!confirmed) return;
+  const runBtn   = document.getElementById('runBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  runBtn.disabled   = true;
+  resetBtn.disabled = true;
+  resetBtn.innerHTML = '<span class="spin"></span>';
+  try {
+    const res = await fetch(`/api/reset/${currentSymbol}`, { method:'POST' });
+    if (!res.ok) {
+      alert((await res.json()).error || 'Reset failed');
+      runBtn.disabled   = false;
+      resetBtn.disabled = false;
+      resetBtn.textContent = '\u21ba Reset';
+      return;
+    }
+    resetBtn.textContent = '\u21ba Reset';
+    showProg(true);
+    startPolling();
+  } catch(e) {
+    alert('Error');
+    runBtn.disabled   = false;
+    resetBtn.disabled = false;
+    resetBtn.textContent = '\u21ba Reset';
+  }
 }
 
 function showProg(on) { /* progress bar hidden - stage shown in banner */ }
@@ -639,6 +673,7 @@ async function pollStatus() {
       }
       const btn = document.getElementById('runBtn');
       btn.disabled = false; btn.textContent = '▶ Update';
+      document.getElementById('resetBtn').disabled = false;
     }
   } catch(e) {}
 }
@@ -669,17 +704,23 @@ async function checkGlobalRunning() {
     const bannerText = document.getElementById('globalRunText');
     const runBtn = document.getElementById('runBtn');
 
+    const resetBtn = document.getElementById('resetBtn');
     if (symbols.length === 0) {
       banner.style.display = 'none';
       if (runBtn && !runBtn.querySelector('.spin')) {
         runBtn.disabled = false;
         runBtn.textContent = '▶ Update';
       }
+      if (resetBtn && !resetBtn.querySelector('.spin')) {
+        resetBtn.disabled = false;
+        resetBtn.textContent = '↺ Reset';
+      }
       return;
     }
 
     banner.style.display = 'flex';
     if (runBtn) runBtn.disabled = true;
+    if (resetBtn) resetBtn.disabled = true;
 
     const isCurrentSymbol = currentSymbol && runs[currentSymbol];
     if (isCurrentSymbol && !pollTimer) startPolling();
