@@ -66,6 +66,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from aif_date_extractor import extract_aif_as_at_date
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -1310,6 +1311,22 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         aif_info["as_at_date"] = str(as_at_date)
         aif_info["aif_filed"]  = str(aif_date)
         all_filings.append(aif_info)
+        
+        # Extract real as_at_date from AIF PDF using LLM (if downloaded)
+        aif_pdf_path = aif_info.get("pdf_path", "")
+        if aif_pdf_path and os.path.exists(aif_pdf_path):
+            log.info(f"  Extracting as_at_date from AIF PDF...")
+            try:
+                llm_as_at = extract_aif_as_at_date(aif_pdf_path, company_name, as_at_date)
+                if llm_as_at:
+                    as_at_date = llm_as_at
+                    # Update the AIF row with corrected date
+                    aif_info["as_at_date"] = str(as_at_date)
+                    # Update all_filings rows that reference as_at_date
+                    for f in all_filings:
+                        f["as_at_date"] = str(as_at_date)
+            except Exception as e:
+                log.error(f"  AIF as_at_date extraction error: {e}")
     else:
         log.warning(f"  No AIF found for {symbol} - defaulting to 2 years ago")
         aif_date   = date.today() - timedelta(days=730)
@@ -1937,7 +1954,7 @@ def main():
         lock_file.write_text(datetime.now().isoformat(), encoding="utf-8")
         _write_batch_meta(i - 1, sym)
         try:
-            summary = onboard_company(sym, name, exch, party, sw_session, req_session, sw_sym=company.get("sw_symbol", ""))
+            summary = onboard_company(sym, name, exch, party, sw_session, req_session, sw_symbol=company.get("sw_symbol", ""))
             summaries.append(summary)
         except Exception as e:
             log.error(f"  {sym}: onboarding failed: {e}")
