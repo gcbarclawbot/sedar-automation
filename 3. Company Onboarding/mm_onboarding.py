@@ -51,6 +51,7 @@ Git:     gcbarclawbot/sedar-automation
 """
 
 import sys
+import os
 import csv
 import re
 import json
