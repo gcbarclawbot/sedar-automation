@@ -71,6 +71,17 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
+# Ensure OPENAI_API_KEY is available even when running as a Windows service
+# (NSSM services run as SYSTEM and don't inherit user environment variables)
+import winreg as _winreg
+if not os.environ.get("OPENAI_API_KEY"):
+    try:
+        with _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, r"Environment") as _k:
+            _key_val, _ = _winreg.QueryValueEx(_k, "OPENAI_API_KEY")
+            os.environ["OPENAI_API_KEY"] = _key_val
+    except Exception:
+        pass
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
