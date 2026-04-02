@@ -76,10 +76,24 @@ if hasattr(sys.stderr, "reconfigure"):
 # ---------------------------------------------------------------------------
 SCRIPT_DIR    = Path(__file__).parent
 COMPANIES_CSV = SCRIPT_DIR / "custom_run_or_onboarding_list.csv"
+UNIVERSE_CSV  = SCRIPT_DIR.parent / "1. Canadian Master Sync" / "canadian_universe.csv"
 RESULTS_DIR   = SCRIPT_DIR / "Results"
 LOG_PATH      = SCRIPT_DIR / "mm_onboarding.log"
 SESSION_PATH  = SCRIPT_DIR.parent / "2. Canadian Batch Run" / "stockwatch_session.json"
 CDP_URL       = "http://127.0.0.1:18800"
+
+def load_universe_lookup() -> dict:
+    """Load canadian_universe.csv as a dict keyed by symbol."""
+    lookup = {}
+    if not UNIVERSE_CSV.exists():
+        log.warning(f"Universe CSV not found: {UNIVERSE_CSV}")
+        return lookup
+    with open(UNIVERSE_CSV, newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            sym = row.get("symbol", "").strip().upper()
+            if sym:
+                lookup[sym] = row
+    return lookup
 
 def ensure_cdp_ready(timeout: int = 30) -> bool:
     """
@@ -1632,19 +1646,33 @@ def main():
     with open(companies_path, newline="", encoding="utf-8-sig") as f:
         companies = list(csv.DictReader(f))
 
+    # Load universe for enrichment (company_name, exchange, sedar_party_number)
+    universe = load_universe_lookup()
+    log.info(f"Universe loaded: {len(universe)} companies")
+
     if args.symbol:
         sym_upper = args.symbol.upper()
         matched = [c for c in companies if c.get("symbol","").upper() == sym_upper]
         if not matched:
-            log.error(
-                f"Symbol '{sym_upper}' not found in {companies_path.name}. "
-                f"Please add it to custom_run_or_onboarding_list.csv (symbol, company_name, exchange, sedar_party_number) "
-                f"before running."
-            )
-            sys.exit(1)
+            # Fall back to universe - allows running any universe company without editing the list
+            if sym_upper in universe:
+                matched = [{"symbol": sym_upper}]
+                log.info(f"  '{sym_upper}' not in custom list - sourcing from canadian_universe.csv")
+            else:
+                log.error(f"Symbol '{sym_upper}' not found in custom list or canadian_universe.csv")
+                sys.exit(1)
         companies = matched
     if args.limit:
         companies = companies[:args.limit]
+
+    # Enrich each company from universe (fills blanks; universe is authoritative for name/exchange/party)
+    for company in companies:
+        sym = company.get("symbol", "").strip().upper()
+        if sym in universe:
+            u = universe[sym]
+            if not company.get("company_name"):  company["company_name"]      = u.get("name", "")
+            if not company.get("exchange"):       company["exchange"]          = u.get("exchange", "")
+            if not company.get("sedar_party_number"): company["sedar_party_number"] = u.get("sedar_party_number", "")
 
     log.info(f"Companies to onboard: {len(companies)}")
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)

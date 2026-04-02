@@ -23,9 +23,25 @@ from pathlib import Path
 from datetime import datetime, date
 import pytz
 
-SCRIPT_DIR  = Path(__file__).parent
-RESULTS_DIR = SCRIPT_DIR / "Results"
-LOG_PATH    = SCRIPT_DIR / "dashboard.log"
+SCRIPT_DIR   = Path(__file__).parent
+RESULTS_DIR  = SCRIPT_DIR / "Results"
+UNIVERSE_CSV = SCRIPT_DIR.parent / "1. Canadian Master Sync" / "canadian_universe.csv"
+LOG_PATH     = SCRIPT_DIR / "dashboard.log"
+
+def _load_universe_lookup() -> dict:
+    """Load canadian_universe.csv as dict keyed by symbol (cached at module level)."""
+    lookup = {}
+    try:
+        with open(UNIVERSE_CSV, newline="", encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                sym = row.get("symbol", "").strip().upper()
+                if sym:
+                    lookup[sym] = row
+    except Exception:
+        pass
+    return lookup
+
+_universe = _load_universe_lookup()
 TORONTO_TZ  = pytz.timezone("America/Toronto")
 
 # Load config
@@ -182,18 +198,10 @@ def api_company(symbol):
     filings  = load_filings(symbol)
     log_tail = get_run_log_tail(symbol, 50)
 
-    # Look up exchange + SEDAR party number from companies.csv
-    exchange = ""
-    sedar_party = ""
-    try:
-        with open(SCRIPT_DIR / "custom_run_or_onboarding_list.csv", encoding="utf-8-sig") as cf:
-            for row in csv.DictReader(cf):
-                if row.get("symbol","").upper() == symbol:
-                    exchange    = row.get("exchange", "")
-                    sedar_party = row.get("sedar_party_number", "")
-                    break
-    except Exception:
-        pass
+    # Look up exchange + SEDAR party number from canadian_universe.csv
+    u = _universe.get(symbol, {})
+    exchange    = u.get("exchange", "")
+    sedar_party = u.get("sedar_party_number", "")
 
     # Check if currently running
     with _running_lock:
@@ -310,21 +318,13 @@ def api_run(symbol):
         if symbol in _running:
             return jsonify({"error": f"{symbol} already running"}), 409
 
-    # Find the company in companies.csv
-    companies_csv = SCRIPT_DIR / "custom_run_or_onboarding_list.csv"
-    company_row = None
-    if companies_csv.exists():
-        with open(companies_csv, newline="", encoding="utf-8-sig") as f:
-            for row in csv.DictReader(f):
-                if row.get("symbol","").upper() == symbol:
-                    company_row = row
-                    break
-
+    # Find the company in canadian_universe.csv
+    company_row = _universe.get(symbol)
     if not company_row:
-        # Try to get from state
+        # Fall back: check if Results folder exists (previously onboarded)
         state_path = RESULTS_DIR / symbol / "state.json"
         if not state_path.exists():
-            return jsonify({"error": f"{symbol} not found"}), 404
+            return jsonify({"error": f"{symbol} not found in universe or Results"}), 404
 
     # Clear the run.log before starting
     run_log = RESULTS_DIR / symbol / "run.log"
