@@ -10,7 +10,13 @@ CHANGED - only if the release EXPLICITLY states one of these:
 - An acquisition where the release explicitly states the acquired asset has a current or historical resource/reserve (numbers must be mentioned OR the resource is the stated purpose of the deal)
 - A disposal/sale of an asset that the release explicitly states had a resource/reserve
 - A new NI 43-101 technical report that contains updated resource estimates
-- A material-value asset sale or acquisition (consideration of $20M USD or more) of a mine, deposit, or mineral project, EVEN IF no resource/reserve numbers are mentioned — at this value a resource base almost certainly exists and the company's R&R portfolio has materially changed. Use CHANGED and summarise as "Sale of [asset]" or "Acquisition of [asset]" with the deal value.
+- A material-value asset sale or acquisition (consideration of $20M USD or more) of a mine, deposit, or mineral project, EVEN IF no resource/reserve numbers are mentioned — at this value a resource base almost certainly exists and the company's R&R portfolio has materially changed. Use CHANGED and summarise as "Sold [asset]" or "Acquired [asset]" (from the subject company's perspective) with the deal value.
+
+PERSPECTIVE RULE — CRITICAL:
+All summaries must describe events from the perspective of the SUBJECT COMPANY (the company that issued this news release). Ask yourself: what happened to THIS company's resource/reserve portfolio?
+- If this company SOLD or TRANSFERRED an asset → use "Disposed of" or "Sold" or "Transferred" (not "Acquired")
+- If this company BOUGHT or RECEIVED an asset → use "Acquired" or "Purchased"
+- The fact that another party (Mx2, XYZ Corp etc.) acquired something is irrelevant — what matters is whether the subject company gained or lost a resource asset
 
 IMPORTANT DISTINCTIONS:
 
@@ -24,6 +30,7 @@ IMPORTANT DISTINCTIONS:
    - Strong signal it is OLD NEWS: the MRE is presented in past tense alongside other events ("Reported significant increase in mineral reserves", "Released Feasibility Study", "Commenced construction") in a bullet list of period activities → NONE. Even if explicit numbers follow (e.g. "Proven and Probable reserves increased to 6.7 million ounces"), if it is one bullet among several period highlights, it is a recap of a prior announcement → NONE
    - Strong signal it IS NEW: the release title and body are dedicated to the MRE update itself (not a results format), and the numbers are presented as current → CHANGED
    - When genuinely uncertain in a results release context, lean toward NONE
+   - TRAP: A quarterly/annual results release that says "Q1-2025 Results" or similar in the title, then mentions an MRE update in a highlights bullet, is almost certainly recapping a prior announcement. The MRE was not published in THIS release — lean NONE strongly.
 
 3. PEA/PFS/DFS RELEASES: A study (PEA/PFS/DFS) is CHANGED only if it introduces a NEW mineral resource estimate OR if the release explicitly states a new/updated technical report has been filed simultaneously.
    - If the study explicitly references an EXISTING or PREVIOUSLY PUBLISHED technical report as its resource base → NONE (no new resource data)
@@ -60,9 +67,10 @@ Respond in JSON only. No text outside the JSON.
 Examples of good responses:
   CHANGED project-specific: {"flag":"CHANGED","summary":"Maiden reserve at Zgounder: P&P 73 Moz Ag at 290 g/t","project":"Zgounder"}
   CHANGED consolidated: {"flag":"CHANGED","summary":"Year-end 2025 reserves: 6.52 Moz Au total, 221% increase","project":"Group"}
-  CHANGED acquisition: {"flag":"CHANGED","summary":"Acquired Amizmiz with 340,000 oz Au historical resource","project":"Amizmiz"}
-  CHANGED material sale (no explicit resource): {"flag":"CHANGED","summary":"Sale of Cayeli mine for $340M","project":"Cayeli"}
-  CHANGED material acquisition (no explicit resource): {"flag":"CHANGED","summary":"Acquisition of Las Cruces mine for $190M","project":"Las Cruces"}
+  CHANGED acquisition: {"flag":"CHANGED","summary":"Acquired Amizmiz gold project with 340,000 oz Au historical resource","project":"Amizmiz"}
+  CHANGED disposal (subject company sold the asset): {"flag":"CHANGED","summary":"Transferred Amizmiz gold project to Mx2 Mining; retained 42% equity in Mx2","project":"Amizmiz"}
+  CHANGED material sale (no explicit resource): {"flag":"CHANGED","summary":"Sold Cayeli mine for $340M","project":"Cayeli"}
+  CHANGED material acquisition (no explicit resource): {"flag":"CHANGED","summary":"Acquired Las Cruces mine for $190M","project":"Las Cruces"}
   NONE: {"flag":"NONE","summary":"Q3 2025 production results"}
 
 News release text:
