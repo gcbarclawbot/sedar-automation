@@ -1,14 +1,14 @@
-symbol,company_name,exchange,sedar_party_number
+﻿symbol,company_name,exchange,sedar_party_number
 EMO,Emerita Resources Corp.,TSXV,000030331
 ETG,Entree Resources Ltd.,TSX,000008502
 ERD,Erdene Resource Development Corporation,TSX,000020308
 ESM,Euro Sun Mining Inc.,TSX,000018939
 EXN,Excellon Resources Inc.,TSXV,000003353
-FPC,Falco Resources Ltd.,TSXV,000029998
+FPC,Falco Resources Ltd.,TSXV,000006234
 FF,First Mining Gold Corp.,TSX,000022404
 FVL,Freegold Ventures Limited,TSX,000004004
 FURY,Fury Gold Mines Limited,TSX,000027371
-GMIN,G Mining Ventures Corp.,TSX,000032359
+GMIN,G Mining Ventures Corp.,TSX,000105535
 GTWO,G2 Goldfields Inc.,TSX,000030528
 GGO,Galleon Gold Corp.,TSXV,000005617
 GG,Golconda Gold Ltd.,TSXV,000026925
@@ -27,7 +27,7 @@ ITH,International Tower Hill Mines Ltd.,TSX,000005628
 KCC,Kincora Copper Limited,TSXV,000003952
 KDK,Kodiak Copper Corp.,TSXV,000008822
 KRY,Koryx Copper S.A.,TSXV,000005247
-LG,Lahontan Gold Corp.,TSXV,000050204
+LG,Lahontan Gold Corp.,TSXV,000054817
 LGC,Lavras Gold Corp.,TSXV,000054788
 LIO,Lion One Metals Limited,TSXV,000010403
 LUCA,Luca Mining Corp.,TSXV,000005208
@@ -58,13 +58,13 @@ PAAS,Pan American Silver Corp.,TSX,000002432
 PGDC,Patagonia Gold Corp.,TSXV,000024372
 PPTA,Perpetua Resources Corp.,TSX,000031687
 RTG,RTG Mining Inc.,TSX,000034365
-REG,Regulus Resources Inc.,TSXV,000036427
+REG,Regulus Resources Inc.,TSXV,000030859
 RVG,Revival Gold Inc.,TSXV,000028186
 RM,Roxmore Resources Inc.,TSXV,000004744
-RUA,Rua Gold Inc.,TSX,000046287
+RUA,Rua Gold Inc.,TSX,000034605
 RUP,Rupert Resources Ltd.,TSX,000004604
 STLR,STLLR Gold Inc.,TSX,000003301
-SGN,Scorpio Gold Corporation,TSXV,000012585
+SGN,Scorpio Gold Corporation,TSXV,000024186
 SCOT,Scottie Resources Corp.,TSXV,000031828
 SCMI,Selkirk Copper Mines Inc.,TSXV,000030029
 VIPR,Silver Viper Minerals Corp.,TSXV,000042333
