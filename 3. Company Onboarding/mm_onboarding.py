@@ -360,8 +360,30 @@ def run_llm_classification(symbol: str, all_filings: list,
     Uses up to max_workers parallel threads.
     """
     # ---------------------------------------------------------------------------
-    # Pre-screen: results/financial releases are always NONE - don't waste LLM calls
-    # gpt-4o-mini ignores the results-release rule when explicit MRE numbers are present
+    # Pre-screen: deterministic title-based classification before hitting LLM
+    # gpt-4o-mini misclassifies certain patterns regardless of prompt wording
+    import re as _re
+
+    # 1. Standalone R&R update releases are always CHANGED
+    #    Mark with a special tag so the LLM classify step still runs to get a proper summary
+    #    but the flag is pinned to CHANGED regardless of what the LLM returns
+    RR_UPDATE_TITLE_KEYWORDS = [
+        r'\b(mineral\s+)?(reserve|resource)s?\s+(and\s+(mineral\s+)?(reserve|resource)s?\s+)?update\b',
+        r'\bannounces?\s+(year.end|annual|updated?)\s+(mineral\s+)?(reserve|resource)',
+        r'\breport(s|ing)?\s+(year.end|annual)\s+(mineral\s+)?(reserve|resource)',
+        r'\b(year.end|annual)\s+(mineral\s+)?(reserve|resource)s?\b',
+        r'\bmineral\s+reserve\s+and\s+resource\b',  # singular form
+        r'\b(reserve|resource)\s+and\s+resource\s+(estimate|update)\b',  # "reserve and resource estimates"
+    ]
+    for i, f in enumerate(all_filings):
+        if f.get("category") != "NewsRelease" or f.get("llm_flag"):
+            continue
+        synopsis = (f.get("synopsis") or "").lower()
+        if any(_re.search(kw, synopsis, _re.IGNORECASE) for kw in RR_UPDATE_TITLE_KEYWORDS):
+            f["_rr_prescreened"] = True  # sentinel: LLM runs for summary but flag is pinned CHANGED
+            log.info(f"  Pre-screen CHANGED (R&R update): {f.get('filing_date','')} - {synopsis[:60]}")
+
+    # 2. Periodic financial/operational results releases are always NONE
     RESULTS_TITLE_KEYWORDS = [
         r'\bQ[1-4][-\s]?20\d\d\b',          # Q1-2025, Q3 2024 etc.
         r'\b(first|second|third|fourth) quarter\b',
@@ -371,7 +393,6 @@ def run_llm_classification(symbol: str, all_filings: list,
         r'\b(year ended|quarter ended)\b',
         r'\b(production|operational) (update|result)',
     ]
-    import re as _re
     for i, f in enumerate(all_filings):
         if f.get("category") != "NewsRelease" or f.get("llm_flag"):
             continue
@@ -447,6 +468,9 @@ def run_llm_classification(symbol: str, all_filings: list,
             try:
                 idx, result = future.result()
                 all_filings[idx].update(result)
+                # Pin flag to CHANGED for R&R pre-screened releases (LLM runs for summary only)
+                if all_filings[idx].get("_rr_prescreened"):
+                    all_filings[idx]["llm_flag"] = "CHANGED"
                 if result.get("llm_error"):
                     failed += 1
                 else:

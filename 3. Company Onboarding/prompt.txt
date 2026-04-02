@@ -40,7 +40,15 @@ IMPORTANT DISTINCTIONS:
    - A year-end reference: "year-end 2024", "year-end 2025 update"
    - Any date, in any format, that is earlier than the release date shown at the top of the news release
    If the resource data carries ANY attribution date that predates this release → NONE.
-   ONE EXCEPTION: if the release is explicitly announcing the FILING of a new NI 43-101 technical report (phrases like "files NI 43-101", "filing of a new technical report", "technical report has been filed"), the effective date on that report is the survey/estimation date, not a prior announcement. NI 43-101 reports always carry a past effective date by their nature. In this case, use the NI43-101 filing rules in section 3 instead.
+   TWO EXCEPTIONS to the attributed-date rule:
+
+   Exception 1 - NI 43-101 filings: if the release is explicitly announcing the FILING of a new NI 43-101 technical report (phrases like "files NI 43-101", "filing of a new technical report", "technical report has been filed"), the effective date on that report is the survey/estimation date, not a prior announcement. NI 43-101 reports always carry a past effective date by their nature. Use the NI43-101 filing rules in section 3 instead.
+
+   Exception 2 - Annual/standalone R&R update releases: some companies publish a dedicated annual mineral resources and reserves update as a standalone release (separate from financial results or exploration updates). These releases are entirely devoted to publishing the R&R numbers for the first time — the attribution date (e.g. "as at December 31, 2025") is the effective date of the NEW estimate, not a reference to a prior announcement. Signals that this is a standalone R&R update:
+   - The release title itself contains words like "mineral resources", "mineral reserves", "R&R update", "reserve update", "resource update", "annual reserves"
+   - The entire body of the release is focused on publishing resource/reserve tables, with no other operational or financial content
+   - If these signals are present, classify CHANGED even if the attribution date predates the release.
+   - Contrast: if the attributed-date MRE is just ONE section or bullet within a broader release covering drilling, financials, operations etc. → NONE (it's a recap embedded in a larger update).
    - Example: release dated January 21, 2026 — body says "Net Reserve and Resource Growth – December 2025 update: P&P Reserves 73 Moz Ag" → December 2025 is before January 2026 → NONE
    - Example: release dated March 15, 2026 — body says "Updated MRE as at December 31, 2025" → Dec 31 2025 is before March 2026 → NONE
    - Contrast: release dedicated to announcing a new MRE with no prior date attribution, published the same day as the NI43-101 filing → CHANGED
@@ -58,7 +66,8 @@ IMPORTANT DISTINCTIONS:
    - "Drill program to support upcoming resource update" → NONE
 
 NONE - everything else, including:
-- Any release whose title contains "Results", "Revenue", "Financial", "Earnings", "Income", "Quarter", "Q1", "Q2", "Q3", "Q4", "Annual", "Full Year", "Year Ended", or "Operational Update" — ALWAYS NONE regardless of content, even if MRE numbers appear in the body. These are periodic reporting releases and any resource data in them is a recap of prior announcements.
+- Periodic financial/operational results releases: any release whose title contains "Financial Results", "Earnings", "Income", "Quarter", "Q1", "Q2", "Q3", "Q4", "Full Year", "Year Ended", "Operational Update", or "Revenue" — ALWAYS NONE regardless of content. These are periodic reporting releases and any resource data in them is a recap.
+  NOTE: "Annual Mineral Reserves and Resources Update" or "Year-End Reserves Update" is NOT a financial results release — if the title is specifically about R&R numbers, treat it as a standalone R&R update (see CHANGED rules above, Exception 2).
 - Drill results, assay results, exploration updates (even high-grade) without a stated resource update
 - Production updates, operational results, throughput, recovery
 - Quarterly/annual financial results (even if they reference a prior MRE update)
