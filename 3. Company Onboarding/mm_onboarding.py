@@ -359,6 +359,30 @@ def run_llm_classification(symbol: str, all_filings: list,
     Updates filings in-place. Returns updated list.
     Uses up to max_workers parallel threads.
     """
+    # ---------------------------------------------------------------------------
+    # Pre-screen: results/financial releases are always NONE - don't waste LLM calls
+    # gpt-4o-mini ignores the results-release rule when explicit MRE numbers are present
+    RESULTS_TITLE_KEYWORDS = [
+        r'\bQ[1-4][-\s]?20\d\d\b',          # Q1-2025, Q3 2024 etc.
+        r'\b(first|second|third|fourth) quarter\b',
+        r'\b(full[ -]year|full year|annual)\b.*\b(result|financial|report)\b',
+        r'\b(financial|operational)\s+result',
+        r'\brecord (revenue|results|income|earnings)\b',
+        r'\b(year ended|quarter ended)\b',
+        r'\b(production|operational) (update|result)',
+    ]
+    import re as _re
+    for i, f in enumerate(all_filings):
+        if f.get("category") != "NewsRelease" or f.get("llm_flag"):
+            continue
+        synopsis = (f.get("synopsis") or "").lower()
+        if any(_re.search(kw, synopsis, _re.IGNORECASE) for kw in RESULTS_TITLE_KEYWORDS):
+            f["llm_flag"]    = "NONE"
+            f["llm_summary"] = "Periodic results/financial release (pre-screened)"
+            f["llm_error"]   = ""
+            log.info(f"  Pre-screen NONE: {f.get('filing_date','')} - {synopsis[:60]}")
+    # ---------------------------------------------------------------------------
+
     prompt = load_prompt()
     to_classify = [
         (i, f) for i, f in enumerate(all_filings)

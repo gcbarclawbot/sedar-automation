@@ -256,6 +256,18 @@
   </div>
 </div>
 
+<!-- Reset confirmation modal -->
+<div id="resetConfirmModal" style="display:none;position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.6);align-items:center;justify-content:center;">
+  <div style="background:#1e2530;border:1px solid #374151;border-radius:10px;padding:28px 32px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.6);">
+    <div style="font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:10px;">Reset <span id="resetConfirmSymbol" style="color:#ef4444;"></span>?</div>
+    <div style="font-size:13px;color:#94a3b8;line-height:1.6;margin-bottom:22px;">This will <strong style="color:#f1f5f9;">delete all scraped data</strong> and re-run a full scrape from scratch.<br>This cannot be undone.</div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;">
+      <button onclick="closeResetConfirm()" style="background:none;border:1px solid #374151;color:#94a3b8;padding:7px 18px;border-radius:6px;cursor:pointer;font-size:13px;">Cancel</button>
+      <button onclick="confirmReset()" style="background:#ef4444;border:none;color:#fff;padding:7px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Yes, reset</button>
+    </div>
+  </div>
+</div>
+
 <script src="/static/dashboard.js?v={{ now }}"></script>
 </body>
 </html>

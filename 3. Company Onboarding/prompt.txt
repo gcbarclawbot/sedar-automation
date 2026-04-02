@@ -30,7 +30,9 @@ IMPORTANT DISTINCTIONS:
    - Strong signal it is OLD NEWS: the MRE is presented in past tense alongside other events ("Reported significant increase in mineral reserves", "Released Feasibility Study", "Commenced construction") in a bullet list of period activities → NONE. Even if explicit numbers follow (e.g. "Proven and Probable reserves increased to 6.7 million ounces"), if it is one bullet among several period highlights, it is a recap of a prior announcement → NONE
    - Strong signal it IS NEW: the release title and body are dedicated to the MRE update itself (not a results format), and the numbers are presented as current → CHANGED
    - When genuinely uncertain in a results release context, lean toward NONE
-   - TRAP: A quarterly/annual results release that says "Q1-2025 Results" or similar in the title, then mentions an MRE update in a highlights bullet, is almost certainly recapping a prior announcement. The MRE was not published in THIS release — lean NONE strongly.
+   - TRAP: A quarterly/annual results release that says "Q1-2025 Results", "Q4-2025", "Full Year", "Annual Results", or similar in the title, then mentions an MRE update in a highlights or development bullet, is ALWAYS recapping a prior announcement. Use NONE. This is true even if the MRE numbers appear to be stated in present tense ("estimating M&I resources of 100 Moz") — in a results release context these are highlights of work completed during the reporting period, not a new announcement being made in this release.
+   - TRAP: Any bullet that refers to a named technical report ("Updated post-construction technical report", "filed NI 43-101", "Preliminary Economic Assessment") within a results/financial release is a recap. The technical report filing itself is a separate event that was (or will be) captured separately — do not double-count it here.
+   - CRITICAL: The presence of explicit MRE numbers (e.g. "100 Moz Ag M&I at 165 g/t") does NOT override the results-release rule. When those numbers appear inside a quarterly or annual results release as a Development highlight bullet, they are recapping a previously announced update — classify NONE regardless of how specific the numbers are.
 
 3. PEA/PFS/DFS RELEASES: A study (PEA/PFS/DFS) is CHANGED only if it introduces a NEW mineral resource estimate OR if the release explicitly states a new/updated technical report has been filed simultaneously.
    - If the study explicitly references an EXISTING or PREVIOUSLY PUBLISHED technical report as its resource base → NONE (no new resource data)
@@ -42,6 +44,7 @@ IMPORTANT DISTINCTIONS:
    - "Drill program to support upcoming resource update" → NONE
 
 NONE - everything else, including:
+- Any release whose title contains "Results", "Revenue", "Financial", "Earnings", "Income", "Quarter", "Q1", "Q2", "Q3", "Q4", "Annual", "Full Year", "Year Ended", or "Operational Update" — ALWAYS NONE regardless of content, even if MRE numbers appear in the body. These are periodic reporting releases and any resource data in them is a recap of prior announcements.
 - Drill results, assay results, exploration updates (even high-grade) without a stated resource update
 - Production updates, operational results, throughput, recovery
 - Quarterly/annual financial results (even if they reference a prior MRE update)

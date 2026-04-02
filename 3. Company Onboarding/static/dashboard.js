@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('newsModal').addEventListener('click', function(e) {
     if (e.target === this) closeNewsModal();
   });
+  document.getElementById('resetConfirmModal').addEventListener('click', function(e) {
+    if (e.target === this) closeResetConfirm();
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -640,12 +643,23 @@ async function triggerRun() {
   } catch(e) { alert('Error'); btn.disabled=false; document.getElementById('resetBtn').disabled=false; btn.textContent='▶ Update'; }
 }
 
-async function triggerReset() {
+function triggerReset() {
   if (!currentSymbol) return;
-  const confirmed = confirm(
-    `Reset ${currentSymbol}?\n\nThis will delete all scraped data and re-run a full scrape from scratch.\n\nThis cannot be undone.`
-  );
-  if (!confirmed) return;
+  showResetConfirm(currentSymbol);
+}
+
+function showResetConfirm(symbol) {
+  document.getElementById('resetConfirmSymbol').textContent = symbol;
+  const m = document.getElementById('resetConfirmModal');
+  m.style.display = 'flex';
+}
+
+function closeResetConfirm() {
+  document.getElementById('resetConfirmModal').style.display = 'none';
+}
+
+async function confirmReset() {
+  closeResetConfirm();
   const runBtn   = document.getElementById('runBtn');
   const resetBtn = document.getElementById('resetBtn');
   runBtn.disabled   = true;
