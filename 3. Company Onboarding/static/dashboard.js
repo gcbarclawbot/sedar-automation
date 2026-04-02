@@ -46,11 +46,18 @@ async function loadCompany(symbol) {
   try {
     const res = await fetch(`/api/company/${symbol}`);
     if (res.status === 404) {
-      document.getElementById('coName').textContent = symbol;
-      document.getElementById('coMeta').textContent = '';
-      document.getElementById('splash').style.display = 'block';
-      document.getElementById('runBtn').disabled = true;
-      document.getElementById('resetBtn').disabled = true;
+      // Not onboarded - check if it exists in universe as a Miner
+      const uRes = await fetch(`/api/universe/${symbol}`);
+      if (uRes.ok) {
+        const u = await uRes.json();
+        renderUniversePreview(u);
+      } else {
+        document.getElementById('coName').textContent = symbol;
+        document.getElementById('coMeta').textContent = '';
+        document.getElementById('splash').style.display = 'block';
+        document.getElementById('runBtn').disabled = true;
+        document.getElementById('resetBtn').disabled = true;
+      }
       return;
     }
     const data = await res.json();
@@ -61,6 +68,26 @@ async function loadCompany(symbol) {
     document.getElementById('coMeta').textContent = 'Error loading';
     console.error('loadCompany error:', e);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Universe preview (not yet onboarded, but exists in universe as Miner)
+// ---------------------------------------------------------------------------
+function renderUniversePreview(u) {
+  const exchangeBadge = u.exchange ? `<span class="badge" style="background:rgba(99,102,241,.15);color:var(--accent);font-size:10px">${esc(u.exchange)}: ${esc(u.symbol)}</span>` : '';
+  const sedarBadge    = u.sedar_party ? `<span class="badge" style="background:rgba(100,116,139,.12);color:var(--muted);font-size:10px">SEDAR #${esc(u.sedar_party)}</span>` : '';
+  const notOnboarded  = `<span class="badge" style="background:rgba(245,158,11,.15);color:var(--amber);font-size:10px">Not onboarded</span>`;
+  document.getElementById('coName').innerHTML = `${esc(u.name)} ${exchangeBadge} ${sedarBadge} ${notOnboarded}`;
+  const comm = u.commodity ? ` · ${esc(u.commodity)}` : '';
+  document.getElementById('coMeta').innerHTML = `<span style="color:var(--muted)">${esc(u.company_type)}${comm} — click Onboard to build the R&amp;R timeline</span>`;
+  // Show Onboard button (green)
+  const btn = document.getElementById('runBtn');
+  btn.textContent = '▶ Onboard';
+  btn.classList.add('onboard');
+  btn.disabled = false;
+  document.getElementById('resetBtn').disabled = true;
+  document.getElementById('mainLayout').style.display = 'none';
+  document.getElementById('splash').style.display = 'none';
 }
 
 // ---------------------------------------------------------------------------
@@ -85,7 +112,10 @@ function renderAll(data) {
     `Last AIF: <strong>${fmtDate(aifDate)}</strong> &nbsp;(as at <strong>${fmtDate(asAt)}</strong>)&nbsp; · &nbsp;`
     + `Last run: ${fmtDate(lastRun)} <span class="badge ${mode==='UPDATE'?'b-upd':'b-full'}">${mode}</span>`;
 
-  document.getElementById('runBtn').disabled = is_running;
+  const runBtn = document.getElementById('runBtn');
+  runBtn.disabled = is_running;
+  runBtn.classList.remove('onboard');
+  if (!runBtn.querySelector('.spin')) runBtn.textContent = '▶ Update';
   document.getElementById('resetBtn').disabled = is_running;
   document.getElementById('mainLayout').style.display = 'grid';
   document.getElementById('splash').style.display = 'none';
@@ -710,7 +740,7 @@ async function checkGlobalRunning() {
       banner.style.display = 'none';
       if (runBtn && !runBtn.querySelector('.spin')) {
         runBtn.disabled = false;
-        runBtn.textContent = '▶ Update';
+        if (!runBtn.classList.contains('onboard')) runBtn.textContent = '▶ Update';
       }
       if (resetBtn && !resetBtn.querySelector('.spin')) {
         resetBtn.disabled = false;

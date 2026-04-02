@@ -187,6 +187,25 @@ def index():
 def api_companies():
     return jsonify(get_onboarded_companies())
 
+@app.route("/api/universe/<symbol>")
+def api_universe(symbol):
+    """Return universe info for a not-yet-onboarded company (Miners only)."""
+    symbol = symbol.upper()
+    u = _universe.get(symbol)
+    if not u:
+        return jsonify({"error": "not in universe"}), 404
+    company_type = u.get("company_type", "").lower()
+    if "miner" not in company_type:
+        return jsonify({"error": "not a miner"}), 404
+    return jsonify({
+        "symbol":       symbol,
+        "name":         u.get("name", symbol),
+        "exchange":     u.get("exchange", ""),
+        "sedar_party":  u.get("sedar_party_number", ""),
+        "commodity":    u.get("primary_commodity", ""),
+        "company_type": u.get("company_type", ""),
+    })
+
 @app.route("/api/company/<symbol>")
 def api_company(symbol):
     symbol = symbol.upper()
