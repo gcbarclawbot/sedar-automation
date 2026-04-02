@@ -53,6 +53,8 @@ import time
 import logging
 import traceback
 import requests
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).parent.parent))  # repo root
+from stockwatch_auth import get_cookies as _get_sw_cookies_shared, SESSION_PATH as _SW_SESSION_PATH
 import pytz
 from datetime import datetime, timedelta, date
 from pathlib import Path
@@ -114,7 +116,7 @@ CONFIG_PATH  = SCRIPT_DIR / "config.toml"
 STATE_SW_PATH     = SCRIPT_DIR / "state.json"
 STATE_SEDAR_PATH  = SCRIPT_DIR / "state_filings.json"
 LOG_PATH     = SCRIPT_DIR / "canadian_batch_run.log"
-SESSION_PATH = SCRIPT_DIR / "stockwatch_session.json"
+SESSION_PATH = _SW_SESSION_PATH  # canonical shared session file
 
 STOCKWATCH_BASE = "https://www.stockwatch.com"
 SEARCH_URL      = f"{STOCKWATCH_BASE}/News/Search"
@@ -352,63 +354,8 @@ def _stockwatch_browser_login(page) -> bool:
 
 
 def get_stockwatch_cookies() -> dict:
-    """Load Stockwatch cookies from browser or saved session. Auto-logins if session expired."""
-    def _extract_cookies(ctx) -> dict:
-        return {
-            c["name"]: c["value"]
-            for c in ctx.cookies()
-            if "stockwatch.com" in c.get("domain", "")
-        }
-
-    def _cache_cookies(cookies: dict):
-        SESSION_PATH.write_text(
-            json.dumps({"cookies": cookies, "saved_at": datetime.now().isoformat()}),
-            encoding="utf-8"
-        )
-
-    try:
-        from playwright.sync_api import sync_playwright
-        log.info("Getting Stockwatch cookies from browser (CDP)...")
-        with sync_playwright() as p:
-            browser = p.chromium.connect_over_cdp(CDP_URL)
-            ctx = browser.contexts[0]
-            cookies = _extract_cookies(ctx)
-
-            if "XXX" not in cookies:
-                page = ctx.new_page()
-                try:
-                    logged_in = _stockwatch_browser_login(page)
-                    if logged_in:
-                        page.wait_for_timeout(1000)
-                        cookies = _extract_cookies(ctx)
-                finally:
-                    page.close()
-
-            browser.close()
-
-        if "XXX" in cookies:
-            log.info(f"Got {len(cookies)} Stockwatch cookies")
-            _cache_cookies(cookies)
-            return cookies
-
-        log.warning("Browser login failed - falling back to saved session")
-
-    except Exception as e:
-        log.warning(f"Browser cookie fetch failed: {e} - trying saved session")
-
-    if SESSION_PATH.exists():
-        try:
-            data = json.loads(SESSION_PATH.read_text(encoding="utf-8"))
-            cookies = data.get("cookies", {})
-            log.info(f"Using saved Stockwatch session from {data.get('saved_at','?')}")
-            return cookies
-        except Exception:
-            pass
-
-    raise RuntimeError(
-        "No Stockwatch session and auto-login failed. Check credentials at "
-        "C:\\Users\\Admin\\.openclaw\\credentials\\stockwatch.env"
-    )
+    """Delegate to shared stockwatch_auth module (canonical session, shared login logic)."""
+    return _get_sw_cookies_shared()
 
 
 class StockwatchSession:
@@ -431,14 +378,17 @@ class StockwatchSession:
         log.info("Loading Stockwatch search form...")
         resp = self.session.get(SEARCH_URL, timeout=30)
         resp.raise_for_status()
-        if "NotLoggedIn" in resp.url:
-            raise RuntimeError("Stockwatch session expired")
-        soup = BeautifulSoup(resp.text, "html.parser")
+        body = resp.text
+        if ("NotLoggedIn" in resp.url or "NotLoggedIn" in body or
+                ("PowerUserName" in body and "PowerPassword" in body)):
+            raise RuntimeError("Stockwatch session expired - re-login required")
+        soup = BeautifulSoup(body, "html.parser")
         self._viewstate     = (soup.find("input", {"id": "__VIEWSTATE"})          or {}).get("value","")
         self._viewstate1    = (soup.find("input", {"id": "__VIEWSTATE1"})          or {}).get("value","")
         self._viewstate_gen = (soup.find("input", {"id": "__VIEWSTATEGENERATOR"}) or {}).get("value","")
-        logged_in = "You are logged in" in resp.text or "trial is good" in resp.text
-        log.info(f"  Form loaded (logged_in={logged_in})")
+        if not self._viewstate:
+            raise RuntimeError("Stockwatch session expired - no VIEWSTATE found")
+        log.info(f"  Form loaded (logged_in=True)")
         self._sleep()
 
     def search_by_date(self, target_date: date, exchange: str = "") -> list:

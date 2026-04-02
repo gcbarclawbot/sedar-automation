@@ -67,6 +67,8 @@ from bs4 import BeautifulSoup
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from aif_date_extractor import extract_aif_as_at_date
+sys.path.insert(0, str(Path(__file__).parent.parent))  # repo root for shared modules
+from stockwatch_auth import get_cookies as _get_sw_cookies_shared, test_session as _test_sw_session, SESSION_PATH as _SW_SESSION_PATH
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -94,7 +96,7 @@ COMPANIES_CSV = SCRIPT_DIR / "custom_run_or_onboarding_list.csv"
 UNIVERSE_CSV  = SCRIPT_DIR.parent / "1. Canadian Master Sync" / "canadian_universe.csv"
 RESULTS_DIR   = SCRIPT_DIR / "Results"
 LOG_PATH      = SCRIPT_DIR / "mm_onboarding.log"
-SESSION_PATH  = SCRIPT_DIR.parent / "2. Canadian Batch Run" / "stockwatch_session.json"
+SESSION_PATH  = _SW_SESSION_PATH  # canonical shared session file
 CDP_URL       = "http://127.0.0.1:18800"
 
 def load_universe_lookup() -> dict:
@@ -555,131 +557,11 @@ def infer_as_at_date(aif_filing_date: date) -> date:
     return date(y, m, last_day)
 
 # ---------------------------------------------------------------------------
-# Stockwatch session
+# Stockwatch session - delegated to shared stockwatch_auth module
 # ---------------------------------------------------------------------------
-def _load_stockwatch_credentials() -> tuple[str, str]:
-    """Load Stockwatch username/password from credentials file."""
-    creds_path = Path(r"C:\Users\Admin\.openclaw\credentials\stockwatch.env")
-    username = password = ""
-    if creds_path.exists():
-        for line in creds_path.read_text(encoding="utf-8").splitlines():
-            if line.startswith("STOCKWATCH_USERNAME="):
-                username = line.split("=", 1)[1].strip()
-            elif line.startswith("STOCKWATCH_PASSWORD="):
-                password = line.split("=", 1)[1].strip()
-    return username, password
-
-
-def _stockwatch_browser_login(page) -> bool:
-    """Log in to Stockwatch via the CDP browser page. Returns True on success."""
-    username, password = _load_stockwatch_credentials()
-    if not username or not password:
-        log.warning("  Stockwatch credentials not found - cannot auto-login")
-        return False
-    try:
-        log.info("  Stockwatch session expired - attempting auto-login via browser...")
-        page.goto("https://www.stockwatch.com/User/NotLoggedIn", wait_until="domcontentloaded", timeout=30000)
-        page.wait_for_timeout(1500)
-        # Fill Login ID
-        page.locator("input[name='ctl00$PowerUserName']").first.fill(username)
-        page.locator("input[name='ctl00$PowerPassword']").first.fill(password)
-        page.locator("input[name='ctl00$Login']").first.click()
-        page.wait_for_timeout(2500)
-        # Confirm logged in
-        if "NotLoggedIn" in page.url or "notloggedin" in page.url.lower():
-            log.warning("  Auto-login failed - still on NotLoggedIn page")
-            return False
-        log.info(f"  Auto-login successful (redirected to {page.url[:60]})")
-        return True
-    except Exception as e:
-        log.warning(f"  Auto-login error: {e}")
-        return False
-
-
-def _test_stockwatch_session(cookies: dict) -> bool:
-    """Quick check: does this cookie set yield an authenticated Stockwatch session?"""
-    try:
-        sess = requests.Session()
-        sess.headers.update({"User-Agent": "Mozilla/5.0"})
-        for k, v in cookies.items():
-            sess.cookies.set(k, v, domain="www.stockwatch.com")
-        r = sess.get(SW_SEDAR_URL, timeout=15)
-        body = r.text
-        # Authenticated page has __VIEWSTATE; logged-out page has login form or NotLoggedIn
-        if "NotLoggedIn" in body or "PowerUserName" in body:
-            return False
-        soup = BeautifulSoup(body, "html.parser")
-        vs = (soup.find("input", {"id": "__VIEWSTATE"}) or {}).get("value", "")
-        return bool(vs)
-    except Exception:
-        return False
-
-
 def get_stockwatch_cookies() -> dict:
-    """Load Stockwatch cookies from browser or saved session. Auto-logins if session expired."""
-    ensure_cdp_ready()
-    from playwright.sync_api import sync_playwright
-
-    def _extract_cookies(ctx) -> dict:
-        return {
-            c["name"]: c["value"]
-            for c in ctx.cookies()
-            if "stockwatch.com" in c.get("domain", "")
-        }
-
-    def _cache_cookies(cookies: dict):
-        SESSION_PATH.write_text(
-            json.dumps({"cookies": cookies, "saved_at": datetime.now().isoformat()}),
-            encoding="utf-8"
-        )
-
-    try:
-        log.info("  Extracting Stockwatch cookies from browser...")
-        with sync_playwright() as p:
-            browser = p.chromium.connect_over_cdp(CDP_URL)
-            ctx = browser.contexts[0]
-            cookies = _extract_cookies(ctx)
-
-            # Test if the current browser cookies are actually authenticated
-            if not _test_stockwatch_session(cookies):
-                log.info("  Stockwatch session not authenticated - attempting auto-login via browser...")
-                page = ctx.new_page()
-                try:
-                    logged_in = _stockwatch_browser_login(page)
-                    if logged_in:
-                        page.wait_for_timeout(1500)
-                        cookies = _extract_cookies(ctx)
-                finally:
-                    page.close()
-
-            browser.close()
-
-        if _test_stockwatch_session(cookies):
-            log.info(f"  Got {len(cookies)} Stockwatch cookies from browser (session verified)")
-            _cache_cookies(cookies)
-            return cookies
-
-        log.warning("  Browser login failed - falling back to saved session")
-
-    except Exception as e:
-        log.warning(f"  Browser cookie extract failed: {e} - trying saved session")
-
-    if SESSION_PATH.exists():
-        try:
-            data = json.loads(SESSION_PATH.read_text(encoding="utf-8"))
-            cookies = data.get("cookies", {})
-            if _test_stockwatch_session(cookies):
-                log.info(f"  Using saved session from {data.get('saved_at','?')} (session verified)")
-                return cookies
-            else:
-                log.warning(f"  Saved session from {data.get('saved_at','?')} is expired")
-        except Exception:
-            pass
-
-    raise RuntimeError(
-        "No valid Stockwatch session and auto-login failed. Check credentials at "
-        "C:\\Users\\Admin\\.openclaw\\credentials\\stockwatch.env"
-    )
+    """Delegate to shared stockwatch_auth module (canonical session, shared login logic)."""
+    return _get_sw_cookies_shared()
 
 
 class StockwatchSedarSession:
@@ -713,7 +595,6 @@ class StockwatchSedarSession:
     def _load_form(self):
         resp = self.session.get(SW_SEDAR_URL, timeout=30)
         resp.raise_for_status()
-        # Detect expired session: Stockwatch returns NotLoggedIn inline (not a redirect)
         body = resp.text
         if ("NotLoggedIn" in resp.url or "notloggedin" in resp.url.lower() or
                 "NotLoggedIn" in body or
@@ -722,10 +603,9 @@ class StockwatchSedarSession:
         soup = BeautifulSoup(body, "html.parser")
         self._vs  = (soup.find("input", {"id": "__VIEWSTATE"})          or {}).get("value", "")
         self._vsg = (soup.find("input", {"id": "__VIEWSTATEGENERATOR"}) or {}).get("value", "")
-        logged_in = bool(self._vs)  # VIEWSTATE only present on authenticated search page
-        log.info(f"  Stockwatch SEDAR form loaded (logged_in={logged_in})")
-        if not logged_in:
+        if not self._vs:
             raise RuntimeError("Stockwatch session expired - no VIEWSTATE found (not authenticated)")
+        log.info(f"  Stockwatch SEDAR form loaded (logged_in=True)")
         self._sleep()
 
     def _post_search(self, symbol: str, date_from: date, date_to: date,

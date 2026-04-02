@@ -33,6 +33,8 @@ import argparse
 from datetime import datetime, date, timedelta
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
+sys.path.insert(0, str(Path(__file__).parent.parent))  # repo root for shared modules
+from stockwatch_auth import get_cookies as _get_sw_cookies_shared, SESSION_PATH as _SW_SESSION_PATH
 
 import pytz
 import requests
@@ -225,49 +227,11 @@ def _ensure_cdp_ready(timeout: int = 30) -> bool:
     log.warning(f"  CDP not reachable after {timeout}s")
     return False
 
-SESSION_PATH = SCRIPT_DIR / "stockwatch_session.json"
+SESSION_PATH = _SW_SESSION_PATH  # canonical shared session file
 
 def _get_sw_cookies() -> dict:
-    """
-    Extract Stockwatch cookies from OpenClaw browser via CDP.
-    Falls back to cached stockwatch_session.json if browser unavailable.
-    """
-    from playwright.sync_api import sync_playwright
-    _ensure_cdp_ready()
-    try:
-        with sync_playwright() as pw:
-            browser = pw.chromium.connect_over_cdp(CDP_URL)
-            ctx = browser.contexts[0]
-            cookies = {c["name"]: c["value"] for c in ctx.cookies()
-                       if "stockwatch.com" in c.get("domain", "")}
-            browser.close()
-        if "XXX" in cookies:
-            log.info(f"  Got {len(cookies)} Stockwatch cookies from browser")
-            # Cache for reuse
-            import json as _json
-            SESSION_PATH.parent.mkdir(parents=True, exist_ok=True)
-            SESSION_PATH.write_text(
-                _json.dumps({"cookies": cookies, "saved_at": datetime.now().isoformat()}),
-                encoding="utf-8")
-            return cookies
-        log.warning("  XXX auth cookie missing from browser - trying saved session")
-    except Exception as e:
-        log.warning(f"  Browser cookie extract failed: {e} - trying saved session")
-
-    if SESSION_PATH.exists():
-        try:
-            import json as _json
-            data = _json.loads(SESSION_PATH.read_text(encoding="utf-8"))
-            cookies = data.get("cookies", {})
-            if "XXX" in cookies:
-                log.info(f"  Using saved Stockwatch session from {data.get('saved_at','?')}")
-                return cookies
-        except Exception:
-            pass
-
-    raise RuntimeError(
-        "No valid Stockwatch session. Open the Stockwatch site in OpenClaw browser and retry."
-    )
+    """Delegate to shared stockwatch_auth module (canonical session, shared login logic)."""
+    return _get_sw_cookies_shared()
 
 def _sw_session(cookies: dict) -> requests.Session:
     """Build a requests session with Stockwatch cookies and headers."""
@@ -287,11 +251,16 @@ def _sw_load_session(session: requests.Session) -> dict:
     """
     resp = session.get(SW_SEDAR_URL, timeout=30)
     resp.raise_for_status()
-    soup = BeautifulSoup(resp.text, "html.parser")
+    body = resp.text
+    if ("NotLoggedIn" in resp.url or "NotLoggedIn" in body or
+            ("PowerUserName" in body and "PowerPassword" in body)):
+        raise RuntimeError("Stockwatch session expired - re-login required")
+    soup = BeautifulSoup(body, "html.parser")
     vs  = (soup.find("input", {"id": "__VIEWSTATE"})          or {}).get("value", "")
     vsg = (soup.find("input", {"id": "__VIEWSTATEGENERATOR"}) or {}).get("value", "")
-    logged_in = "logged in" in resp.text.lower() or "imxgadeita" in resp.text
-    log.info(f"  Stockwatch SEDAR form loaded (logged_in={logged_in})")
+    if not vs:
+        raise RuntimeError("Stockwatch session expired - no VIEWSTATE found")
+    log.info(f"  Stockwatch SEDAR form loaded (logged_in=True)")
     return {"vs": vs, "vsg": vsg}
 
 def _sw_search(session: requests.Session, vs: dict, symbol: str,
