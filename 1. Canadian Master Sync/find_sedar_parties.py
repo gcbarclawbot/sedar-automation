@@ -548,7 +548,7 @@ def lookup_party_audit(page, symbol: str, name: str, known_pnum: str) -> dict:
                 "notes": f"active={best_filing_pnum} date={best_filing_date} > stored={known_pnum}"}
 
 
-def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0, skip_checked: bool = False):
+def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0, skip_checked: bool = False, errors_only: bool = False):
     """
     Audit all universe companies with stored party numbers.
     Logs a report of CONFIRMED / WRONG / AMBIGUOUS / NOT_FOUND.
@@ -571,15 +571,26 @@ def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0, skip_ch
 
     log.info(f"  Checking {len(candidates)} companies with stored party numbers")
 
-    if skip_checked:
+    if errors_only or skip_checked:
         report_path = SCRIPT_DIR / "sedar_party_audit.csv"
         if report_path.exists():
             import csv as _csv
             with open(report_path, newline="", encoding="utf-8-sig") as _f:
-                already_done = {r["symbol"] for r in _csv.DictReader(_f)}
-            before = len(candidates)
-            candidates = [r for r in candidates if r.get("symbol","") not in already_done]
-            log.info(f"  --skip-checked: skipping {before - len(candidates)} already audited, {len(candidates)} remaining")
+                rows = list(_csv.DictReader(_f))
+            if errors_only:
+                # Skip everything already in the audit file (CONFIRMED, WRONG, NOT_FOUND, ERROR)
+                # Only re-run symbols with no audit row at all
+                already_any = {r["symbol"] for r in rows if r.get("outcome")}
+                before = len(candidates)
+                candidates = [r for r in candidates if r.get("symbol","") not in already_any]
+                log.info(f"  --errors-only: skipping {before - len(candidates)} already audited, {len(candidates)} remaining")
+            else:
+                # skip_checked: only skip definitive results, re-run errors
+                already_done = {r["symbol"] for r in rows
+                                if r.get("outcome") not in ("ERROR", "")}
+                before = len(candidates)
+                candidates = [r for r in candidates if r.get("symbol","") not in already_done]
+                log.info(f"  --skip-checked: skipping {before - len(candidates)} already audited, {len(candidates)} remaining")
 
     if not _ensure_cdp_ready():
         log.error("CDP not available")
@@ -632,7 +643,7 @@ def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0, skip_ch
     # Save audit report
     report_path = SCRIPT_DIR / "sedar_party_audit.csv"
     report_fields = ["symbol", "outcome", "known", "top_pnum", "top_score", "notes", "candidates"]
-    write_mode = "a" if skip_checked and report_path.exists() else "w"
+    write_mode = "a" if (skip_checked or errors_only or symbol_filter) and report_path.exists() else "w"
     with open(report_path, write_mode, newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=report_fields, extrasaction="ignore")
         if write_mode == "w":
@@ -661,6 +672,8 @@ def main():
                     help="Audit mode: check all stored party numbers for correctness (read-only)")
     ap.add_argument("--skip-checked", action="store_true",
                     help="Skip symbols already in sedar_party_audit.csv (resume interrupted run)")
+    ap.add_argument("--errors-only", action="store_true",
+                    help="Only run symbols with no audit row at all (skip CONFIRMED, WRONG, NOT_FOUND and ERROR)")
     args = ap.parse_args()
 
     now = datetime.now(TORONTO_TZ)
