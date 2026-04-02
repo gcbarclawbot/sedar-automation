@@ -1215,13 +1215,20 @@ def sedar_gap_fill(symbol: str, company_name: str, party_number: str,
 # ---------------------------------------------------------------------------
 def onboard_company(symbol: str, company_name: str, exchange: str,
                     party_number: str, sw_session: StockwatchSedarSession,
-                    req_session: requests.Session) -> dict:
+                    req_session: requests.Session,
+                    sw_symbol: str = "") -> dict:
     """
     Full onboarding pipeline for one company. Auto-detects first run vs update.
     - First run: full history from AIF as-at date to today
     - Update run: gap fill from last run date to today, check for new AIF
+    sw_symbol: Stockwatch ticker if different from the canonical symbol (e.g. old symbol
+               still used by Stockwatch). Falls back to symbol if blank.
     Returns summary dict.
     """
+    # Use sw_symbol for all Stockwatch queries if provided, otherwise fall back to symbol
+    sw_sym = sw_symbol.strip().upper() if sw_symbol and sw_symbol.strip() else symbol
+    if sw_sym != symbol:
+        log.info(f"  Stockwatch symbol override: using '{sw_sym}' (canonical: '{symbol}')")
     company_dir = RESULTS_DIR / symbol
     company_dir.mkdir(parents=True, exist_ok=True)
     pdfs_dir = company_dir / "pdfs"
@@ -1245,8 +1252,8 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
     # ------------------------------------------------------------------
     log.info(f"  STAGE 1/5: AIF lookup & download")
     log.info(f"  {'â”€'*50}")
-    log.info(f"  Finding most recent AIF for {symbol}")
-    aif_info = sw_session.find_aif(symbol)
+    log.info(f"  Finding most recent AIF for {sw_sym}" + (f" (canonical: {symbol})" if sw_sym != symbol else ""))
+    aif_info = sw_session.find_aif(sw_sym)
 
     if aif_info:
         try:
@@ -1336,7 +1343,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
     log.info(f"  STAGE 2/5: Stockwatch SEDAR search")
     log.info(f"  {'â”€'*50}")
     log.info(f"  Date range: {sw_from} â†’ {sw_to}")
-    sw_filings = sw_session.search(symbol, sw_from, sw_to)
+    sw_filings = sw_session.search(sw_sym, sw_from, sw_to)
     log.info(f"  Stockwatch: {len(sw_filings)} filings found")
 
     # Process each Stockwatch filing
@@ -1442,7 +1449,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
     if all_news:
         log.info(f"  Step 4: Fetching text for {len(all_news)} news releases via /News/Search")
         # /News/Search has news up to today (no 14-day lag like /News/Sedar)
-        news_text_map = sw_session.fetch_news_text_for_symbol(symbol, sw_from, date.today())
+        news_text_map = sw_session.fetch_news_text_for_symbol(sw_sym, sw_from, date.today())
         html_dir = company_dir / "news_html"
         html_dir.mkdir(parents=True, exist_ok=True)
         matched = 0
@@ -1847,6 +1854,7 @@ def main():
             if not company.get("company_name"):  company["company_name"]      = u.get("name", "")
             if not company.get("exchange"):       company["exchange"]          = u.get("exchange", "")
             if not company.get("sedar_party_number"): company["sedar_party_number"] = u.get("sedar_party_number", "")
+            if not company.get("sw_symbol"):      company["sw_symbol"]         = u.get("sw_symbol", "")
 
     log.info(f"Companies to onboard: {len(companies)}")
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -1890,6 +1898,7 @@ def main():
         name   = company.get("company_name", "").strip()
         exch   = company.get("exchange", "").strip()
         party  = company.get("sedar_party_number", "").strip()
+        sw_sym = company.get("sw_symbol", "").strip().upper()
 
         if not sym:
             log.warning(f"  Row {i}: no symbol, skipping")
@@ -1928,7 +1937,7 @@ def main():
         lock_file.write_text(datetime.now().isoformat(), encoding="utf-8")
         _write_batch_meta(i - 1, sym)
         try:
-            summary = onboard_company(sym, name, exch, party, sw_session, req_session)
+            summary = onboard_company(sym, name, exch, party, sw_session, req_session, sw_sym=company.get("sw_symbol", ""))
             summaries.append(summary)
         except Exception as e:
             log.error(f"  {sym}: onboarding failed: {e}")
