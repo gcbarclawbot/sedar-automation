@@ -74,12 +74,14 @@ if hasattr(sys.stderr, "reconfigure"):
 
 # Ensure OPENAI_API_KEY is available even when running as a Windows service
 # (NSSM services run as SYSTEM and don't inherit user environment variables)
-import winreg as _winreg
+# Load from credentials file which is accessible to all users/services
 if not os.environ.get("OPENAI_API_KEY"):
     try:
-        with _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, r"Environment") as _k:
-            _key_val, _ = _winreg.QueryValueEx(_k, "OPENAI_API_KEY")
-            os.environ["OPENAI_API_KEY"] = _key_val
+        _creds = Path(r"C:\Users\Admin\.openclaw\credentials\openai.env")
+        for _line in _creds.read_text(encoding="utf-8").splitlines():
+            if _line.startswith("OPENAI_API_KEY="):
+                os.environ["OPENAI_API_KEY"] = _line.split("=", 1)[1].strip()
+                break
     except Exception:
         pass
 
