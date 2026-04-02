@@ -1650,12 +1650,16 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
     for _attempt in range(3):
         try:
             if is_update and csv_path.exists() and all_filings:
+                # UPDATE with new rows: append only
                 with open(csv_path, "a", newline="", encoding="utf-8-sig") as f:
                     writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
                     writer.writerows(all_filings)
                 log.info(f"  Appended {len(all_filings)} new rows to existing CSV")
+            elif is_update and not all_filings:
+                # UPDATE with no new rows: leave existing CSV untouched
+                log.info(f"  No new filings - existing CSV preserved ({csv_path.name})")
             else:
-                # Write to temp file then rename (avoids partial writes)
+                # FULL run: write fresh CSV
                 tmp = csv_path.with_suffix(".tmp")
                 with open(tmp, "w", newline="", encoding="utf-8-sig") as f:
                     writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
