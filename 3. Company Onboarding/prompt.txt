@@ -10,6 +10,7 @@ CHANGED - only if the release EXPLICITLY states one of these:
 - An acquisition where the release explicitly states the acquired asset has a current or historical resource/reserve (numbers must be mentioned OR the resource is the stated purpose of the deal)
 - A disposal/sale of an asset that the release explicitly states had a resource/reserve
 - A new NI 43-101 technical report that contains updated resource estimates
+- A material-value asset sale or acquisition (consideration of $20M USD or more) of a mine, deposit, or mineral project, EVEN IF no resource/reserve numbers are mentioned — at this value a resource base almost certainly exists and the company's R&R portfolio has materially changed. Use CHANGED and summarise as "Sale of [asset]" or "Acquisition of [asset]" with the deal value.
 
 IMPORTANT DISTINCTIONS:
 
@@ -38,11 +39,12 @@ NONE - everything else, including:
 - Production updates, operational results, throughput, recovery
 - Quarterly/annual financial results (even if they reference a prior MRE update)
 - Corporate appointments, financing, bought deals, warrants
-- Agreements, permits, regulatory approvals, partnerships
+- Agreements, permits, regulatory approvals, partnerships (that are not material-value mine/deposit sales)
+- Asset sales or acquisitions where the consideration is clearly under $20M USD, or where the asset is described as a royalty, stream, equipment, or non-mineral property
 - General exploration programs or drill campaign launches
 - Analyst coverage, ratings, price targets
 - Annual general meetings, proxy materials
-- Any release where "resource" or "reserve" does not appear at all
+- Any release where "resource" or "reserve" does not appear at all AND no material-value mine/deposit sale is present
 
 Do NOT use POSSIBLE. Use CHANGED or NONE only.
 If you are uncertain, use NONE.
@@ -59,6 +61,8 @@ Examples of good responses:
   CHANGED project-specific: {"flag":"CHANGED","summary":"Maiden reserve at Zgounder: P&P 73 Moz Ag at 290 g/t","project":"Zgounder"}
   CHANGED consolidated: {"flag":"CHANGED","summary":"Year-end 2025 reserves: 6.52 Moz Au total, 221% increase","project":"Group"}
   CHANGED acquisition: {"flag":"CHANGED","summary":"Acquired Amizmiz with 340,000 oz Au historical resource","project":"Amizmiz"}
+  CHANGED material sale (no explicit resource): {"flag":"CHANGED","summary":"Sale of Cayeli mine for $340M","project":"Cayeli"}
+  CHANGED material acquisition (no explicit resource): {"flag":"CHANGED","summary":"Acquisition of Las Cruces mine for $190M","project":"Las Cruces"}
   NONE: {"flag":"NONE","summary":"Q3 2025 production results"}
 
 News release text:
