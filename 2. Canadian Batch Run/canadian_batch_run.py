@@ -314,28 +314,85 @@ def notify_error(msg: str, phones: list):
 # PHASE 1: STOCKWATCH
 # ===========================================================================
 
+def _load_stockwatch_credentials() -> tuple[str, str]:
+    """Load Stockwatch username/password from credentials file."""
+    creds_path = Path(r"C:\Users\Admin\.openclaw\credentials\stockwatch.env")
+    username = password = ""
+    if creds_path.exists():
+        for line in creds_path.read_text(encoding="utf-8").splitlines():
+            if line.startswith("STOCKWATCH_USERNAME="):
+                username = line.split("=", 1)[1].strip()
+            elif line.startswith("STOCKWATCH_PASSWORD="):
+                password = line.split("=", 1)[1].strip()
+    return username, password
+
+
+def _stockwatch_browser_login(page) -> bool:
+    """Log in to Stockwatch via the CDP browser page. Returns True on success."""
+    username, password = _load_stockwatch_credentials()
+    if not username or not password:
+        log.warning("Stockwatch credentials not found - cannot auto-login")
+        return False
+    try:
+        log.info("Stockwatch session expired - attempting auto-login via browser...")
+        page.goto("https://www.stockwatch.com/User/NotLoggedIn", wait_until="domcontentloaded", timeout=30000)
+        page.wait_for_timeout(1500)
+        page.locator("input[name='ctl00$LoginID']").first.fill(username)
+        page.locator("input[name='ctl00$Password']").first.fill(password)
+        page.locator("input[name='ctl00$cmdLogin']").first.click()
+        page.wait_for_timeout(2500)
+        if "NotLoggedIn" in page.url or "notloggedin" in page.url.lower():
+            log.warning("Auto-login failed - still on NotLoggedIn page")
+            return False
+        log.info(f"Auto-login successful (redirected to {page.url[:60]})")
+        return True
+    except Exception as e:
+        log.warning(f"Auto-login error: {e}")
+        return False
+
+
 def get_stockwatch_cookies() -> dict:
+    """Load Stockwatch cookies from browser or saved session. Auto-logins if session expired."""
+    def _extract_cookies(ctx) -> dict:
+        return {
+            c["name"]: c["value"]
+            for c in ctx.cookies()
+            if "stockwatch.com" in c.get("domain", "")
+        }
+
+    def _cache_cookies(cookies: dict):
+        SESSION_PATH.write_text(
+            json.dumps({"cookies": cookies, "saved_at": datetime.now().isoformat()}),
+            encoding="utf-8"
+        )
+
     try:
         from playwright.sync_api import sync_playwright
         log.info("Getting Stockwatch cookies from browser (CDP)...")
         with sync_playwright() as p:
             browser = p.chromium.connect_over_cdp(CDP_URL)
             ctx = browser.contexts[0]
-            all_cookies = ctx.cookies()
-            cookies = {
-                c["name"]: c["value"]
-                for c in all_cookies
-                if "stockwatch.com" in c.get("domain", "")
-            }
+            cookies = _extract_cookies(ctx)
+
+            if "XXX" not in cookies:
+                page = ctx.new_page()
+                try:
+                    logged_in = _stockwatch_browser_login(page)
+                    if logged_in:
+                        page.wait_for_timeout(1000)
+                        cookies = _extract_cookies(ctx)
+                finally:
+                    page.close()
+
             browser.close()
-        if "XXX" not in cookies:
-            raise RuntimeError("XXX auth cookie missing - not logged into Stockwatch")
-        log.info(f"Got {len(cookies)} Stockwatch cookies")
-        SESSION_PATH.write_text(
-            json.dumps({"cookies": cookies, "saved_at": datetime.now().isoformat()}),
-            encoding="utf-8"
-        )
-        return cookies
+
+        if "XXX" in cookies:
+            log.info(f"Got {len(cookies)} Stockwatch cookies")
+            _cache_cookies(cookies)
+            return cookies
+
+        log.warning("Browser login failed - falling back to saved session")
+
     except Exception as e:
         log.warning(f"Browser cookie fetch failed: {e} - trying saved session")
 
@@ -349,7 +406,8 @@ def get_stockwatch_cookies() -> dict:
             pass
 
     raise RuntimeError(
-        "No Stockwatch session. Log in at stockwatch.com in OpenClaw browser and retry."
+        "No Stockwatch session and auto-login failed. Check credentials at "
+        "C:\\Users\\Admin\\.openclaw\\credentials\\stockwatch.env"
     )
 
 
