@@ -640,17 +640,23 @@ def run_recheck(universe: list, symbol_filter: str = "", limit: int = 0, skip_ch
             try: browser.close()
             except Exception: pass
 
-    # Save audit report
+    # Save audit report - always merge into existing file (no duplicate rows)
     report_path = SCRIPT_DIR / "sedar_party_audit.csv"
     report_fields = ["symbol", "outcome", "known", "top_pnum", "top_score", "notes", "candidates"]
-    write_mode = "a" if (skip_checked or errors_only or symbol_filter) and report_path.exists() else "w"
-    with open(report_path, write_mode, newline="", encoding="utf-8-sig") as f:
+    # Load existing rows keyed by symbol
+    existing = {}
+    if report_path.exists():
+        with open(report_path, newline="", encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                existing[row["symbol"]] = row
+    # Overwrite with new results
+    for r in results:
+        r["candidates"] = _json.dumps(r.get("candidates", []))
+        existing[r["symbol"]] = r
+    with open(report_path, "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=report_fields, extrasaction="ignore")
-        if write_mode == "w":
-            writer.writeheader()
-        for r in results:
-            r["candidates"] = _json.dumps(r.get("candidates", []))
-            writer.writerow(r)
+        writer.writeheader()
+        writer.writerows(existing.values())
 
     log.info("=" * 60)
     log.info(f"AUDIT COMPLETE: {len(candidates)} companies checked")
