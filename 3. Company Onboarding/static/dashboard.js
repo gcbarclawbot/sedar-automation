@@ -46,7 +46,11 @@ async function loadCompany(symbol) {
   try {
     const res = await fetch(`/api/company/${symbol}`);
     if (res.status === 404) {
-      // Not onboarded - check if it exists in universe as a Miner
+      // If symbol is currently running, don't snap back to universe preview - just wait
+      const runningRes = await fetch('/api/running');
+      const runningData = await runningRes.json();
+      if (runningData.running && runningData.running[symbol]) return;
+      // Not onboarded and not running - check if it exists in universe as a Miner
       const uRes = await fetch(`/api/universe/${symbol}`);
       if (uRes.ok) {
         const u = await uRes.json();
@@ -624,13 +628,15 @@ async function triggerRun() {
   if (!currentSymbol) return;
   const btn = document.getElementById('runBtn');
   btn.disabled = true;
+  btn.classList.remove('onboard');
   document.getElementById('resetBtn').disabled = true;
   btn.innerHTML = '<span class="spin"></span>';
   try {
     const res = await fetch(`/api/run/${currentSymbol}`, { method:'POST' });
     if (!res.ok) { alert((await res.json()).error||'Failed'); btn.disabled=false; document.getElementById('resetBtn').disabled=false; btn.textContent='▶ Update'; return; }
     showProg(true);
-    startPolling();
+    // Small delay before first poll so the process has time to start and write state
+    setTimeout(startPolling, 3000);
   } catch(e) { alert('Error'); btn.disabled=false; document.getElementById('resetBtn').disabled=false; btn.textContent='▶ Update'; }
 }
 
@@ -697,7 +703,8 @@ async function pollStatus() {
       if (p.status === 'done') {
         document.getElementById('progLabel').textContent = '✓ Complete';
         document.getElementById('progFill').style.background = 'var(--green)';
-        setTimeout(() => { loadCompany(currentSymbol); setTimeout(()=>showProg(false),3000); }, 1000);
+        // Wait a moment for state.json to be written before reloading
+        setTimeout(() => { setTimeout(()=>showProg(false),3000); loadCompany(currentSymbol); }, 2000);
       } else {
         document.getElementById('progLabel').textContent = '✗ Error';
         document.getElementById('progFill').style.background = 'var(--red)';
