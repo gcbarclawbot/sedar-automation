@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const sym = params.get('ticker') || localStorage.getItem('lastTicker') || '';
   if (sym) { input.value = sym.toUpperCase(); loadCompany(sym.toUpperCase()); }
+  else { showHome(); }
   input.addEventListener('keydown', e => { if (e.key === 'Enter') loadCompany(input.value.trim().toUpperCase()); });
   input.addEventListener('blur',    () => { const v = input.value.trim().toUpperCase(); if (v && v !== currentSymbol) loadCompany(v); });
 
@@ -45,6 +46,7 @@ async function loadCompany(symbol) {
   document.getElementById('coMeta').textContent = 'Loading…';
   document.getElementById('mainLayout').style.display = 'none';
   document.getElementById('splash').style.display = 'none';
+  document.getElementById('homeView').style.display = 'none';
 
   try {
     const res = await fetch(`/api/company/${symbol}`);
@@ -78,6 +80,78 @@ async function loadCompany(symbol) {
 }
 
 // ---------------------------------------------------------------------------
+// Home view
+// ---------------------------------------------------------------------------
+async function showHome() {
+  currentSymbol = '';
+  document.getElementById('tickerIn').value = '';
+  document.getElementById('coName').textContent = '—';
+  document.getElementById('coMeta').textContent = '';
+  document.getElementById('mainLayout').style.display = 'none';
+  document.getElementById('splash').style.display = 'none';
+  document.getElementById('homeView').style.display = 'block';
+  document.getElementById('runBtn').disabled = true;
+  document.getElementById('resetBtn').disabled = true;
+  const url = new URL(window.location);
+  url.searchParams.delete('ticker');
+  window.history.replaceState({}, '', url);
+  await renderHome();
+}
+
+async function renderHome() {
+  try {
+    const res  = await fetch('/api/companies');
+    const list = await res.json();
+    // Sort descending by market_cap (numeric, blank = 0)
+    list.sort((a, b) => {
+      const ma = parseFloat(a.market_cap) || 0;
+      const mb = parseFloat(b.market_cap) || 0;
+      return mb - ma;
+    });
+    document.getElementById('homeCount').textContent = list.length;
+    // Split into 3 columns as evenly as possible
+    const n    = list.length;
+    const col0 = Math.ceil(n / 3);
+    const col1 = Math.ceil((n - col0) / 2);
+    const col2 = n - col0 - col1;
+    const cols = [
+      list.slice(0, col0),
+      list.slice(col0, col0 + col1),
+      list.slice(col0 + col1)
+    ];
+    const fmtMcap = v => {
+      const n = parseFloat(v);
+      if (!n) return '—';
+      if (n >= 1000) return '$' + (n / 1000).toFixed(1) + 'B';
+      return '$' + Math.round(n) + 'M';
+    };
+    const fmtRun = v => v ? v.slice(0, 10) : '—';
+    document.getElementById('homeGrid').innerHTML = cols.map(col => {
+      if (!col.length) return '<div></div>';
+      const rows = col.map(c => `
+        <tr onclick="goTicker('${esc(c.symbol)}')" title="${esc(c.company_name || c.symbol)}">
+          <td><span class="sym">${esc(c.symbol)}</span><br><span class="exch">${esc(c.exchange)}</span></td>
+          <td class="co-nm">${esc(c.company_name || '')}</td>
+          <td class="r mcap">${fmtMcap(c.market_cap)}</td>
+          <td class="r lrun">${fmtRun(c.last_run_date)}</td>
+        </tr>`).join('');
+      return `<table class="home-table">
+        <thead><tr><th>Ticker</th><th>Company</th><th class="r">Mkt Cap</th><th class="r">Last Run</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('homeGrid').innerHTML = '<p style="color:var(--muted);padding:20px">Failed to load companies</p>';
+  }
+}
+
+function goTicker(sym) {
+  document.getElementById('homeView').style.display = 'none';
+  document.getElementById('tickerIn').value = sym;
+  loadCompany(sym);
+}
+
+// ---------------------------------------------------------------------------
 // Universe preview (not yet onboarded, but exists in universe as Miner)
 // ---------------------------------------------------------------------------
 function renderUniversePreview(u) {
@@ -101,16 +175,19 @@ function renderUniversePreview(u) {
 // Render everything
 // ---------------------------------------------------------------------------
 function renderAll(data) {
-  const { symbol, exchange, sedar_party, state, filings_by_category, prev_last_run_date, is_running } = data;
+  const { symbol, exchange, sedar_party, company_name, market_cap, state, filings_by_category, prev_last_run_date, is_running } = data;
   const cat = filings_by_category || {};
   const allF = Object.values(cat).flat();
 
   // Header
-  const coName = allF[0]?.issuer || symbol;
+  const coName = company_name || allF[0]?.issuer || symbol;
   const exchangeBadge = exchange ? `<span class="badge" style="background:rgba(99,102,241,.15);color:var(--accent);font-size:10px">${esc(exchange)}: ${esc(symbol)}</span>` : '';
   const sedarBadge    = sedar_party ? `<span class="badge" style="background:rgba(100,116,139,.12);color:var(--muted);font-size:10px">SEDAR #${esc(sedar_party)}</span>` : '';
   const usBadge       = state?.is_us_listing ? `<span class="badge" style="background:rgba(251,146,60,.15);color:#fb923c;font-size:10px">🇺🇸 US PRIMARY LISTING</span>` : '';
-  document.getElementById('coName').innerHTML = `${esc(coName)} ${exchangeBadge} ${sedarBadge} ${usBadge}`;
+  const mcapNum       = parseFloat(market_cap) || 0;
+  const mcapStr       = mcapNum >= 1000 ? '$' + (mcapNum/1000).toFixed(1) + 'B' : mcapNum ? '$' + Math.round(mcapNum) + 'M' : '';
+  const mcapBadge     = mcapStr ? `<span class="badge" style="background:rgba(34,197,94,.12);color:var(--green);font-size:10px">${mcapStr}</span>` : '';
+  document.getElementById('coName').innerHTML = `${esc(coName)} ${exchangeBadge} ${sedarBadge} ${usBadge} ${mcapBadge}`;
 
   const aifDate = state.aif_filing_date || '—';
   const asAt    = state.as_at_date || '—';

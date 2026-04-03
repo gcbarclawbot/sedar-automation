@@ -86,6 +86,7 @@ def get_onboarded_companies() -> list[dict]:
             state = json.loads(state_path.read_text(encoding="utf-8"))
         except Exception:
             state = {}
+        u = _universe.get(d.name, {})
         companies.append({
             "symbol":        d.name,
             "last_run":      state.get("last_run", ""),
@@ -94,6 +95,9 @@ def get_onboarded_companies() -> list[dict]:
             "aif_filing_date": state.get("aif_filing_date", ""),
             "as_at_date":    state.get("as_at_date", ""),
             "has_csv":       csv_path.exists(),
+            "company_name":  u.get("name", ""),
+            "exchange":      u.get("exchange", ""),
+            "market_cap":    u.get("market_cap", ""),
         })
     return companies
 
@@ -237,9 +241,11 @@ def api_company(symbol):
     prev_run = state.get("last_run_date", "")
 
     return jsonify({
-        "symbol":     symbol,
-        "exchange":   exchange,
+        "symbol":      symbol,
+        "exchange":    exchange,
         "sedar_party": sedar_party,
+        "company_name": u.get("name", ""),
+        "market_cap":   u.get("market_cap", ""),
         "state":      state,
         "is_running": is_running,
         "prev_last_run_date": prev_run,
