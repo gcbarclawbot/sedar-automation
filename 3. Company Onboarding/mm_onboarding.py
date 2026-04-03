@@ -1207,7 +1207,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
     all_filings = []
 
     # ------------------------------------------------------------------
-    log.info(f"  STAGE 1/5: AIF lookup & download")
+    log.info(f"  STAGE 1/6: AIF lookup & download")
     log.info(f"  {'â”€'*50}")
     log.info(f"  Finding most recent AIF for {sw_sym}" + (f" (canonical: {symbol})" if sw_sym != symbol else ""))
     aif_info = sw_session.find_aif(sw_sym)
@@ -1225,6 +1225,14 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         aif_is_new = str(aif_date) != prev_aif
         if is_update and not aif_is_new:
             log.info(f"  AIF unchanged since last run ({aif_date}) - skipping download")
+            # Re-upload to R2 if local file exists (ensures r2_url is always set)
+            existing_pdf = pdfs_dir / "AIF" / f"{aif_date}_{symbol}_AIF.pdf"
+            if existing_pdf.exists():
+                r2 = upload_to_r2(existing_pdf, symbol)
+                if r2:
+                    aif_info["r2_url"]   = r2
+                    aif_info["pdf_path"] = str(existing_pdf)
+                    aif_info["downloaded"] = "yes"
         elif aif_info.get("pdf_url") and aif_is_new:
             log.info(f"  {'New AIF found' if is_update else 'Downloading AIF'}: {aif_date}")
 
@@ -1313,7 +1321,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
             log.info(f"  Loaded {len(existing_keys)} existing filing keys to avoid duplicates")
 
     # ------------------------------------------------------------------
-    log.info(f"  STAGE 2/5: Stockwatch SEDAR search")
+    log.info(f"  STAGE 2/6: Stockwatch SEDAR search")
     log.info(f"  {'â”€'*50}")
     log.info(f"  Date range: {sw_from} â†’ {sw_to}")
     sw_filings = sw_session.search(sw_sym, sw_from, sw_to)
@@ -1390,7 +1398,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
     all_filings.extend(sw_filings)
 
     # ------------------------------------------------------------------
-    log.info(f"  STAGE 3/5: SEDAR+ gap fill (last 14 days)")
+    log.info(f"  STAGE 3/6: SEDAR+ gap fill (last 14 days)")
     log.info(f"  {'â”€'*50}")
     if party_number:
         log.info(f"  Step 3: SEDAR+ gap fill {gap_from} â†’ {gap_to}")
@@ -1409,7 +1417,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
 
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
-    log.info(f"  STAGE 4/5: News release text fetch")
+    log.info(f"  STAGE 4/6: News release text fetch")
     log.info(f"  {'â”€'*50}")
     # Fetch news release text from Stockwatch /News/Search
     # Match by date. Only Stockwatch (older) news - SEDAR+ gap news
@@ -1575,7 +1583,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
     all_filings = run_material_change_classification(symbol, all_filings, _mat_model, min(_mat_workers, 20))
 
     # ------------------------------------------------------------------
-    log.info(f"  STAGE 5/5: LLM classification of news releases")
+    log.info(f"  STAGE 5/6: LLM classification of news releases")
     log.info(f"  {'â”€'*50}")
     _cfg       = {}
     try:

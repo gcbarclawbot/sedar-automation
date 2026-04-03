@@ -131,11 +131,11 @@ def parse_progress(log_lines: list[str]) -> dict:
     Returns {stage, stage_num, total_stages, pct, status, detail}
     """
     stage_map = {
-        "STAGE 1/5": (1, "AIF lookup & download"),
-        "STAGE 2/5": (2, "Stockwatch SEDAR search"),
-        "STAGE 3/5": (3, "SEDAR+ gap fill (14 days)"),
-        "STAGE 4/5": (4, "Fetching news release text"),
-        "STAGE 5/5": (5, "LLM classification"),
+        "STAGE 1/6": (1, "AIF lookup & download"),
+        "STAGE 2/6": (2, "Stockwatch SEDAR search"),
+        "STAGE 3/6": (3, "SEDAR+ gap fill (14 days)"),
+        "STAGE 4/6": (4, "Fetching news release text"),
+        "STAGE 5/6": (5, "LLM classification"),
         "STAGE 6/6": (6, "Presentation scan"),
         "COMPLETE":  (7, "Complete"),
     }
