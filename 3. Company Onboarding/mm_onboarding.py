@@ -1295,6 +1295,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         log.warning(f"  No AIF found for {symbol} - defaulting to 2 years ago")
         aif_date   = date.today() - timedelta(days=730)
         as_at_date = infer_as_at_date(aif_date)
+        aif_info   = None  # sentinel: no AIF found
 
     if is_update:
         # Update mode: only fetch since last run date (with 1-day overlap for safety)
@@ -1646,6 +1647,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         "run_mode":          run_mode,
         "aif_filing_date":   str(aif_date),
         "as_at_date":        str(as_at_date),
+        "has_aif":           aif_info is not None,
         "sw_covered_to":     str(sw_to),
         "new_filings_this_run": len(all_filings),
     }

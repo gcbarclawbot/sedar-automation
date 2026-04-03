@@ -153,7 +153,7 @@ def parse_progress(log_lines: list[str]) -> dict:
         if "DL " in line or "→" in line or "classified" in line or "found" in line:
             detail = line.split(" INFO ")[-1].strip() if " INFO " in line else line.strip()
         if "COMPLETE" in line and "STAGE" not in line:
-            current_stage = 6
+            current_stage = 7
             current_label = "Complete"
             status = "done"
         if "failed:" in line.lower() and "onboarding failed" in line.lower():

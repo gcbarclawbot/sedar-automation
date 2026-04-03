@@ -195,6 +195,15 @@ function renderAIF(aifs, state) {
   if (titleEl) titleEl.textContent = isUS ? 'Annual Report (10-K)' : 'Annual Information Form';
 
   // Sort AIFs newest first, prefer amended versions for same filing date
+  // No AIF detected — show fallback block
+  if (state.has_aif === false) {
+    el.innerHTML = `<div class="aif-inner">
+      <div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:2px;">No ${aifLabel} detected</div>
+      <div style="font-size:11px;color:var(--muted);">Timeline starts 2 years ago</div>
+    </div>`;
+    return;
+  }
+
   const sorted = [...aifs].sort((a,b) => b.filing_date.localeCompare(a.filing_date));
   const deduped = dedupeAmended(sorted);
   const baselineAif = deduped.find(f => f.aif_filed) || deduped[0];
@@ -449,20 +458,35 @@ function renderNews(news, state, prevRun, ni43101Rows, aifRows) {
   const _isUS      = !!(currentData?.state?.is_us_listing);
   const _aifLabel  = _isUS ? '10-K' : 'AIF';
   // AIF year marker suppressed - the AIF baseline block itself is the visual anchor
-  html += `<div style="display:flex;align-items:flex-start;gap:8px;padding:10px 0 6px;margin-top:4px;border-top:2px solid var(--accent);">
-    <div style="width:88px;flex-shrink:0;text-align:right;padding-right:10px;">
-      <div style="font-size:10px;font-weight:700;color:var(--accent)">AS AT</div>
-      <div style="font-size:10px;color:var(--accent)">${fmtDate(asAtDate)}</div>
-    </div>
-    <span style="font-size:16px;flex-shrink:0">📋</span>
-    <div style="flex:1;">
-      <div style="font-size:12px;font-weight:700;color:var(--accent)">${_aifLabel} Resource Baseline</div>
-      <div style="font-size:11px;color:var(--muted)">Filed ${fmtDate(aifFiledDate)} — snapshot of R&R as at ${fmtDate(asAtDate)}</div>
-      <div style="margin-top:4px;">
-        ${aifPdfLink ? `<a href="${aifPdfLink}" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">📄 Open ${_aifLabel} ↗</a>` : ''}
+  const _hasAif = currentData?.state?.has_aif !== false;
+  if (_hasAif) {
+    html += `<div style="display:flex;align-items:flex-start;gap:8px;padding:10px 0 6px;margin-top:4px;border-top:2px solid var(--accent);">
+      <div style="width:88px;flex-shrink:0;text-align:right;padding-right:10px;">
+        <div style="font-size:10px;font-weight:700;color:var(--accent)">AS AT</div>
+        <div style="font-size:10px;color:var(--accent)">${fmtDate(asAtDate)}</div>
       </div>
-    </div>
-  </div>`;
+      <span style="font-size:16px;flex-shrink:0">📋</span>
+      <div style="flex:1;">
+        <div style="font-size:12px;font-weight:700;color:var(--accent)">${_aifLabel} Resource Baseline</div>
+        <div style="font-size:11px;color:var(--muted)">Filed ${fmtDate(aifFiledDate)} — snapshot of R&R as at ${fmtDate(asAtDate)}</div>
+        <div style="margin-top:4px;">
+          ${aifPdfLink ? `<a href="${aifPdfLink}" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">📄 Open ${_aifLabel} ↗</a>` : ''}
+        </div>
+      </div>
+    </div>`;
+  } else {
+    html += `<div style="display:flex;align-items:flex-start;gap:8px;padding:10px 0 6px;margin-top:4px;border-top:2px solid var(--muted);">
+      <div style="width:88px;flex-shrink:0;text-align:right;padding-right:10px;">
+        <div style="font-size:10px;font-weight:700;color:var(--muted)">FROM</div>
+        <div style="font-size:10px;color:var(--muted)">${fmtDate(asAtDate)}</div>
+      </div>
+      <span style="font-size:16px;flex-shrink:0">📋</span>
+      <div style="flex:1;">
+        <div style="font-size:12px;font-weight:700;color:var(--muted)">No AIF detected — timeline starts 2 years ago</div>
+        <div style="font-size:11px;color:var(--muted)">No Annual Information Form found on Stockwatch</div>
+      </div>
+    </div>`;
+  }
 
   el.innerHTML = html;
 }
