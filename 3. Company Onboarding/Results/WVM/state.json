@@ -1,9 +1,14 @@
 {
-  "last_run": "2026-04-02T09:30:53",
-  "last_run_date": "2026-04-02",
-  "run_mode": "UPDATE",
+  "last_run": "2026-04-03T09:05:48",
+  "last_run_date": "2026-04-03",
+  "run_mode": "FULL",
   "aif_filing_date": "2025-04-24",
   "as_at_date": "2025-01-31",
-  "sw_covered_to": "2026-03-19",
-  "new_filings_this_run": 1
+  "has_aif": true,
+  "sw_covered_to": "2026-03-20",
+  "new_filings_this_run": 30,
+  "presentation_url": "https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/WVM/2026-04-03_WVM-Corporate-Presentation.pdf",
+  "presentation_local": "C:\\Users\\Admin\\Mineral Media\\Mineral Media Shared Library - Documents\\13 - DS AI\\2. SEDAR+\\3. Company Onboarding\\Results\\WVM\\pdfs\\Presentations\\2026-04-03_WVM-Corporate-Presentation.pdf",
+  "presentation_size_kb": 2177,
+  "presentation_date": "January 2023"
 }
