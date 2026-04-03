@@ -1460,36 +1460,36 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
                     items_on_day = news_text_map[matched_key]  # list[item]
                     consumed_on_day = consumed_articles.setdefault(matched_key, set())
                     
-                    # Find available (unconsumed) items
-                    available_items = [item for item in items_on_day 
-                                     if item.get("article_id", "") not in consumed_on_day]
+                    # Find available (unconsumed) items - use list INDEX as stable unique key
+                    # (article_id may be "" if URL regex failed, causing false collisions)
+                    available = [(i, item) for i, item in enumerate(items_on_day)
+                                 if i not in consumed_on_day]
                     
-                    if not available_items:
-                        # All articles consumed - this filing gets no text match (falls to PDF fallback)
+                    if not available:
+                        # All articles consumed - falls to PDF fallback below
                         log.debug(f"    No available articles for {matched_key} - falling back to PDF")
                         continue
                     
-                    # Pick best available match by synopsis similarity
-                    if len(available_items) == 1:
-                        item = available_items[0]
+                    # Pick best available match by synopsis/headline similarity
+                    if len(available) == 1:
+                        chosen_idx, item = available[0]
                     else:
                         import difflib as _dl
                         synopsis_lower = (f.get("synopsis") or "").lower()
-                        best_item = available_items[0]
+                        chosen_idx, item = available[0]
                         best_score = 0.0
-                        for candidate in available_items:
+                        for i, candidate in available:
                             score = _dl.SequenceMatcher(
                                 None, synopsis_lower,
                                 candidate.get("headline", "").lower()
                             ).ratio()
                             if score > best_score:
                                 best_score = score
-                                best_item = candidate
-                        item = best_item
+                                chosen_idx, item = i, candidate
                         log.debug(f"    Multi-release day {matched_key}: matched '{item.get('headline','')[:60]}' (score={best_score:.2f})")
                     
-                    # Consume this article
-                    consumed_on_day.add(item.get("article_id", ""))
+                    # Mark this slot consumed by index
+                    consumed_on_day.add(chosen_idx)
                     
                     f["news_text"]   = item.get("text", "")
                     f["article_url"] = item.get("article_url", "")
@@ -1507,7 +1507,8 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
                     # Save HTML file, upload to R2 for permanent public link
                     raw_html = item.get("html", "")
                     if raw_html:
-                        html_path = html_dir / f"{date_key}_{item.get('article_id','')}.html"
+                        # Use list index as filename suffix - article_id may be empty
+                        html_path = html_dir / f"{date_key}_{chosen_idx}.html"
                         html_path.write_text(raw_html, encoding="utf-8")
                         f["news_html_path"]   = str(html_path)
                         f["news_html_r2_url"] = upload_html_to_r2(html_path, symbol)
