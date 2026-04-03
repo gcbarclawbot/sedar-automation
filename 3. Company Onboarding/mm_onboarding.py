@@ -795,8 +795,8 @@ class StockwatchSedarSession:
             log.info(f"    No news results for {symbol}")
             return {}
 
-        # Parse all rows - build lookup by date
-        news_by_date: dict = {}
+        # Parse all rows - keep ALL releases, including multiple on the same day
+        news_by_date: dict = {}  # date_key -> list[item]
         for row in tbl.find_all("tr")[1:]:
             cells = row.find_all("td")
             if len(cells) < 6:
@@ -813,29 +813,33 @@ class StockwatchSedarSession:
                 art_url = f"https://www.stockwatch.com{art_url}"
             art_id_m = re.search(r"-(\d+)/", art_url)
             art_id   = art_id_m.group(1) if art_id_m else ""
+            news_by_date.setdefault(date_key, []).append({
+                "article_url": art_url,
+                "article_id":  art_id,
+                "headline":    headline,
+                "pub_datetime": pub_dt,
+                "text":        "",
+            })
 
-            if date_key not in news_by_date:  # keep first (most recent same-day)
-                news_by_date[date_key] = {
-                    "article_url": art_url,
-                    "article_id":  art_id,
-                    "headline":    headline,
-                    "pub_datetime": pub_dt,
-                    "text":        "",
-                }
-
-        log.info(f"    {len(news_by_date)} news releases found")
+        total_releases = sum(len(v) for v in news_by_date.values())
+        log.info(f"    {total_releases} news releases found ({len(news_by_date)} dates)")
 
         # Fetch text for each article - parallel with 5 workers, small per-worker delay
         import time as _time
         import copy as _copy
         fetched = failed = 0
 
-        def _fetch_article(args):
-            date_key, item = args
+                # Build flat list of (date_key, idx, item) for all items with a URL
+        fetch_tasks = []
+        for dk, items in news_by_date.items():
+            for i, item in enumerate(items):
+                if item["article_url"]:
+                    fetch_tasks.append((dk, i, item))
+
+        def _fetch_article_indexed(args):
+            dk, idx, item = args
             url = item["article_url"]
-            if not url:
-                return date_key, None
-            _time.sleep(0.3)  # polite per-worker delay
+            _time.sleep(0.3)
             try:
                 r = self.session.get(url, timeout=30)
                 soup_art = BeautifulSoup(r.text, "html.parser")
@@ -848,21 +852,20 @@ class StockwatchSedarSession:
                     m_ts = re.search(r"\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}\s+ET", text)
                     if m_ts:
                         text = text[m_ts.start():]
-                    return date_key, {"html": raw_html, "text": text, "ok": True}
+                    return dk, idx, {"html": raw_html, "text": text, "ok": True}
                 else:
-                    return date_key, {"html": "", "text": "", "ok": False}
+                    return dk, idx, {"html": "", "text": "", "ok": False}
             except Exception as e:
                 log.debug(f"    Article fetch error {url}: {e}")
-                return date_key, {"html": "", "text": "", "ok": False}
+                return dk, idx, {"html": "", "text": "", "ok": False}
 
         with ThreadPoolExecutor(max_workers=5) as pool:
-            futures = {pool.submit(_fetch_article, (dk, item)): dk
-                       for dk, item in news_by_date.items() if item["article_url"]}
+            futures = {pool.submit(_fetch_article_indexed, task): task for task in fetch_tasks}
             for future in as_completed(futures):
-                date_key, result = future.result()
+                dk, idx, result = future.result()
                 if result:
-                    news_by_date[date_key]["html"] = result["html"]
-                    news_by_date[date_key]["text"] = result["text"]
+                    news_by_date[dk][idx]["html"] = result["html"]
+                    news_by_date[dk][idx]["text"] = result["text"]
                     if result["ok"]:
                         fetched += 1
                     else:
@@ -1454,7 +1457,26 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
                         pass
                 matched_key = date_key if date_key in news_text_map else (alt_key if alt_key and alt_key in news_text_map else None)
                 if matched_key:
-                    item = news_text_map[matched_key]
+                    items_on_day = news_text_map[matched_key]  # list[item]
+                    # When multiple releases on same day, pick best match by synopsis
+                    # similarity. If only one, use it directly.
+                    if len(items_on_day) == 1:
+                        item = items_on_day[0]
+                    else:
+                        import difflib as _dl
+                        synopsis_lower = (f.get("synopsis") or "").lower()
+                        best_item = items_on_day[0]
+                        best_score = 0.0
+                        for candidate in items_on_day:
+                            score = _dl.SequenceMatcher(
+                                None, synopsis_lower,
+                                candidate.get("headline", "").lower()
+                            ).ratio()
+                            if score > best_score:
+                                best_score = score
+                                best_item = candidate
+                        item = best_item
+                        log.debug(f"    Multi-release day {matched_key}: matched '{item.get('headline','')[:60]}' (score={best_score:.2f})")
                     f["news_text"]   = item.get("text", "")
                     f["article_url"] = item.get("article_url", "")
                     f["article_id"]  = item.get("article_id", "")
