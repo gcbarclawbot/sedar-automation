@@ -1435,6 +1435,9 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         html_dir = company_dir / "news_html"
         html_dir.mkdir(parents=True, exist_ok=True)
         matched = 0
+        # Track consumed articles to ensure one-to-one assignment
+        consumed_articles: dict = {}  # date_key -> set of consumed article_ids
+        
         for f in all_filings:
             f.setdefault("news_text",        "")
             f.setdefault("news_html_path",   "")
@@ -1455,16 +1458,26 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
                 matched_key = date_key if date_key in news_text_map else (alt_key if alt_key and alt_key in news_text_map else None)
                 if matched_key:
                     items_on_day = news_text_map[matched_key]  # list[item]
-                    # When multiple releases on same day, pick best match by synopsis
-                    # similarity. If only one, use it directly.
-                    if len(items_on_day) == 1:
-                        item = items_on_day[0]
+                    consumed_on_day = consumed_articles.setdefault(matched_key, set())
+                    
+                    # Find available (unconsumed) items
+                    available_items = [item for item in items_on_day 
+                                     if item.get("article_id", "") not in consumed_on_day]
+                    
+                    if not available_items:
+                        # All articles consumed - this filing gets no text match (falls to PDF fallback)
+                        log.debug(f"    No available articles for {matched_key} - falling back to PDF")
+                        continue
+                    
+                    # Pick best available match by synopsis similarity
+                    if len(available_items) == 1:
+                        item = available_items[0]
                     else:
                         import difflib as _dl
                         synopsis_lower = (f.get("synopsis") or "").lower()
-                        best_item = items_on_day[0]
+                        best_item = available_items[0]
                         best_score = 0.0
-                        for candidate in items_on_day:
+                        for candidate in available_items:
                             score = _dl.SequenceMatcher(
                                 None, synopsis_lower,
                                 candidate.get("headline", "").lower()
@@ -1474,6 +1487,10 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
                                 best_item = candidate
                         item = best_item
                         log.debug(f"    Multi-release day {matched_key}: matched '{item.get('headline','')[:60]}' (score={best_score:.2f})")
+                    
+                    # Consume this article
+                    consumed_on_day.add(item.get("article_id", ""))
+                    
                     f["news_text"]   = item.get("text", "")
                     f["article_url"] = item.get("article_url", "")
                     f["article_id"]  = item.get("article_id", "")
@@ -1490,7 +1507,7 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
                     # Save HTML file, upload to R2 for permanent public link
                     raw_html = item.get("html", "")
                     if raw_html:
-                        html_path = html_dir / f"{date_key}.html"
+                        html_path = html_dir / f"{date_key}_{item.get('article_id','')}.html"
                         html_path.write_text(raw_html, encoding="utf-8")
                         f["news_html_path"]   = str(html_path)
                         f["news_html_r2_url"] = upload_html_to_r2(html_path, symbol)
