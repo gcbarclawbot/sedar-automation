@@ -1,12 +1,12 @@
-﻿source,symbol,issuer,filing_date,doc_type,industry,category,synopsis,article_url,article_id,pdf_url,pdf_path,page_count,pdf_size_kb,downloaded,r2_url,news_text,news_html_path,news_html_r2_url,mat_summary,llm_flag,llm_summary,llm_project,llm_error,as_at_date,aif_filed
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-13,NOTICE_OF_THE_MEETING_AND_RECORD_DATE_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6147040.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,ON_FORMF1,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145428.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CEO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145418.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CFO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145419.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,AB_FORMF1,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145427.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,MDA_EN,not applicable,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/6145407.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MD&A\2026-03-11_ITH_MD&A_MDA_EN.pdf,6,166,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2026-03-11_ITH_MD&A_MDA_EN.pdf,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,ANNUAL_REPORT_ON_FORM_10K_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145414.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,CONSENT_LETTERS,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145415.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
+source,symbol,issuer,filing_date,doc_type,industry,category,synopsis,article_url,article_id,pdf_url,pdf_path,page_count,pdf_size_kb,downloaded,r2_url,news_text,news_html_path,news_html_r2_url,mat_summary,llm_flag,llm_summary,llm_project,llm_error,as_at_date,aif_filed
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,ANNUAL_REPORT_ON_FORM_10K_EN,not applicable,AIF,,,,https://www.stockwatch.com/News/Sedardoc/6145414.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\AIF\2026-03-11_ITH_AIF.pdf,74,897,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2026-03-11_ITH_AIF.pdf,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-13,NOTICE_OF_THE_MEETING_AND_RECORD_DATE_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6147040.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,ON_FORMF1,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145428.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CEO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145418.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CFO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145419.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,AB_FORMF1,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145427.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,MDA_EN,not applicable,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/6145407.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MD&A\2026-03-11_ITH_MD&A_MDA_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2026-03-11_ITH_MD&A_MDA_EN.pdf,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,ANNUAL_REPORT_ON_FORM_10K_EN,not applicable,AIF,,,,https://www.stockwatch.com/News/Sedardoc/6145414.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
 stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower Hill Mines Files 2025 Year End Financial Results,https://www.stockwatch.com/News/Item/Z-C!ITH-3794800/C/ITH,3794800,https://www.stockwatch.com/News/Sedardoc/6145385.pdf,,0,0,no,,"2026-03-11 16:35 ET - News Release
 International Tower Hill Mines Files 2025 Year End Financial Results
 PR Newswire
@@ -34,8 +34,8 @@ https://www.prnewswire.com/news-releases/international-tower-hill-mines-files-20
 SOURCE International Tower Hill Mines Ltd.
 Contact:
 Contact Information: Richard Solie, Jr., Manager - Investor Relations, E-mail: rsolie@ithmines.com, Direct line: 907-328-2825, Toll-Free: 1-855-428-2825
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-03-11.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-03-11.html,,NONE,2025 year-end financial results filed,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,AUDITED_ANNUAL_FINANCIAL_STATEMENTS_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145389.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-03-11.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-03-11.html,,NONE,2025 Year End Financial Results,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-03-11,AUDITED_ANNUAL_FINANCIAL_STATEMENTS_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6145389.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
 stockwatch,ITH,International Tower Hill Mines Ltd.,2026-02-23,NEWS_RELEASE_EN,not applicable,NewsRelease,"International Tower Hill Mines to Give Updated Presentation at BMO Global Metals, Mining & Critical Minerals Conference on February 25th and Extends Webcast Invitation",https://www.stockwatch.com/News/Item/Z-C!ITH-3787769/C/ITH,3787769,https://www.stockwatch.com/News/Sedardoc/6129765.pdf,,0,0,no,,"2026-02-23 08:30 ET - News Release
 International Tower Hill Mines to Give Updated Presentation at BMO Global Metals, Mining & Critical Minerals Conference on February 25th and Extends Webcast Invitation
 PR Newswire
@@ -70,10 +70,10 @@ https://www.prnewswire.com/news-releases/international-tower-hill-mines-to-give-
 SOURCE International Tower Hill Mines Ltd.
 Contact:
 Contact Information: Richard Solie, Jr., Manager - Investor Relations, E-mail: rsolie@ithmines.com, Direct line: 907-328-2825, Toll-Free: 1-855-428-2825
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-02-23.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-02-23.html,,NONE,Updated presentation at BMO conference,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-02-12,REPORT_OF_EXEMPT_DISTRIBUTION_NI_45106,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6123427.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-02-06,MATERIAL_CHANGE_REPORT_EN,not applicable,MaterialChange,,,,https://www.stockwatch.com/News/Sedardoc/6120377.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MaterialChange\2026-02-06_ITH_MaterialChange_MATERIAL_CHANGE_REPORT_EN.pdf,2,125,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2026-02-06_ITH_MaterialChange_MATERIAL_CHANGE_REPORT_EN.pdf,,,,Public offering and private placement,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-29,OTHER,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6114266.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-02-23.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-02-23.html,,NONE,Updated presentation at BMO conference,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-02-12,REPORT_OF_EXEMPT_DISTRIBUTION_NI_45106,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6123427.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-02-06,MATERIAL_CHANGE_REPORT_EN,not applicable,MaterialChange,,,,https://www.stockwatch.com/News/Sedardoc/6120377.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MaterialChange\2026-02-06_ITH_MaterialChange_MATERIAL_CHANGE_REPORT_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2026-02-06_ITH_MaterialChange_MATERIAL_CHANGE_REPORT_EN.pdf,,,,Public offering and private placement,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-29,OTHER,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6114266.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
 stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-27,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower closes offerings for $114.8M (U.S.),https://www.stockwatch.com/News/Item/Z-C!ITH-3778511/C/ITH,3778511,https://www.stockwatch.com/News/Sedardoc/6110436.pdf,,0,0,no,,"2026-01-27 21:38 ET - News Release
 Mr. Karl Hanneman reports
 INTERNATIONAL TOWER HILL MINES CLOSES UPSIZED US$115 MILLION EQUITY FINANCING, INCLUDING FULL EXERCISE OF UNDERWRITERS' OPTION
@@ -86,9 +86,9 @@ As Paulson and certain of the institutional shareholders who participated in the
 About International Tower Hill Mines Ltd.
 International Tower Hill has a 100-per-cent interest in its Livengood gold project, located along the paved Elliott Highway, 70 miles north of Fairbanks, Alaska.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-01-27.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-01-27.html,,NONE,Equity financing completed for Livengood project,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-23,OFFERING_MATERIAL_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6109263.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-23,OFFERING_MATERIAL_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6107417.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-01-27.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-01-27.html,,NONE,Closed upsized equity financing for Livengood,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-23,OFFERING_MATERIAL_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6109263.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
+stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-23,OFFERING_MATERIAL_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6107417.pdf,,0,0,no,,,,,,,,,,2025-12-31,2026-03-11
 stockwatch,ITH,International Tower Hill Mines Ltd.,2026-01-22,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower Hill Mines Announces Pricing and Upsize of US$65 Million Public Offering of Common Shares and US$40 Million Concurrent Private Placement,https://www.stockwatch.com/News/Item/Z-C!ITH-3777102/C/ITH,3777102,https://www.stockwatch.com/News/Sedardoc/6107180.pdf,,0,0,no,,"2026-01-22 22:39 ET - News Release
 International Tower Hill Mines Announces Pricing and Upsize of US$65 Million Public Offering of Common Shares and US$40 Million Concurrent Private Placement
 PR Newswire
@@ -120,272 +120,4 @@ https://www.prnewswire.com/news-releases/international-tower-hill-mines-announce
 SOURCE International Tower Hill Mines Ltd.
 Contact:
 Contact Information: Richard Solie, Jr., Manager - Investor Relations, E-mail: rsolie@ithmines.com, Direct line: 907-328-2825, Toll-Free: 1-855-428-2825
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-01-22.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-01-22.html,,NONE,Public offering and private placement announcement,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-11-07,INTERIM_MDA_EN,not applicable,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/6050617.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MD&A\2025-11-07_ITH_MD&A_INTERIM_MDA_EN.pdf,5,174,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2025-11-07_ITH_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-11-07,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CEO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6050621.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-11-07,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CFO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6050622.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-11-07,INTERIM_FINANCIAL_STATEMENTSREPORT_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/6050613.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-11-07,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower Hill Mines Files 2025 Third Quarter Financial Results,https://www.stockwatch.com/News/Item/Z-C!ITH-3750817/C/ITH,3750817,https://www.stockwatch.com/News/Sedardoc/6050606.pdf,,0,0,no,,"2025-11-07 08:05 ET - News Release
-International Tower Hill Mines Files 2025 Third Quarter Financial Results
-PR Newswire
-VANCOUVER, BC, Nov. 7, 2025
-VANCOUVER, BC
-,
-Nov. 7, 2025
-/PRNewswire/ - International Tower Hill Mines Ltd. (the ""Company"") - (TSX: ITH) (NYSE American: THM) today announced that it has filed its unaudited third quarter Financial Statements and associated Management Discussion and Analysis and Quarterly Report on Form 10-Q for the three- and nine-month period ended
-September 30, 2025
-.
-Shareholders can obtain copies of the Company's unaudited third quarter Financial Statements and associated Management Discussion and Analysis and Form 10-Q on SEDAR+ at:
-www.sedarplus.ca
-, EDGAR at
-www.sec.gov
-and on the Company's website at:
-www.ithmines.com
-. The Company will also provide hard copies of these documents, free of charge, to shareholders who request a copy directly from the Company.
-About International Tower Hill Mines Ltd.
-International Tower Hill Mines Ltd. has a 100% interest in its Livengood Gold Project located along the paved Elliott Highway, 70 miles north of
-Fairbanks, Alaska
-.
-On behalf of
-International Tower Hill Mines Ltd.
-(signed)
-Karl L. Hanneman
-Chief Executive Officer
-This news release is not, and is not to be construed in any way as, an offer to buy or sell securities in
-the United States
-.
-View original content:
-https://www.prnewswire.com/news-releases/international-tower-hill-mines-files-2025-third-quarter-financial-results-302607674.html
-SOURCE  International Tower Hill Mines Ltd.
-Contact:
-Contact Information: Richard Solie, Jr., Manager - Investor Relations, E-mail: rsolie@ithmines.com, Direct line: 907-328-2825, Toll-Free: 1-855-428-2825
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2025-11-07.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2025-11-07.html,,NONE,Q3 2025 financial results filed,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-09-04,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower Hill Mines Provides Progress Report on Antimony Metallurgy Study at the Livengood Gold Project,https://www.stockwatch.com/News/Item/Z-C!ITH-3728665/C/ITH,3728665,https://www.stockwatch.com/News/Sedardoc/6010288.pdf,,0,0,no,,"2025-09-04 16:05 ET - News Release
-International Tower Hill Mines Provides Progress Report on Antimony Metallurgy Study at the Livengood Gold Project
-PR Newswire
-VANCOUVER, BC, Sept. 4, 2025
-VANCOUVER, BC
-,
-Sept. 4, 2025
-/PRNewswire/ - International Tower Hill Mines Ltd. (the ""Company"") - (TSX: ITH) (NYSE American: THM) today announced that it has received encouraging results from the first phase of the metallurgical study on antimony mineralization at the Livengood Gold Project that was announced on
-March 4
-, 2025.
-The Company's most recent S-K 1300 Technical Report Summary, ""Pre-Feasibility Study of the Livengood Gold Project"", as amended
-October 13, 2023
-, presented a new geologic model for the Livengood deposit and detailed gold metallurgical work that allowed the relationship between gold recovery and antimony mineralization to be characterized. During this geological modelling process, 54 veins of massive stibnite were detailed as presented in Table 11-8 ""Livengood deposit massive stibnite grade estimates"" of the S-K 1300 Technical Report Summary. While the pre-feasibility study detailed the 9.0 million ounce proven and probable gold reserve contained within the 13.6 million ounce measured and indicated gold resource, with 6.4 million ounces of gold production projected over 21 years, no metallurgical studies had been completed at that time to provide an understanding of whether antimony might be recoverable from the massive stibnite veins.
-Subsequent to the announcement on
-March 4, 2025
-, the Company compiled four metallurgical composites, each from individual veins, and provided splits from the composites to Advanced Mineral Technology Laboratory Ltd.,
-London, Ontario
-(AMTEL) for antimony deportment work. The gold and antimony assays for these samples are presented in Table 1 below.
-Table 1. Livengood Gold Project Vein Composite Assays
-Sample
-Au g/mt
-Sb%
-SB12
-4.19
-2.75
-SB24
-3.72
-2.31
-SB40
-3.31
-1.41
-SB46
-3.21
-1.05
-The samples were milled to p80 of 250 micron (the same grind size as selected in the 2023 Technical Report Summary for the 9.0 million ounce proven and probable gold reserve based on optimization studies). The milled material was separated by size and mineralogy and then examined. Results for all samples indicate that the antimony is carried by stibnite, that most of the stibnite is of a floatable size (>10 micron), that the liberation of stibnite is very good at the grind size of p80 250 micron, and thus the samples have the potential to respond well to flotation.
-These results warrant continuation into the next phase of the test work to assess potential flowsheets, to evaluate how the samples respond to flotation, and to determine what the characteristics of any concentrate obtained might be. The Company intends to commence this work immediately at SGS Vancouver and SGS Lakefield. The data presented here is very preliminary in nature and simply indicates a further examination of the metallurgy of the antimony carried by the stibnite veins is warranted. Much more metallurgical and extensive other work would be required before any determination of the recoverability of the antimony could be established, as well as before any economic analysis or estimates of tonnage, grade or resource could be developed.
-Forward-Looking Statements
-Statements in this press release that are not statements of historical or current fact constitute ""forward-looking statements"" within the meaning of the U.S. Private Securities Litigation Reform Act of 1995, as amended, Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934, as amended, and ""forward-looking information"" within the meaning of applicable Canadian securities laws (collectively, ""forward-looking statements""). Such forward-looking statements involve known and unknown risks, uncertainties, and other factors that could cause the actual results of the Company to be materially different from historical results or from any future results expressed or implied by such forward-looking statements. In addition to statements which explicitly describe such risks and uncertainties, readers are urged to consider statements containing the terms ""intends,"" ""estimates,"" ""may,"" ""might"", ""will,"" or other similar expressions to be uncertain and forward-looking. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of the date of this press release. The forward-looking statements in this press release, including statements regarding estimates of the quality and quantity of the mineral resources at the Livengood Gold Project, including gold and antimony, and the potential for production at the Livengood Gold Project are based upon the Company's current expectations and involve assumptions that may never materialize or may prove to be incorrect. Actual results and the timing of events could differ materially from those anticipated in such forward-looking statements as a result of various risks and uncertainties, including, without limitation: (i) the demand for, and level and volatility of the price of, gold, (ii) general business and economic conditions, (iii) the accuracy of the Company's resource estimates (including with respect to size and grade) and the geological, operational and price assumptions on which these are based, (iv) the timing of the Company's ability to commence and complete planned work programs at the Livengood Gold Project, including the antimony study, (v) the Company's ability to attract and retain key staff, particularly in connection with the permitting and development of any mine at the Livengood Gold Project, and (vi) the Company's ability to secure the necessary services and supplies on favorable terms in connection with its programs at the Livengood Gold Project and other activities. The foregoing list of important factors that could cause actual events to differ from expectations should not be construed as exhaustive and should be read in conjunction with statements that are included herein and elsewhere, including the risk factors detailed in the ""Forward-Looking Statements,"" ""Risk Factors"" and ""Management's Discussion and Analysis of Financial Condition and Results of Operations"" sections of the Company's Annual Report on Form 10-K for the fiscal year ended
-December 31, 2024
-, Quarterly Report on Form 10-Q for the quarterly period ended
-March 31, 2025
-and the Quarterly Report on Form 10-Q for the quarterly period ended
-June 30, 2025
-and other documents that have been and will be filed by the Company from time to time with the Securities and Exchange Commission and Canadian securities regulators. All forward-looking statements contained in this press release speak only as of the date on which they were made. The Company undertakes no obligation to update such statements to reflect events that occur or circumstances that exist after the date on which they were made, except as required by applicable securities laws.
-About International Tower Hill Mines Ltd.
-International Tower Hill Mines Ltd. has a 100% interest in its Livengood Gold Project located along the paved Elliott Highway, 70 miles north of
-Fairbanks, Alaska
-.
-On behalf of
-International Tower Hill Mines Ltd.
-(signed)
-Karl L. Hanneman
-Chief Executive Officer
-View original content:
-https://www.prnewswire.com/news-releases/international-tower-hill-mines-provides-progress-report-on-antimony-metallurgy-study-at-the-livengood-gold-project-302546301.html
-SOURCE  International Tower Hill Mines Ltd.
-Contact:
-Contact Information: Richard Solie, Jr., Manager - Investor Relations, E-mail: rsolie@ithmines.com, Direct line: 907-328-2825, Toll-Free: 1-855-428-2825
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2025-09-04.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2025-09-04.html,,NONE,Progress report on antimony metallurgy study,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-08-08,INTERIM_FINANCIAL_STATEMENTSREPORT_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5981743.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-08-08,INTERIM_MDA_EN,not applicable,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5981749.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MD&A\2025-08-08_ITH_MD&A_INTERIM_MDA_EN.pdf,6,176,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2025-08-08_ITH_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-08-08,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CEO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5981752.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-08-08,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CFO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5981753.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-08-08,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower Hill Mines Files 2025 Second Quarter Financial Results,https://www.stockwatch.com/News/Item/Z-C!ITH-3719001/C/ITH,3719001,https://www.stockwatch.com/News/Sedardoc/5981737.pdf,,0,0,no,,"2025-08-08 16:35 ET - News Release
-International Tower Hill Mines Files 2025 Second Quarter Financial Results
-PR Newswire
-VANCOUVER, BC, Aug. 8, 2025
-VANCOUVER, BC
-,
-Aug. 8, 2025
-/PRNewswire/ - International Tower Hill Mines Ltd.  (the ""Company"") - (TSX: ITH) (NYSE American: THM) today announced that it has filed its unaudited second quarter Financial Statements and associated Management Discussion and Analysis and Quarterly Report on Form 10-Q for the three- and six-month period ended
-June 30, 2025
-.
-Shareholders can obtain copies of the Company's unaudited second quarter Financial Statements and associated Management Discussion and Analysis and Form 10-Q on SEDAR+ at:
-www.sedarplus.ca
-, EDGAR at
-www.sec.gov
-and on the Company's website at:
-www.ithmines.com
-. The Company will also provide hard copies of these documents, free of charge, to shareholders who request a copy directly from the Company.
-About International Tower Hill Mines Ltd.
-International Tower Hill Mines Ltd. has a 100% interest in its Livengood Gold Project located along the paved Elliott Highway, 70 miles north of
-Fairbanks, Alaska
-.
-On behalf of
-International Tower Hill Mines Ltd.
-(signed)
-Karl L. Hanneman
-Chief Executive Officer
-This news release is not, and is not to be construed in any way as, an offer to buy or sell securities in
-the United States
-.
-View original content:
-https://www.prnewswire.com/news-releases/international-tower-hill-mines-files-2025-second-quarter-financial-results-302525065.html
-SOURCE  International Tower Hill Mines Ltd.
-Contact:
-Contact Information: Richard Solie, Jr., Manager - Investor Relations, E-mail: rsolie@ithmines.com, Direct line: 907-328-2825, Toll-Free: 1-855-428-2825
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2025-08-08.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2025-08-08.html,,NONE,Q2 2025 financial results filed,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-06-05,NEWS_RELEASE_EN,not applicable,NewsRelease,Int'l Tower Hill holders approve all matters at AGM,https://www.stockwatch.com/News/Item/Z-C!ITH-3697116/C/ITH,3697116,https://www.stockwatch.com/News/Sedardoc/5939115.pdf,,0,0,no,,"2025-06-05 20:26 ET - News Release
-Mr. Karl Hanneman reports
-INTERNATIONAL TOWER HILL MINES ANNOUNCES RESULTS FROM 2025 ANNUAL GENERAL MEETING OF SHAREHOLDERS
-International Tower Hill Mines Ltd. has released the results from its 2025 annual general meeting of shareholders held in Vancouver, B.C., on Wednesday, June 4, 2025.
-At the meeting, the company's shareholders elected the following individuals as directors of the company, with all receiving a majority of the votes cast, as shown in the attached table.
-The shareholders reappointed the current auditor, Davidson & Company LLP, chartered accountants, as auditor of the company for the fiscal year ending Dec. 31, 2025, and authorized the directors to fix their remuneration.
-The shareholders approved (98.45-per-cent majority), on an advisory non-binding basis, the compensation paid to the company's executive officers (say on pay) and a 99.14-per-cent majority of the shareholders voted in favour of holding the say on pay vote every year. In light of the results, the company will continue to hold the say on pay vote every year.
-The detailed proxy voting on all resolutions submitted to the shareholders at the meeting is contained in the report of voting results for the meeting which will be available under the company's profile on SEDAR+ and on the company's website or upon request by contacting the company at 855-428-2825.
-About International Tower Hill Mines Ltd.
-International Tower Hill Mines controls 100 per cent of the Livengood gold project located along the paved Elliott Highway, 70 miles north of Fairbanks, Alaska.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2025-06-05.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2025-06-05.html,,NONE,Results from 2025 annual general meeting,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-05-09,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower Hill Mines Files 2025 First Quarter Financial Results,https://www.stockwatch.com/News/Item/Z-C!ITH-3685153/C/ITH,3685153,https://www.stockwatch.com/News/Sedardoc/5914466.pdf,,0,0,no,,"2025-05-09 08:10 ET - News Release
-International Tower Hill Mines Files 2025 First Quarter Financial Results
-PR Newswire
-VANCOUVER, BC, May 9, 2025
-VANCOUVER, BC
-,
-May 9, 2025
-/PRNewswire/ - International Tower Hill Mines Ltd.  (the ""Company"") - (TSX: ITH) (NYSE American: THM) today announced that it has filed its unaudited first quarter Financial Statements and associated Management Discussion and Analysis and Quarterly Report on Form 10-Q for the three-month period ended
-March 31, 2025
-.
-Shareholders can obtain copies of the Company's unaudited first quarter Financial Statements and associated Management Discussion and Analysis and Form 10-Q on SEDAR+ at:
-www.sedarplus.ca
-, EDGAR at
-www.sec.gov
-and on the Company's website at:
-www.ithmines.com
-. The Company will also provide hard copies of these documents, free of charge, to shareholders who request a copy directly from the Company.
-About International Tower Hill Mines Ltd.
-International Tower Hill Mines Ltd. has a 100% interest in its Livengood Gold Project located along the paved Elliott Highway, 70 miles north of
-Fairbanks, Alaska
-.
-On behalf of
-International Tower Hill Mines Ltd.
-(signed)
-Karl L. Hanneman
-Chief Executive Officer
-This news release is not, and is not to be construed in any way as, an offer to buy or sell securities in
-the United States
-.
-View original content:
-https://www.prnewswire.com/news-releases/international-tower-hill-mines-files-2025-first-quarter-financial-results-302450875.html
-SOURCE  International Tower Hill Mines Ltd.
-Contact:
-Contact Information: Richard Solie, Jr., Manager - Investor Relations, E-mail: rsolie@ithmines.com, Direct line: 907-328-2825, Toll-Free: 1-855-428-2825
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2025-05-09.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2025-05-09.html,,NONE,Q1 2025 financial results filed,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-05-09,INTERIM_FINANCIAL_STATEMENTSREPORT_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5914460.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-05-09,INTERIM_MDA_EN,not applicable,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5914461.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MD&A\2025-05-09_ITH_MD&A_INTERIM_MDA_EN.pdf,5,170,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2025-05-09_ITH_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-05-09,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CEO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5914464.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-05-09,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CFO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5914465.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,REPORT_OF_VOTING_RESULTS,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5939118.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,FORM_OF_PROXY_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5893786.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,OTHER,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5893788.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,NOTICE_OF_MEETING_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5893784.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,MANAGEMENT_INFORMATION_CIRCULAR_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5893785.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,OTHER,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5893787.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,OTHER,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5893789.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-04-16,FORM_OF_PROXY_AMENDED_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5897391.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-17,NOTICE_OF_THE_MEETING_AND_RECORD_DATE_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5860550.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,ANNUAL_REPORT_ON_FORM_10K_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5857602.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,CONSENT_LETTERS,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5857603.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CEO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5857604.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CFO_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5857605.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,AB_FORMF1,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5857596.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,ON_FORMF1,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5857597.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,MDA_EN,not applicable,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5857598.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\pdfs\MD&A\2025-03-12_ITH_MD&A_MDA_EN.pdf,6,169,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/2025-03-12_ITH_MD&A_MDA_EN.pdf,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,AUDITED_ANNUAL_FINANCIAL_STATEMENTS_EN,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5857592.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-12,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower okays 2025 Livengood work plan,https://www.stockwatch.com/News/Item/Z-C!ITH-3661959/C/ITH,3661959,https://www.stockwatch.com/News/Sedardoc/5857589.pdf,,0,0,no,,"2025-03-12 18:11 ET - News Release
-Mr. Karl Hanneman reports
-INTERNATIONAL TOWER HILL MINES APPROVES 2025 LIVENGOOD GOLD PROJECT WORK PLAN AND FILES 2024 YEAR END FINANCIAL RESULTS
-International Tower Hill Mines Ltd.  has approved the 2025 work program of $3.7-million. This work will begin metallurgical study of the massive stibnite antimony mineralization at the Livengood gold project, advance the baseline environmental data collection in critical areas of hydrology and waste rock geochemical characterization needed to support future permitting, and continue community engagement.
-The company also announced that it has filed its audited year-end financial statements and associated management's discussion and analysis on Form 10-K for the year ended Dec. 31, 2024.
-On March 4, 2025, the company announced that it had completed a non-brokered private placement pursuant to which it issued common shares to existing major shareholders to raise gross proceeds of approximately $3.9-million (U.S.). The private placement consisted of 8,192,031 common shares of the company at a price of 48.01 U.S. cents per common share.
-Shareholders can obtain copies of the company's audited year-end financial statements and associated management's discussion and analysis and Form 10-K on SEDAR+, EDGAR and the company's website. The company will also provide hard copies of these documents, free of charge, to shareholders who request a copy directly from the company.
-About International Tower Hill Mines Ltd.
-International Tower has a 100-per-cent interest in its Livengood gold project located along the paved Elliott Highway, 70 miles north of Fairbanks, Alaska.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2025-03-12.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2025-03-12.html,,NONE,2025 work plan for Livengood project,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-07,REPORT_OF_EXEMPT_DISTRIBUTION_NI_45106,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5854512.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-04,OTHER,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5852493.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2025-03-04,NEWS_RELEASE_EN,not applicable,NewsRelease,International Tower completes $3.9M (U.S.) placement,https://www.stockwatch.com/News/Item/Z-C!ITH-3659191/C/ITH,3659191,https://www.stockwatch.com/News/Sedardoc/5851639.pdf,,0,0,no,,"2025-03-04 16:59 ET - News Release
-Mr. Karl Hanneman reports
-INTERNATIONAL TOWER HILL MINES ANNOUNCES US$3.9 MILLION NON-BROKERED PRIVATE PLACEMENT TO ADVANCE LIVENGOOD GOLD PROJECT WITH ANTIMONY STUDY
-International Tower Hill Mines Ltd. has completed a non-brokered private placement pursuant to which the company issued common shares to existing major shareholders to raise gross proceeds of approximately $3.9-million (U.S.) to be used in part to study the massive stibnite antimony mineralization at the Livengood gold project.
-The private placement consisted of 8,192,031 common shares of the company, representing approximately 4.1 per cent of the 199.7 million shares issued and outstanding prior to the completion of the private placement, at a price of 48.01 U.S. cents per share, the closing price of the company's common shares on the NYSE American on Feb. 25, 2025. The private placement was taken up by current institutional shareholders of the company, Paulson & Co. Inc., Electrum Strategic Opportunities Fund II LP and Kopernik Global Investors LLC on behalf of itself and affiliates. The company intends to use the net proceeds of the private placement for working capital and general corporate purposes, including advancing antimony metallurgical studies. Following completion of the private placement, the company has 207,885,473 common shares issued and outstanding.
-The company's most recent S-K 1300 technical report summary, ""Pre-Feasibility Study of the Livengood Gold Project"" as amended Oct. 13, 2023, presented a new geologic model for the Livengood deposit and detailed gold metallurgical work that allowed the relationship between gold recovery and antimony mineralization to be characterized. During this geological modelling process, 54 veins of massive stibnite were detailed with antimony grades ranging up to 6.9 per cent, as presented in Table 11-8 ""Livengood deposit massive stibnite grade estimates"" of the S-K 1300 technical report summary. While the prefeasibility study detailed the 9.0 million ounces of gold reserve and 6.4 million ounces of gold production projected over 21 years, no metallurgical studies were completed to provide an understanding of whether antimony might be recoverable from the massive stibnite veins.
-Karl Hanneman, chief executive officer, said: ""Record gold prices combined with our large gold reserve are presenting an improving value proposition for our Livengood gold project. In addition, changing world geopolitics have resulted in increased awareness in the United States of the importance of critical and strategic minerals, including antimony, for our national defence and economy. The market price of antimony has increased to record highs and therefore the significant occurrence of antimony known to exist within our Livengood gold project now warrants some of our attention. Thus, we intend to use a portion of this financing to begin the evaluation of whether this antimony could be recovered in a way such that the production of antimony over the long life of the project might add value to the project and contribute to the critical and strategic mineral needs of the United States. We appreciate the support of our major shareholders, who understand that this new opportunity only adds to the potential of our large gold reserve, which is getting more exciting each day.""
-The private placement complied with the requirements of the Toronto Stock Exchange (TSX) and the NYSE American. The company relied on the exemption set forth in Section 602.1 of the TSX Company Manual, which provides that the TSX will not apply its standards to certain transactions involving eligible interlisted issuers listed on a recognized exchange, such as the NYSE American.
-As some of the institutional shareholders qualify as related parties of the company, the private placement was a related party transaction within the meaning of Multilateral Instrument 61-101 -- Protection of Minority Security Holders in Special Transactions (MI 61-101). The company is relying upon exemptions from the formal valuation and minority shareholder approval requirements of MI 61-101 on the basis that the fair market value of the shares issued does not exceed 25 per cent of the company's current market capitalization.
-About International Tower Hill Mines Ltd.
-International Tower Hill Mines has a 100-per-cent interest in its Livengood gold project located along the paved Elliott Highway, 70 miles north of Fairbanks, Ala.
-We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2025-03-04.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2025-03-04.html,,NONE,Private placement to advance Livengood project,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-12-06,Other material contracts - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5798076.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-11-07,Interim MD&A - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5769674.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-11-07,52-109F2 - Certification of interim filings - CEO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5769682.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-11-07,52-109F2 - Certification of interim filings - CFO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5769685.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-11-07,News release - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5769690.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-11-07,Interim financial statements/report - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5769667.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-08-09,52-109F2 - Certification of interim filings - CEO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5706795.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-08-09,52-109F2 - Certification of interim filings - CFO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5706797.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-08-09,News release - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5706792.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-08-09,Interim financial statements/report - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5706793.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-08-09,Interim MD&A - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5706794.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-05-30,News release - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5660345.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-05-10,Interim financial statements/report - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5641020.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-05-10,Interim MD&A - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5641022.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-05-10,52-109F2 - Certification of interim filings - CEO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5641023.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-05-10,52-109F2 - Certification of interim filings - CFO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5641024.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-05-10,News release - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5641019.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-04-19,Management information circular - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5620970.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-04-19,Notice of meeting - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5620971.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-04-19,Other,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5620972.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-04-19,Other,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5620973.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-04-19,Other,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5620974.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-04-19,Form of proxy - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5620975.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-04-19,Report of voting results,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5660421.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-13,Notice of the meeting and record date - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5584618.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,Audited annual financial statements - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582342.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,52-109F1 - Certification of annual filings - CFO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582030.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,Annual report on form 10-K - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582031.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,Consent letter(s),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582032.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,Annual MD&A - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582034.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,AB Form 13-501F1 and/or ON Form 13-502F1 (Class 1 and 3B Reporting Issuers - Participation Fee),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582025.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,AB Form 13-501F1 and/or ON Form 13-502F1 (Class 1 and 3B Reporting Issuers - Participation Fee),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582026.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,52-109F1 - Certification of annual filings - CEO (E),not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582029.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,News release - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582019.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-03-08,Audited annual financial statements - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5582017.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-01-29,Report of exempt distribution excluding schedule 1 of Form 5,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5555109.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-01-22,Other,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5549390.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-01-22,News release - English,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5549377.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
-stockwatch,ITH,International Tower Hill Mines Ltd.,2024-01-03,Other,not applicable,Other,,,,https://www.stockwatch.com/News/Sedardoc/5542003.pdf,,0,0,no,,,,,,,,,,2023-12-31,2024-03-30
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\ITH\news_html\2026-01-22.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ITH/news_html/2026-01-22.html,,NONE,Public offering and private placement announcement,,,2025-12-31,2026-03-11

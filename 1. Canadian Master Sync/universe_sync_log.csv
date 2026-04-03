@@ -1,0 +1,21 @@
+﻿date,symbol,name,exchange,event,action,old_value,new_value,notes
+2026-04-02,CAEM,Avantis CIBC Emerging Markets Equity ETF,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-03-30
+2026-04-02,KNGG,Brompton Global Cash Flow Kings ETF,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-03-30
+2026-04-02,PAYG,Brompton Global Equity HighPay ETF,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-03-30
+2026-04-02,GGEP,Guardian Directed Equity Path Portfolio,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-04-02
+2026-04-02,GGPY,Guardian Directed Premium Yield Portfolio,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-04-02
+2026-04-02,GIUS,Guardian i3 U.S. Core Equity Fund,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-04-02
+2026-04-02,HBOP,Humilis Fundamental Opportunities ETF,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-03-30
+2026-04-02,HBDV,Humilis North American Dividend Growth ETF,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-03-30
+2026-04-02,HBTA,Humilis North American Tactical Equity Fund,TSX,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-03-30
+2026-04-02,AZEM,Arizona Eagle Mining Corp.,TSXV,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-04-02
+2026-04-02,AZEM,Arizona Eagle Mining Corp.,TSXV,UNIVERSE_NEW_LISTING,ADDED_PENDING,,PENDING/Tier3,Mining-relevant new listing - needs LLM classification
+2026-04-02,IMM,International Metals Mining Corp.,TSXV,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-04-02
+2026-04-02,IMM,International Metals Mining Corp.,TSXV,UNIVERSE_NEW_LISTING,ADDED_PENDING,,PENDING/Tier3,Mining-relevant new listing - needs LLM classification
+2026-04-02,LXE,Latin Explore Inc.,TSXV,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-03-30
+2026-04-02,VKG,Norse Gold Corp.,TSXV,NEW_LISTING,ADDED_TO_SNAPSHOT,,,listed_date=2026-04-02
+2026-04-02,VKG,Norse Gold Corp.,TSXV,UNIVERSE_NEW_LISTING,ADDED_PENDING,,PENDING/Tier3,Mining-relevant new listing - needs LLM classification
+2026-04-02,DV,Dolly Varden Silver Corporation,TSXV,DELISTED,STATUS_TO_DELISTED,LISTED,DELISTED,2026-03-30
+2026-04-02,DV,Dolly Varden Silver Corporation,TSXV,UNIVERSE_DELISTED,UNIVERSE_STATUS_TO_DELISTED,LISTED,DELISTED,
+2026-04-02,MGI,Magnum Goldcorp Inc.,TSXV,DELISTED,STATUS_TO_DELISTED,LISTED,DELISTED,2026-04-01
+2026-04-02,MGI,Magnum Goldcorp Inc.,TSXV,UNIVERSE_DELISTED,UNIVERSE_STATUS_TO_DELISTED,LISTED,DELISTED,

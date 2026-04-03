@@ -75,6 +75,11 @@ SNAPSHOT_FIELDNAMES = [
     "sector", "industry", "market_cap", "description",
     "price", "price_change_pct", "last_trade_datetime",
     "shares_outstanding", "eps", "pe_ratio", "weeks52high", "weeks52low",
+    "website", "full_address", "phone_number", "email", "employees",
+    "beta", "price_to_book", "return_on_equity", "return_on_assets",
+    "currency", "open_price", "day_high", "day_low",
+    "total_debt_to_equity", "dividend_yield", "dividend_amount",
+    "ex_dividend_date", "dividend_frequency",
     "mining_flag", "notes", "sedar_party_number", "sedar_party_name",
     "in_universe",  # Y / PENDING / N / blank (not yet classified)
 ]
@@ -90,6 +95,11 @@ UNIVERSE_FIELDNAMES = [
     # Market data (updated daily)
     "price", "price_change_pct", "last_trade_datetime",
     "shares_outstanding", "eps", "pe_ratio", "weeks52high", "weeks52low",
+    "website", "full_address", "phone_number", "email", "employees",
+    "beta", "price_to_book", "return_on_equity", "return_on_assets",
+    "currency", "open_price", "day_high", "day_low",
+    "total_debt_to_equity", "dividend_yield", "dividend_amount",
+    "ex_dividend_date", "dividend_frequency",
     # SEDAR
     "sedar_party_number", "sedar_party_name",
     # Universe classification (from universe_builder.py)
@@ -209,6 +219,11 @@ query getQuoteBySymbol($symbol:String,$locale:String){
         sector industry longDescription shortDescription
         eps peRatio shareOutStanding
         weeks52high weeks52low close prevClose datetime
+        website fullAddress phoneNumber email employees
+        beta priceToBook returnOnEquity returnOnAssets
+        currency openPrice dayHigh dayLow
+        totalDebtToEquity dividendYield dividendAmount
+        exDividendDate dividendFrequency
     }
 }"""
 
@@ -321,6 +336,9 @@ def load_universe() -> tuple:
         for f in UNIVERSE_FIELDNAMES:
             if f not in r:
                 r[f] = ""
+        # Rows loaded from CSV without in_universe column are existing universe members
+        if not r.get("in_universe"):
+            r["in_universe"] = "Y"
     return rows, UNIVERSE_FIELDNAMES
 
 def save_universe(rows: list):
@@ -344,18 +362,37 @@ def append_universe_log(entries: list):
 def _apply_profile_to_row(row: dict, profile: dict):
     if not profile:
         return
-    row["sector"]             = profile.get("sector") or row.get("sector", "")
-    row["industry"]           = profile.get("industry") or row.get("industry", "")
-    row["market_cap"]         = profile.get("MarketCap") or row.get("market_cap", "")
-    row["description"]        = (profile.get("longDescription") or profile.get("shortDescription") or row.get("description",""))[:500]
-    row["price"]              = profile.get("price") or row.get("price", "")
-    row["price_change_pct"]   = profile.get("percentChange") or row.get("price_change_pct", "")
-    row["last_trade_datetime"]= profile.get("datetime") or row.get("last_trade_datetime", "")
-    row["shares_outstanding"] = profile.get("shareOutStanding") or row.get("shares_outstanding", "")
-    row["eps"]                = profile.get("eps") or row.get("eps", "")
-    row["pe_ratio"]           = profile.get("peRatio") or row.get("pe_ratio", "")
-    row["weeks52high"]        = profile.get("weeks52high") or row.get("weeks52high", "")
-    row["weeks52low"]         = profile.get("weeks52low") or row.get("weeks52low", "")
+    row["sector"]              = profile.get("sector") or row.get("sector", "")
+    row["industry"]            = profile.get("industry") or row.get("industry", "")
+    row["market_cap"]          = profile.get("MarketCap") or row.get("market_cap", "")
+    row["description"]         = (profile.get("longDescription") or profile.get("shortDescription") or row.get("description",""))[:500]
+    row["price"]               = profile.get("price") or row.get("price", "")
+    row["price_change_pct"]    = profile.get("percentChange") or row.get("price_change_pct", "")
+    row["last_trade_datetime"] = profile.get("datetime") or row.get("last_trade_datetime", "")
+    row["shares_outstanding"]  = profile.get("shareOutStanding") or row.get("shares_outstanding", "")
+    row["eps"]                 = profile.get("eps") or row.get("eps", "")
+    row["pe_ratio"]            = profile.get("peRatio") or row.get("pe_ratio", "")
+    row["weeks52high"]         = profile.get("weeks52high") or row.get("weeks52high", "")
+    row["weeks52low"]          = profile.get("weeks52low") or row.get("weeks52low", "")
+    # New fields
+    row["website"]             = profile.get("website") or row.get("website", "")
+    row["full_address"]        = profile.get("fullAddress") or row.get("full_address", "")
+    row["phone_number"]        = profile.get("phoneNumber") or row.get("phone_number", "")
+    row["email"]               = profile.get("email") or row.get("email", "")
+    row["employees"]           = profile.get("employees") or row.get("employees", "")
+    row["beta"]                = profile.get("beta") or row.get("beta", "")
+    row["price_to_book"]       = profile.get("priceToBook") or row.get("price_to_book", "")
+    row["return_on_equity"]    = profile.get("returnOnEquity") or row.get("return_on_equity", "")
+    row["return_on_assets"]    = profile.get("returnOnAssets") or row.get("return_on_assets", "")
+    row["currency"]            = profile.get("currency") or row.get("currency", "")
+    row["open_price"]          = profile.get("openPrice") or row.get("open_price", "")
+    row["day_high"]            = profile.get("dayHigh") or row.get("day_high", "")
+    row["day_low"]             = profile.get("dayLow") or row.get("day_low", "")
+    row["total_debt_to_equity"]= profile.get("totalDebtToEquity") or row.get("total_debt_to_equity", "")
+    row["dividend_yield"]      = profile.get("dividendYield") or row.get("dividend_yield", "")
+    row["dividend_amount"]     = profile.get("dividendAmount") or row.get("dividend_amount", "")
+    row["ex_dividend_date"]    = profile.get("exDividendDate") or row.get("ex_dividend_date", "")
+    row["dividend_frequency"]  = profile.get("dividendFrequency") or row.get("dividend_frequency", "")
 
 def _apply_price_to_row(row: dict, quote: dict):
     if not quote:

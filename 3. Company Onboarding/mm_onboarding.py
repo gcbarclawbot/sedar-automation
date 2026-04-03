@@ -1641,6 +1641,19 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         "sw_covered_to":     str(sw_to),
         "new_filings_this_run": len(all_filings),
     }
+
+    # Preserve existing presentation data on UPDATE runs; scan on FULL or if missing
+    if is_update and prev_state.get("presentation_url"):
+        state["presentation_url"]     = prev_state["presentation_url"]
+        state["presentation_local"]   = prev_state.get("presentation_local", "")
+        state["presentation_size_kb"] = prev_state.get("presentation_size_kb", 0)
+        log.info(f"  Presentation: preserved from previous run")
+    else:
+        log.info(f"  STAGE 6/6: Presentation scan")
+        pres = find_presentation_phase(symbol)
+        if pres:
+            state.update(pres)
+
     save_company_state(symbol, state)
     log.info(f"  State saved: last_run={now_str}, aif={aif_date}")
 
@@ -1675,6 +1688,157 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         "news":         news,
         "csv_path":     str(csv_path),
     }
+
+
+# ---------------------------------------------------------------------------
+# Presentation finder phase
+# ---------------------------------------------------------------------------
+def find_presentation_phase(symbol: str) -> dict:
+    """
+    Scan the company website for a corporate presentation PDF.
+    Returns dict with presentation_url, presentation_local, presentation_size_kb
+    or empty dict if nothing found.
+    Preserves any existing presentation in state (won't overwrite with nothing).
+    """
+    # Get website from universe
+    universe = load_universe_lookup()
+    website = universe.get(symbol, {}).get("website", "").strip()
+    if not website or not website.startswith("http"):
+        log.info(f"  {symbol}: no website in universe - skipping presentation scan")
+        return {}
+
+    log.info(f"  {symbol}: scanning {website} for presentation")
+
+    # Presentation keywords / negatives
+    pres_keywords = ["presentation", "corporate", "investor", "deck", "pitch"]
+    pres_negative = [
+        "mineral-resource-estimate", "mineral_resource_estimate",
+        "terms-and-conditions", "purchase-order", "sustainability-report",
+        "annual-report", "financial-results", "human-rights", "form-of-proxy",
+        "proxy", "mda", "news-release", "circular", "policy", "nr-20",
+    ]
+    min_size_kb = 500
+    timeout = 15
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    })
+
+    # Paths to probe: dedicated IR paths first, then sitemap, then homepage
+    from urllib.parse import urljoin as _urljoin
+    import xml.etree.ElementTree as _ET
+
+    pdf_candidates = []  # list of (url, score)
+
+    # --- Sitemap ---
+    try:
+        for sm_path in ["/sitemap.xml", "/sitemap_index.xml"]:
+            sm_resp = session.get(_urljoin(website, sm_path), timeout=timeout)
+            if sm_resp.status_code != 200:
+                continue
+            # Parse XML
+            try:
+                root = _ET.fromstring(sm_resp.content)
+                ns = root.tag.split("}")[0].lstrip("{") if "}" in root.tag else ""
+                ns_prefix = f"{{{ns}}}" if ns else ""
+                for loc in root.iter(f"{ns_prefix}loc"):
+                    url = (loc.text or "").strip()
+                    if url.lower().endswith(".pdf"):
+                        url_lower = url.lower()
+                        score = sum(20 for kw in pres_keywords if kw in url_lower)
+                        if score > 0 and not any(neg in url_lower for neg in pres_negative):
+                            pdf_candidates.append((url, score))
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+    # --- IR paths + homepage ---
+    ir_paths = [
+        "/investors/presentations", "/investor-relations/presentations",
+        "/investors/corporate-presentation", "/investors",
+        "/investor-relations", "/ir", "/",
+    ]
+    for path in ir_paths:
+        try:
+            resp = session.get(_urljoin(website, path), timeout=timeout, allow_redirects=True)
+            if resp.status_code != 200:
+                continue
+            # Find anchors with text and PDF href
+            anchor_pat = re.compile(
+                r'<a[^>]+href=["\']([^"\']*\.pdf[^"\']*)["\'][^>]*>(.*?)</a>',
+                re.IGNORECASE | re.DOTALL
+            )
+            href_pat = re.compile(r'href=["\']([^"\']*\.pdf[^"\']*)["\']', re.IGNORECASE)
+            seen = set()
+            for m in anchor_pat.finditer(resp.text):
+                href, text = m.group(1), re.sub(r'<[^>]+>', '', m.group(2)).strip().lower()
+                full = _urljoin(resp.url, href)
+                url_lower = href.lower()
+                if full in seen: continue
+                seen.add(full)
+                score = sum(20 for kw in pres_keywords if kw in url_lower or kw in text)
+                if any(neg in url_lower or neg.replace('-',' ') in text for neg in pres_negative):
+                    continue
+                if score > 0:
+                    pdf_candidates.append((full, score + (30 if path != "/" else 5)))
+            for href in href_pat.findall(resp.text):
+                full = _urljoin(resp.url, href)
+                if full in seen: continue
+                seen.add(full)
+                url_lower = href.lower()
+                score = sum(20 for kw in pres_keywords if kw in url_lower)
+                if score > 0 and not any(neg in url_lower for neg in pres_negative):
+                    pdf_candidates.append((full, score + (30 if path != "/" else 5)))
+        except Exception:
+            continue
+
+    if not pdf_candidates:
+        log.info(f"  {symbol}: no presentation candidates found")
+        return {}
+
+    # Sort by score descending, try each until one downloads OK
+    pdf_candidates.sort(key=lambda x: x[1], reverse=True)
+    for pdf_url, score in pdf_candidates[:5]:
+        try:
+            clean_url = re.sub(r'(\?v=[^?]+)(?:\?v=[^?]+)+', r'\1', pdf_url)
+            pdf_resp = session.get(clean_url, timeout=30)
+            if pdf_resp.status_code != 200:
+                continue
+            if pdf_resp.content[:4] != b'%PDF':
+                continue
+            size_kb = len(pdf_resp.content) // 1024
+            if size_kb < min_size_kb:
+                log.debug(f"  {symbol}: PDF too small ({size_kb}KB): {clean_url}")
+                continue
+
+            # Save to Results/{SYMBOL}/pdfs/Presentations/
+            dest_dir = RESULTS_DIR / symbol / "pdfs" / "Presentations"
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            from urllib.parse import urlparse as _urlparse
+            raw_fname = Path(_urlparse(clean_url).path).name.split("?")[0]
+            if not raw_fname or not raw_fname.lower().endswith(".pdf"):
+                raw_fname = f"{symbol}_presentation.pdf"
+            if not re.search(r'20\d{2}', raw_fname):
+                raw_fname = f"{date.today().isoformat()}_{raw_fname}"
+            dest_path = dest_dir / raw_fname
+            dest_path.write_bytes(pdf_resp.content)
+
+            r2_url = upload_to_r2(dest_path, symbol)
+            log.info(f"  {symbol}: presentation found - {raw_fname} ({size_kb}KB) -> R2")
+            return {
+                "presentation_url":     r2_url,
+                "presentation_local":   str(dest_path),
+                "presentation_size_kb": size_kb,
+            }
+        except Exception as e:
+            log.debug(f"  {symbol}: PDF download error: {e}")
+            continue
+
+    log.info(f"  {symbol}: presentation candidates found but none downloaded successfully")
+    return {}
 
 
 # ---------------------------------------------------------------------------

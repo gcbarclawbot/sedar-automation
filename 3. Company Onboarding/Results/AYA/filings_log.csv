@@ -1,5 +1,5 @@
-﻿source,symbol,issuer,filing_date,doc_type,industry,category,synopsis,article_url,article_id,pdf_url,pdf_path,page_count,pdf_size_kb,downloaded,r2_url,news_text,news_html_path,news_html_r2_url,mat_summary,llm_flag,llm_summary,llm_project,llm_error,as_at_date,aif_filed
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881713.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\AIF\2025-03-31_AYA_AIF.pdf,100,37416,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-03-31_AYA_AIF.pdf,,,,,,,,,2024-12-31,2025-03-31
+source,symbol,issuer,filing_date,doc_type,industry,category,synopsis,article_url,article_id,pdf_url,pdf_path,page_count,pdf_size_kb,downloaded,r2_url,news_text,news_html_path,news_html_r2_url,mat_summary,llm_flag,llm_summary,llm_project,llm_error,as_at_date,aif_filed
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881713.pdf,,0,0,no,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-03-31_AYA_AIF.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2026-03-12,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Announces Commencement of Boumadine Feasibility Study and Accelerates Project Development,https://www.stockwatch.com/News/Item/Z-C!AYA-3795124/C/AYA,3795124,https://www.stockwatch.com/News/Sedardoc/6145978.pdf,,0,0,no,,"2026-03-12 07:00 ET - News Release
 MONTREAL, March  12, 2026  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -6685,7 +6685,7 @@ Aya Gold & Silver is a Canadian precious metals mining company anchored in Moroc
 Aya operates Zgounder, a rare, silver-only mine, producing silver dore from its newly expanded processing facility. Aya's growth pipeline includes the Boumadine polymetallic project, where feasibility study work is under way. The project hosts a substantial mineral resource, an extensive mineralized footprint and significant potential for further discovery.
 Led by a proven team of mining professionals, Aya is guided by a vision of responsible mining and is committed to delivering sustainable value for shareholders, employees and host communities.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2026-01-27.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2026-01-27.html,,NONE,2026 production outlook and strategic priorities,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2026-01-27.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2026-01-27.html,,NONE,2026 operational outlook and strategic priorities,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2026-01-21,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Provides Year-End 2025 Exploration Update,https://www.stockwatch.com/News/Item/Z-C!AYA-3776197/C/AYA,3776197,https://www.stockwatch.com/News/Sedardoc/6105357.pdf,,0,0,no,,"2026-01-21 07:00 ET - News Release
 MONTREAL, Jan.  21, 2026  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -8215,7 +8215,7 @@ Figure 6
 Location of Drill Holes at Boumadine regional exploration
 Figure 7
 Location of New Permits at Boumadine
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2026-01-21.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2026-01-21.html,,CHANGED,"Updated reserves at Zgounder: 73 Moz Ag P&P, 100 Moz Ag M&I",Zgounder,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2026-01-21.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2026-01-21.html,,NONE,Year-end 2025 exploration update,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2026-01-20,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya reaches financial completion under Euro bank loan,https://www.stockwatch.com/News/Item/Z-C!AYA-3775877/C/AYA,3775877,https://www.stockwatch.com/News/Sedardoc/6104522.pdf,,0,0,no,,"2026-01-20 16:13 ET - News Release
 Mr.  Benoit La Salle reports
 AYA GOLD & SILVER ACHIEVES FINANCIAL COMPLETION WITH EBRD FOR ZGOUNDER SILVER MINE EXPANSION
@@ -8290,7 +8290,7 @@ VP, Corporate Development & IR
 alex.ball@ayagoldsilver.com  
  
  
-",,,,NONE,Board transition and insider share transactions,,,2024-12-31,2025-03-31
+",,,,NONE,Board transition and insider share sales,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2026-01-13,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold produces 1.37 million oz Ag at Zgounder in Q4,https://www.stockwatch.com/News/Item/Z-C!AYA-3773669/C/AYA,3773669,https://www.stockwatch.com/News/Sedardoc/6100395.pdf,,0,0,no,,"2026-01-13 17:02 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER ANNOUNCES RECORD Q4 AND FULL YEAR 2025 SILVER PRODUCTION
@@ -8343,7 +8343,7 @@ stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,CONSENT_OF_QUALIFIED_PERSON_NI_
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,CERTIFICATE_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087674.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,CERTIFICATE_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087683.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,CERTIFICATE_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087684.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,TECHNICAL_REPORT_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087659.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\NI43-101\2025-12-18_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,343,46888,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-12-18_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,TECHNICAL_REPORT_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087659.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\NI43-101\2025-12-18_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-12-18_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087671.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087672.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-18,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6087673.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
@@ -8560,7 +8560,7 @@ EBITDA is a non-IFRS financial measure which is calculated as net income before 
 Free Cash Flow
 FCF is a non-IFRS financial measured defined as cash from operating activities, less initial and sustaining capital expenditures, operating costs, royalties, and taxes. This measure is used by the Corporation to measure the anticipated cash flow available to the Corporation.
 As the Project is not currently in production, the Corporation does not have historical equivalent measures to compare and cannot perform a reconciliation with historical measures.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-12-18.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-12-18.html,,CHANGED,Filed PEA for Boumadine with updated resource estimate.,Boumadine,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-12-18.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-12-18.html,,CHANGED,Filed NI 43-101 report for Boumadine with updated resource estimates.,Boumadine,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,CERTIFICATE_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085838.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,CERTIFICATE_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085839.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,CERTIFICATE_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085840.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
@@ -8577,7 +8577,7 @@ stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,CERTIFICATE_OF_QUALIFIED_PERSON
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085843.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085846.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085852.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,TECHNICAL_REPORT_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085832.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\NI43-101\2025-12-16_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,337,95469,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-12-16_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,TECHNICAL_REPORT_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/6085832.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\NI43-101\2025-12-16_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-12-16_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-16,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Files Updated Technical Report for the Zgounder Silver Mine,https://www.stockwatch.com/News/Item/Z-C!AYA-3765979/C/AYA,3765979,https://www.stockwatch.com/News/Sedardoc/6085829.pdf,,0,0,no,,"2025-12-16 07:00 ET - News Release
 MONTREAL, Dec.  16, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -9197,7 +9197,7 @@ A photo accompanying this announcement is available at
 https://www.globenewswire.com/NewsRoom/AttachmentNg/5e4eb4e9-6604-4d08-b3af-781c6a8b32ec
 Figure 1
 Mineral Reserves estimate comparison between 2021 and Q3-2025
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-12-16.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-12-16.html,,CHANGED,Updated MRE and P&P Reserves at Zgounder: 100 Moz Ag M&I; 73 Moz Ag P&P,Zgounder,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-12-16.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-12-16.html,,CHANGED,Updated MRE at Zgounder: 100 Moz Ag M&I; P&P Reserves 73 Moz Ag,Zgounder,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-12-09,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Reports High-Grade Silver Results at Zgounder,https://www.stockwatch.com/News/Item/Z-C!AYA-3763670/C/AYA,3763670,https://www.stockwatch.com/News/Sedardoc/6080900.pdf,,0,0,no,,"2025-12-09 07:00 ET - News Release
 MONTREAL, Dec.  09, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -16549,7 +16549,7 @@ Aya's management team has been focused on maximizing shareholder value by anchor
 We seek Safe Harbor.
 © 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-11-19.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-11-19.html,,NONE,Production from Boumadine stockpile initiated,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-11-11,INTERIM_FINANCIAL_STATEMENTSREPORT_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/6053083.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-11-11,INTERIM_MDA_EN,gold and precious metals,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/6053085.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\MD&A\2025-11-11_AYA_MD&A_INTERIM_MDA_EN.pdf,32,12209,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-11-11_AYA_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-11-11,INTERIM_MDA_EN,gold and precious metals,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/6053085.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\MD&A\2025-11-11_AYA_MD&A_INTERIM_MDA_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-11-11_AYA_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-11-11,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CEO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/6053086.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-11-11,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CFO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/6053087.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-11-11,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Reports Record Revenue and Net Income for Q3-2025 on Record Production,https://www.stockwatch.com/News/Item/Z-C!AYA-3751793/C/AYA,3751793,https://www.stockwatch.com/News/Sedardoc/6053027.pdf,,0,0,no,,"2025-11-11 07:00 ET - News Release
@@ -16856,7 +16856,7 @@ ___________
 See “Non-GAAP Measures” section on page 25 of Aya MD&A for the three and nine-month periods ended September 30, 2025 and 2024.
 (2)
 Non-GAAP Measures, consisting of current assets of $196,495 less current liabilities of $100,348 (December 31, 2024, current assets of $76,540 less current liabilities of $53,116).
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-11-11.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-11-11.html,,NONE,Q3 2025 financial and operational results,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-11-11.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-11-11.html,,NONE,Record Revenue and Net Income for Q3-2025 on Record Production,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-11-04,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,"Aya Gold & Silver Delivers Robust Boumadine PEA Highlighting High Return, Rapid Payback and a Capital-Efficient Project",https://www.stockwatch.com/News/Item/Z-C!AYA-3748603/C/AYA,3748603,https://www.stockwatch.com/News/Sedardoc/6046699.pdf,,0,0,no,,"2025-11-04 06:55 ET - News Release
 MONTREAL, Nov.  04, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -17834,7 +17834,7 @@ Aya Gold & Silver is a rapidly growing, Canada-based silver producer with operat
 The only Toronto Stock Exchange-listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective Anti-Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-10-15.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-10-15.html,,NONE,Q3 2025 operational update and production results,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-10-15.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-10-15.html,,NONE,Q3 2025 operational update,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-09-25,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold rejects allegations by short-seller,https://www.stockwatch.com/News/Item/Z-C!AYA-3735155/C/AYA,3735155,https://www.stockwatch.com/News/Sedardoc/6022389.pdf,,0,0,no,,"2025-09-25 19:45 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER CATEGORICALLY REJECTS THE ERRONEOUS AND MISLEADING ALLEGATIONS MADE AGAINST THE COMPANY
@@ -17908,7 +17908,7 @@ Aya Gold & Silver is a rapidly growing, Canada-based silver producer with operat
 The only Toronto Stock Exchange-listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective Anti-Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-09-15.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-09-15.html,,NONE,High-grade drill results from Boumadine and Asirem,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-09-15.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-09-15.html,,NONE,Exploration update on drilling results at Boumadine,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-09-09,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Identifies New Mineralized Zone to the North and Reports High-Grade Silver Results at Zgounder,https://www.stockwatch.com/News/Item/Z-C!AYA-3729706/C/AYA,3729706,https://www.stockwatch.com/News/Sedardoc/6012079.pdf,,0,0,no,,"2025-09-09 07:00 ET - News Release
 MONTREAL, Sept.  09, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -19681,11 +19681,11 @@ Figure 1
 Figure 1: Location of Drill Results at Zgounder
 Figure 2
 Figure 2: NW-SE Section of Zgounder with Hole ZG-25-156
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-09-09.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-09-09.html,,NONE,High-grade silver results from drilling at Zgounder,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-09-09.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-09-09.html,,NONE,High-grade silver results at Zgounder,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-08-14,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CEO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5985557.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-08-14,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CFO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5985558.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-08-14,INTERIM_FINANCIAL_STATEMENTSREPORT_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5985554.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-08-14,INTERIM_MDA_EN,gold and precious metals,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5985559.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\MD&A\2025-08-14_AYA_MD&A_INTERIM_MDA_EN.pdf,32,10170,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-08-14_AYA_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-08-14,INTERIM_MDA_EN,gold and precious metals,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5985559.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\MD&A\2025-08-14_AYA_MD&A_INTERIM_MDA_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-08-14_AYA_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-08-14,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Reports Strong Q2-2025 Results,https://www.stockwatch.com/News/Item/Z-C!AYA-3720983/C/AYA,3720983,https://www.stockwatch.com/News/Sedardoc/5985520.pdf,,0,0,no,,"2025-08-14 07:00 ET - News Release
 MONTREAL, Aug.  14, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -20028,7 +20028,7 @@ Investors are cautioned not to assume that part or all of an inferred mineral re
 See “Non-GAAP Measures” section on page 25 of Aya MD&A for the three and six-month periods ended June 30, 2025 and 2024
 (2)
 Non-GAAP Measures, consisting of current assets of $179,598 less current liabilities of $91,195 (December 31, 2024, current assets of $76,540 less current liabilities of $53,116).
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-08-14.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-08-14.html,,NONE,Q2 2025 financial and operational results,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-08-14.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-08-14.html,,NONE,Strong Q2-2025 Results,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-08-07,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya's Zgounder receives $8-million (U.S.) payment,https://www.stockwatch.com/News/Item/Z-C!AYA-3718357/C/AYA,3718357,https://www.stockwatch.com/News/Sedardoc/5979746.pdf,,0,0,no,,"2025-08-07 16:32 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER RECEIVES US$8 MILLION IN COMPENSATION RELATED TO ZGOUNDER EXPANSION
@@ -20039,7 +20039,7 @@ Aya is a rapidly growing, Canada-based silver producer with operations in the Ki
 The only Toronto Stock Exchange-listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective Anti-Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-08-07.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-08-07.html,,NONE,Compensation received for Zgounder expansion project,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-08-07.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-08-07.html,,NONE,Received $8 million payment for Zgounder expansion,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-07-24,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver Reports Q2-2025 and Mid-July Production Results,https://www.stockwatch.com/News/Item/Z-C!AYA-3712808/C/AYA,3712808,https://www.stockwatch.com/News/Sedardoc/5969470.pdf,,0,0,no,,"2025-07-24 07:00 ET - News Release
 MONTREAL, July  24, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -20135,7 +20135,7 @@ alex.ball@ayagoldsilver.com
 Forward-Looking Statements
 This press release contains certain statements that constitute forward-looking information within the meaning of applicable securities laws (“forward-looking statements”), which reflects management’s expectations regarding Aya’s future growth and business prospects (including the timing and development of new deposits and the success of exploration activities) and other opportunities. Wherever possible, words such as “confident”, “potential”, “expect”, “on track”, “schedule”, “continue”, “increase”, “plan”, “strong”, “solid”, and similar expressions or statements that certain actions, events or results “may”, “could”, “would”, “might”, “will”, or are “likely” to be taken, occur or be achieved, have been used to identify such forward-looking information. Specific forward-looking statements in this press release include, but are not limited to, statements and information with respect to the capacity of the Corporation to achieve continued improved production results namely mining, milling, processing, recoveries and overall production and throughput to improve and achieving a solid second half of 2025, unlocking Zgounder’s full potential, achieving mine-rate ramp-up by year-end, and other operational milestones. Although the forward-looking information contained in this press release reflect management’s current beliefs based upon information currently available to management and based upon what management believes to be reasonable assumptions, Aya cannot be certain that actual results will be consistent with such forward-looking information. Such forward-looking statements are based upon assumptions, opinions and analysis made by management in light of its experience, current conditions, and its expectations of future developments that management believe to be reasonable and relevant but that may prove to be incorrect. These assumptions include, among other things, the ability of the plant to operate per its designed and intended purpose, the ability to obtain any requisite governmental approvals, obtaining regulatory permits for on-site work, importing goods and machinery and employment permits, the accuracy of Mineral Reserve and Mineral Resource Estimates (including, but not limited to, ore tonnage and ore grade estimates), the price of silver, the price of gold, exchange rates, fuel and energy costs, future economic conditions, anticipated future estimates of free cash flow, and courses of action. Aya cautions you not to place undue reliance upon any such forward-looking statements.
 The risks and uncertainties that may affect forward-looking statements include, among others: the inherent risks involved in exploration and development of mineral properties, including government approvals and permitting, changes in economic conditions, changes in the worldwide price of silver gold and other key inputs, changes in mine plans (including, but not limited to, throughput and recoveries being affected by metallurgical characteristics) and other factors, such as project execution delays, many of which are beyond the control of Aya, as well as other risks and uncertainties which are more fully described in Aya’s 2024 Annual Information Form dated March 31, 2025, and in other filings of Aya with securities and regulatory authorities which are available on SEDAR+ at www.sedarplus.ca. Aya does not undertake any obligation to update forward-looking statements should assumptions related to these plans, estimates, projections, beliefs, and opinions change. Nothing in this document should be construed as either an offer to sell or a solicitation to buy or sell Aya securities. All references to Aya include its subsidiaries unless the context requires otherwise.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-07-24.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-07-24.html,,NONE,Q2 2025 production results,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-07-24.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-07-24.html,,NONE,Q2-2025 and Mid-July Production Results,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-07-07,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,"Aya Gold & Silver Reports High-Grade Boumadine Exploration Results, Expands Imariren to 1km and Identifies New High-Grade Asirem Zone to the West",https://www.stockwatch.com/News/Item/Z-C!AYA-3706945/C/AYA,3706945,https://www.stockwatch.com/News/Sedardoc/5959924.pdf,,0,0,no,,"2025-07-07 07:00 ET - News Release
 MONTREAL, July  07, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -22769,7 +22769,7 @@ Aya is a rapidly growing, Canada-based silver producer with operations in the Ki
 The only Toronto Stock Exchange-listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective South-Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-23.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-23.html,,NONE,Closed credit facility for Boumadine development,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-23.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-23.html,,NONE,Closed $25M credit facility for Boumadine,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-20,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold & Silver holders elect 8 directors at AGM,https://www.stockwatch.com/News/Item/Z-C!AYA-3701989/C/AYA,3701989,https://www.stockwatch.com/News/Sedardoc/5948391.pdf,,0,0,no,,"2025-06-20 18:21 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER ANNOUNCES RESULTS OF ANNUAL GENERAL MEETING OF SHAREHOLDERS
@@ -22796,7 +22796,7 @@ Aya Gold & Silver is a rapidly growing, Canada-based silver producer with operat
 The only Toronto Stock Exchange-listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective South-Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-18.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-18.html,,NONE,Bought deal financing completed,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-18.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-18.html,,NONE,Closed bought deal financing for $143.75 million,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-12,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,AYA GOLD & SILVER ANNOUNCES FILING OF PROSPECTUS,,,https://www.stockwatch.com/News/Sedardoc/5943550.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\NewsRelease\2025-06-12_AYA_NewsRelease_fallback.pdf,0,0,no,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-06-12_AYA_NewsRelease_fallback.pdf," 
  
 AYA GOLD & SILVER ANNOUNCES FILING OF PROSPECTUS 
@@ -22916,7 +22916,7 @@ plans and may not be appropriate for other purposes. Accordingly, readers should
 on forwardlooking information. Forwardlooking information is given as of the date of this news release, 
 and the Company does not undertake to update such forwardlooking information except in accordance 
 with applicable securities laws. 
-",,,,NONE,Bought deal financing completed,,,2024-12-31,2025-03-31
+",,,,NONE,Bought deal equity financing announcement,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-11,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold boosts bought deal to $125-million,https://www.stockwatch.com/News/Item/Z-C!AYA-3698555/C/AYA,3698555,https://www.stockwatch.com/News/Sedardoc/5942317.pdf,,0,0,no,,"2025-06-11 12:07 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD AND SILVER ANNOUNCES UPSIZE OF PREVIOUSLY ANNOUNCED BOUGHT DEAL TO $125 MILLION
@@ -22931,9 +22931,9 @@ Aya Gold & Silver is a rapidly growing, Canada-based silver producer with operat
 Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective South Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-11.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-11.html,,NONE,Bought deal financing completed,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-11.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-11.html,,NONE,Upsized bought deal financing announcement,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,UNDERWRITING_OR_AGENCY_AGREEMENTS_OR_AMENDMENT_THERETO,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5943543.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,PROSPECTUS_NON_PRICING_SUPPLEMENT_OTHER_THAN_ATM_EN,gold and precious metals,Prospectus,,,,https://www.stockwatch.com/News/Sedardoc/5943544.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\Prospectus\2025-06-10_AYA_Prospectus_PROSPECTUS_NON_PRICING_SUPPLEM.pdf,54,1493,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-06-10_AYA_Prospectus_PROSPECTUS_NON_PRICING_SUPPLEM.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,PROSPECTUS_NON_PRICING_SUPPLEMENT_OTHER_THAN_ATM_EN,gold and precious metals,Prospectus,,,,https://www.stockwatch.com/News/Sedardoc/5943544.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\Prospectus\2025-06-10_AYA_Prospectus_PROSPECTUS_NON_PRICING_SUPPLEM.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-06-10_AYA_Prospectus_PROSPECTUS_NON_PRICING_SUPPLEM.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,CONSENT_LETTER_OF_ISSUERS_LEGAL_COUNSEL,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5943541.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,CONSENT_LETTER_OF_UNDERWRITERS_LEGAL_COUNSEL,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5943542.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya arranges $100-million bought deal offering,https://www.stockwatch.com/News/Item/Z-C!AYA-3698338/C/AYA,3698338,https://www.stockwatch.com/News/Sedardoc/5941822.pdf,,0,0,no,,"2025-06-10 19:21 ET - News Release
@@ -22950,7 +22950,7 @@ Aya is a rapidly growing, Canada-based silver producer with operations in the Ki
 The only Toronto Stock Exchange-listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective South-Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-10.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-10.html,,NONE,Bought deal financing completed,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-06-10.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-06-10.html,,NONE,Announced $100 million bought deal offering,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5941592.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5941593.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5941594.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
@@ -22975,10 +22975,10 @@ stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,CONSENT_OF_QUALIFIED_PERSON_NI_
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5941609.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,DECISION_DOCUMENT_FINAL,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5941582.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,AUDITORS_CONSENT_LETTER,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5941583.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,FINAL_SHORT_FORM_PROSPECTUS_EN,gold and precious metals,Prospectus,,,,https://www.stockwatch.com/News/Sedardoc/5941584.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\Prospectus\2025-06-10_AYA_Prospectus_FINAL_SHORT_FORM_PROSPECTUS_EN.pdf,27,625,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-06-10_AYA_Prospectus_FINAL_SHORT_FORM_PROSPECTUS_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,FINAL_SHORT_FORM_PROSPECTUS_EN,gold and precious metals,Prospectus,,,,https://www.stockwatch.com/News/Sedardoc/5941584.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\Prospectus\2025-06-10_AYA_Prospectus_FINAL_SHORT_FORM_PROSPECTUS_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-06-10_AYA_Prospectus_FINAL_SHORT_FORM_PROSPECTUS_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,MARKETING_MATERIALS_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5945771.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,MARKETING_MATERIALS_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5945773.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,PRELIMINARY_SHORT_FORM_PROSPECTUS_EN,gold and precious metals,Prospectus,,,,https://www.stockwatch.com/News/Sedardoc/5944935.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\Prospectus\2025-06-10_AYA_Prospectus_PRELIMINARY_SHORT_FORM_PROSPEC.pdf,3,134,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-06-10_AYA_Prospectus_PRELIMINARY_SHORT_FORM_PROSPEC.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-10,PRELIMINARY_SHORT_FORM_PROSPECTUS_EN,gold and precious metals,Prospectus,,,,https://www.stockwatch.com/News/Sedardoc/5944935.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\Prospectus\2025-06-10_AYA_Prospectus_PRELIMINARY_SHORT_FORM_PROSPEC.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-06-10_AYA_Prospectus_PRELIMINARY_SHORT_FORM_PROSPEC.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-06-05,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,"Aya Gold & Silver Reports High-Grade Exploration Results at Boumadine, Extends Imariren Zone to 0.7km and Adds 4 New Regional Permits",https://www.stockwatch.com/News/Item/Z-C!AYA-3696701/C/AYA,3696701,https://www.stockwatch.com/News/Sedardoc/5938599.pdf,,0,0,no,,"2025-06-05 07:00 ET - News Release
 MONTREAL, June  05, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -30088,7 +30088,7 @@ Figure 4:
 Surface Map of Zgounder Far East with Simplified Geology and Cu Grab Samples
 Figure 5:
 Surface Map of Zgounder Far East with Simplified Geology and Au Grab Samples
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-05-21.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-05-21.html,,NONE,High-grade silver results from ongoing drill program,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-05-21.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-05-21.html,,NONE,High-grade silver results from drilling,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-15,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold publishes 2024 sustainability report,https://www.stockwatch.com/News/Item/Z-C!AYA-3687966/C/AYA,3687966,https://www.stockwatch.com/News/Sedardoc/5919491.pdf,,0,0,no,,"2025-05-15 16:42 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER PUBLISHES 2024 SUSTAINABILITY REPORT
@@ -30120,7 +30120,7 @@ stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-13,OTHER,gold and precious metals,
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-13,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CEO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5916756.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-13,52109F2_CERTIFICATION_OF_INTERIM_FILINGS_CFO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5916757.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-13,INTERIM_FINANCIAL_STATEMENTSREPORT_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5916754.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-13,INTERIM_MDA_EN,gold and precious metals,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5916758.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\MD&A\2025-05-13_AYA_MD&A_INTERIM_MDA_EN.pdf,26,15409,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-05-13_AYA_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-13,INTERIM_MDA_EN,gold and precious metals,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5916758.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\MD&A\2025-05-13_AYA_MD&A_INTERIM_MDA_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-05-13_AYA_MD&A_INTERIM_MDA_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-13,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,"Aya Gold & Silver Reports Record Q1-2025 Results, Strengthens Liquidity and Reaffirms Guidance",https://www.stockwatch.com/News/Item/Z-C!AYA-3686190/C/AYA,3686190,https://www.stockwatch.com/News/Sedardoc/5916751.pdf,,0,0,no,,"2025-05-13 07:00 ET - News Release
 MONTREAL, May  13, 2025  (GLOBE NEWSWIRE) --
 Aya Gold & Silver Inc.
@@ -30533,7 +30533,7 @@ A photo accompanying this announcement is available at:
 https://www.globenewswire.com/NewsRoom/AttachmentNg/e94c31fe-2d05-44ff-a6dc-72d11fb59357
 Figure 1
 Boumadine Permits Overlaying the Apparent Conductivity Airborne Regional Survey
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-05-13.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-05-13.html,,NONE,Q1 2025 financial and operational results,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-05-13.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-05-13.html,,NONE,"Record Q1-2025 Results, Strengthens Liquidity and Reaffirms Guidance",,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-05-12,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold arranges $25-million (U.S.) credit line,https://www.stockwatch.com/News/Item/Z-C!AYA-3685832/C/AYA,3685832,https://www.stockwatch.com/News/Sedardoc/5915570.pdf,,0,0,no,,"2025-05-12 14:24 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER SECURES US$25 MILLION CREDIT FACILITY FROM EBRD TO SUPPORT GROWTH IN MOROCCO
@@ -30619,7 +30619,7 @@ Aya Gold & Silver is a rapidly growing, Canada-based silver producer with operat
 The only Toronto Stock Exchange listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective South Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team maximizes shareholder value by anchoring sustainability at the heart of its production, resource, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-04-16.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-04-16.html,,CHANGED,"Acquired Amizmiz with historical inferred resource of 340,000 oz Au",Amizmiz,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-04-16.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-04-16.html,,CHANGED,"Disposed of Amizmiz gold project with 340,000 oz historical resource",Amizmiz,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-04-14,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold appoints Burzynski as independent director,https://www.stockwatch.com/News/Item/Z-C!AYA-3674012/C/AYA,3674012,https://www.stockwatch.com/News/Sedardoc/5891356.pdf,,0,0,no,,"2025-04-14 16:14 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER ANNOUNCES APPOINTMENT OF JOHN BURZYNSKI TO THE BOARD AND DEPARTURE OF NIKOLAOS SOFRONIS
@@ -30634,7 +30634,7 @@ Aya Gold & Silver is a rapidly growing, Canada-based silver producer with operat
 The only Toronto Stock Exchange listed pure silver mining company, Aya operates the high-grade Zgounder silver mine and is exploring its properties along the prospective South Atlas fault, several of which have hosted past-producing mines and historical resources.
 Aya's management team has been focused on maximizing shareholder value by anchoring sustainability at the heart of its operations, governance and financial growth plans.
 We seek Safe Harbor.
-© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-04-14.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-04-14.html,,NONE,Board appointment announcement,,,2024-12-31,2025-03-31
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-04-14.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-04-14.html,,NONE,Appointment of John Burzynski to the board,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-04-11,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold breaks Q1 production record with 1.07M oz Ag,https://www.stockwatch.com/News/Item/Z-C!AYA-3673443/C/AYA,3673443,https://www.stockwatch.com/News/Sedardoc/5890357.pdf,,0,0,no,,"2025-04-11 08:01 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER ANNOUNCES RECORD Q1 2025 PRODUCTION RESULTS
@@ -30695,7 +30695,7 @@ We seek Safe Harbor.
 © 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-04-08.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-04-08.html,,NONE,High-grade drill results at Boumadine,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CEO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5881708.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CFO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5881714.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881713.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\AIF\2025-03-31_AYA_AIF_ANNUAL_INFORMATION_FORM_EN.pdf,100,37416,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-03-31_AYA_AIF_ANNUAL_INFORMATION_FORM_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881713.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\AIF\2025-03-31_AYA_AIF_ANNUAL_INFORMATION_FORM_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-03-31_AYA_AIF_ANNUAL_INFORMATION_FORM_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Aya Gold files NI 43-101 report for Boumadine,https://www.stockwatch.com/News/Item/Z-C!AYA-3668897/C/AYA,3668897,https://www.stockwatch.com/News/Sedardoc/5881114.pdf,,0,0,no,,"2025-03-31 19:49 ET - News Release
 Mr. Benoit La Salle reports
 AYA GOLD & SILVER FILES TECHNICAL REPORT FOR THE BOUMADINE POLYMETALLIC PROJECT
@@ -30709,5 +30709,739 @@ Aya's management team has been focused on maximizing shareholder value by anchor
 © 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2025-03-31.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2025-03-31.html,,CHANGED,Filed NI 43-101 report for Boumadine: updated resource estimate,Boumadine,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5881066.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,CONSENT_OF_QUALIFIED_PERSON_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5881076.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
-stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,TECHNICAL_REPORT_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5881026.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\NI43-101\2025-03-31_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,193,89232,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-03-31_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,TECHNICAL_REPORT_NI_43101_EN,gold and precious metals,NI43-101,,,,https://www.stockwatch.com/News/Sedardoc/5881026.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\pdfs\NI43-101\2025-03-31_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,0,0,exists,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/2025-03-31_AYA_NI43-101_TECHNICAL_REPORT_NI_43101_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-28,52109F1_CERTIFICATION_OF_ANNUAL_FILINGS_CFO_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5874738.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,AYA,Aya Gold & Silver Inc.,2026-03-31,NEWS_RELEASES,,NewsRelease,Aya Gold & Silver Reports Record Results for Q4-2025 and Full Year 2025,https://www.stockwatch.com/News/Item/Z-C!AYA-3800386/C/AYA,3800386,https://www.sedarplus.ca/csa-party/viewInstance/resource.html?node=W2689&drmKey=875369d6d779fc6d&drr=ss3e87b2e559be98b0ef06206bd19f3c74a680c71196e2414691cc08897a7e99a26e1c88a6694a63f2603b521b1e0dccbfux&id=0c11f8b7998bcd9642f8770631de1451e7017065fb4f7e34,,0,0,no,,"2026-03-31 07:00 ET - News Release
+MONTREAL, March  31, 2026  (GLOBE NEWSWIRE) --
+Aya Gold & Silver Inc.
+(TSX: AYA; OTCQX: AYASF) (“Aya” or the “Corporation”) today announced its financial and operational results for the fourth quarter and full year ended December 31, 2025. All amounts are in U.S. dollars unless otherwise noted.
+Full Year and Q4 2025 Highlights
+Financial Highlights
+Full-year revenue
+of $202M in 2025, up five-fold, year-over-year (""YoY""), on 4.9 million silver equivalent ounces (""Moz AgEq"") sold, (up 223%), at a higher average net realized AgEq price of $41.61/oz (up 60%).
+Q4-2025 revenue
+of $75M, up 39% quarter-over-quarter (""QoQ""), driven by a higher average net realized AgEq price of $58.39/oz (up 47% QoQ and 111% YoY), as well as initial sales of the Boumadine pyrite reclaim operation
+(
+1
+)
+.
+Net income
+of $46M in 2025, including $18M from Q4-2025. Diluted EPS of $0.32 in 2025 (up 288% YoY), including $0.12 in Q4-2025 (up 160% YoY).
+Operating cash flow
+of $72M for the full year, with $136M in cash and cash equivalents at year-end, supporting the development of the Boumadine Project (""Boumadine"")
+(
+2
+)
+.
+Operational Highlights
+Full-year consolidated production
+of 5.0 Moz AgEq in 2025, tripled YoY, driven by the successful ramp-up of the Zgounder Silver Mine (""Zgounder""). Q4‑2025 accounted for 1.54 Moz AgEq, of which 0.17 Moz
+(
+3
+)
+came from the Boumadine pyrite reclaim operation. Cash costs
+(
+4
+)
+of $20.25/oz and $19.91/oz AgEq sold for full-year 2025 and Q4-2025, respectively.
+Full-year Zgounder production
+of 4.83 Moz Ag in 2025, including 1.37 Moz Ag in Q4-2025, up 2% QoQ, driven by record milling throughput.
+Q4-2025 mining rate
+of 4,187 tonnes per day (""tpd"") exceeding milling throughput of 3,796 tpd, positioning the operation to meet or exceed 2026 processing targets of 3,650 tpd and sustain steady-state performance.
+Development and Exploration
+Boumadine Project
+: Delivered a Preliminary Economic Assessment
+(
+5
+)
+(""PEA"") outlining district-scale potential, with a base-case (assuming $2,800/oz gold and $30/oz silver)
+(6
+)
+post-tax net present value
+(7)
+(""NPV
+5%
+"") and internal rate of return
+(7)
+(“IRR”) of $1.5 B and 47%, respectively, and estimated total production of 340 Moz AgEq, over an 11-year life of mine (""LOM"").
+Zgounder Silver Mine
+: Updated post-construction technical report estimating Measured and Indicated (""M&I"") resources of 100 Moz Ag at 165 g/t and an extended LOM to 2036 with 6 Moz Ag/year at $16.26/oz cash cost
+(
+8
+)
+.
+2025 Drilling Above Plan:
+Exceeded the high-end of drilling targets at Boumadine and Zgounder, completing 150,325 metres (""m"") and 28,281 m, respectively, with results at Boumadine extending mineralization across the Tizi and Imariren zones, confirming continuity and identifying a new parallel structure east of the Main Trend, while at Zgounder confirming high-grade silver mineralization at depth and along strike and reinforcing continuity in the open pit.
+“2025 was a defining year for Aya, with record financial performance driven by strong execution at Zgounder and continued advancement at Boumadine,”
+said Benoit La Salle, President & CEO.
+“With Zgounder now operating at steady state, we are entering a phase of significant cash flow generation, further supported by a strong silver price environment. Cash flow underpinned by the newly extended mine plan, is driving meaningful cash accumulation and providing the financial flexibility to accelerate development at Boumadine. We thank our team, our local partners and communities for their continued support and commitment to Aya’s success.""
+Financial Review
+Revenues totaled $202M in 2025, up 417% YoY, driven by increased consolidated AgEq ounces sold, of 4.9 Moz, up 223%, and higher average net realized price of $41.61/oz up 60% YoY. In Q4-2025, revenue totaled $75.3M, up 39% QoQ, driven by higher net realized price of $58.39/oz AgEq, up 47%, and the contribution of ounces sold from the start of the Boumadine pyrite reclaim operation.
+Net income for 2025 was $46M (diluted EPS of $0.32) including a gain and impairment recovery of $5.8M from the Mx2 Mining Inc. transaction. In Q4-2025, net income was $18M (diluted EPS of $0.12). This compares to 2024 full-year net loss of $26M (diluted loss per share of $0.17)
+(9)
+for the year and $30M (diluted loss per share of $0.20)
+(
+9
+)
+in Q4-2024, both primarily due to the Tijirit project write-down of $27M. Aya’s successful Zgounder ramp-up, strong operational performance, and higher average net realized prices all contributed to achieving profitability.
+The Corporation generated $72M in cash flow from operating activities in 2025, and $34M from Q4-2025. In 2025, capital expenditures of $33M were invested to complete the Zgounder mine expansion and $42M on exploration and evaluation, mainly at Boumadine.
+The quarter ended in a strong financial position, with $136.3 million in cash and cash equivalents and total debt of $112M.
+Financial Highlights
+(in thousands of US$, except per share amounts)
+Q4-2025
+Q4-2024
+Variance
+2025
+2024
+Variance
+Financial
+Revenues
+75,320
+9,338
+707%
+202,102
+39,117
+417%
+Cost of Sales
+32,706
+11,084
+195%
+118,935
+33,735
+253%
+Gross Profit
+42,614
+(1,746)
+2,541%
+83,167
+5,382
+1,445%
+Operating Income (Loss)
+36,354
+(34,469)
+205%
+62,517
+(38,747)
+261%
+Income (Loss) before Income Taxes
+32,799
+(31,850)
+203%
+70,125
+(24,800)
+383%
+Net Income (Loss)
+18,287
+(29,983)
+161%
+46,280
+(26,027)
+278%
+Operating Cash Flows
+33,854
+2,355
+1,338%
+71,948
+(8,615)
+935%
+Cash and cash equivalents
+136,322
+30,944
+341%
+136,322
+30,944
+341%
+Total Assets
+631,733
+400,107
+58%
+631,733
+400,107
+58%
+Total Non-Current Financial Liabilities
+84,615
+97,638
+(13)%
+84,615
+97,638
+(13)%
+Working Capital
+(
+10
+)
+112,400
+23,424
+380%
+112,400
+23,424
+380%
+EPS
+Income (Loss) per Share (EPS) - Basic
+(
+9
+)
+0.13
+(0.20)
+165%
+0.33
+(0.17)
+294%
+Income (Loss) per Share (EPS) - Diluted
+(
+9
+)
+0.12
+(0.20)
+160%
+0.32
+(0.17)
+288%
+Operational Review
+2025 consolidated production reached 5.0 Moz AgEq, including 1.54 Moz AgEq in Q4-2025, of which 0.17 Moz came from Boumadine stockpile reclaim launched in the fourth quarter. Full-year cash costs
+(4)
+of $20.25/oz AgEq sold, reflect the ramp-up of Zgounder through the year and the addition of ounces from Boumadine in the final quarter.
+Zgounder Silver Mine
+In 2025, Zgounder produced a total of 4.83 Moz of silver, a significant increase from 2024, reflecting the expansion of mining and milling operations. Production increased steadily through the year, with cash costs
+(4)
+averaging $20.41/oz AgEq sold, benefiting from higher scale and plant efficiencies, while depreciation rose in line with expanded operations. During Q4 2025, Zgounder produced 1.37 Moz of silver, a 2% QoQ increase, reflecting the completion of ramp-up. Cash costs
+(4)
+in Q4 were $20.50/oz AgEq sold, slightly below $20.79/oz in Q3 2025. For reference, the cash cost
+(4)
+in Q4 2024 was $26.57/oz AgEq, or $21.51/oz on an adjusted basis excluding ramp-up costs; the 2024 figures for the full year and quarter are not directly comparable due to difference in production scale.
+The mill processed 1.18 million tonnes (""Mt"") of ore (3,229 tpd) in 2025, up 228% YoY, at an average grade of 145 g/t Ag, supported by strong recoveries and process improvements allowing for steadier, higher-rate milling as the year progressed. Over the year, mining activities averaged 2,840 tpd
+(11)
+at an average grade of 139 g/t Ag, with 62% of production from open-pit operations, in line with the strategy announced in March 2025. As such, Aya’s latest mine plan targets a one-third underground / two-thirds open-pit split, expanding the open-pit operation while focusing underground mining on deeper levels. This approach aims to improve ore recovery and grade predictability. In addition, several initiatives were implemented in H2-2025 to maximize ore recovery and minimize external dilution.
+In Q4-2025, the mill processed 349,242t of ore at an average grade of 134 g/t Ag, with throughput averaging 3,796 tpd, mill availability of 99%, and silver recovery of 91.2%. Mining activities averaged 4,187 tpd during the quarter, at an average grade of 130 g/t Ag. This exceeded milling capacity, marking a key milestone in the transition to steady-state operations, positioning the operation to sustain a processing target of approximately 3,650 tpd going forward. As a result, the stockpile increased by 24% QoQ to 194,521t, in line with the Corporation's objective to build inventory ahead of 2026 throughput.
+Operational Highlights
+Q4-2025
+Q4-2024
+Variance
+2025
+2024
+Variance
+Operational Zgounder
+Ore Mined (tonnes)
+11
+385,216
+102,485
+276%
+1,036,570
+444,375
+133%
+Average Grade Mined (g/t Ag)
+130
+168
+(23)%
+139
+162
+(14)%
+Ore Processed (tonnes)
+349,242
+113,674
+207%
+1,178,420
+358,919
+228%
+Average Grade Processed (g/t Ag)
+134
+159
+(16)%
+145
+171
+(15)%
+Combined Mill Recovery (%)
+91.2%
+84.8%
+6.4%
+88.4%
+83.7%
+4.7%
+Milling Operations (tpd)
+3,796
+1,236
+207%
+3,229
+981
+229%
+Silver Equivalent Produced (oz)
+1,371,300
+491,310
+179%
+4,829,151
+1,646,265
+193%
+Silver Equivalent Sold (oz)
+1,234,551
+337,733
+266%
+4,801,876
+1,501,927
+220%
+Cash Costs per Silver Equivalent Ounce Sold
+4
+20.50
+26.57
+(23)%
+20.41
+21.71
+(6)%
+Adjusted Cash Costs per Silver Equivalent Ounce Sold
+4
+20.50
+21.51
+(5)%
+20.41
+19.62
+4%
+Production Cost per Tonne
+4
+84
+108
+(22)%
+114
+76
+51
+Boumadine Reclaim Operations
+Ore Processed (tonnes)
+13,498
+-
+NM
+13,498
+-
+NM
+Average Grade Processed (g/t Ag)
+192
+-
+NM
+192
+-
+NM
+Average Grade Processed (g/t Au)
+2.87
+-
+NM
+2.87
+-
+NM
+Silver Equivalent Produced (oz)
+172,129
+-
+NM
+172,129
+-
+NM
+Silver Equivalent Sold (oz)
+55,471
+-
+NM
+55,471
+-
+NM
+Cash Costs per Silver Equivalent Ounce Sold
+4
+6.59
+-
+NM
+6.59
+-
+NM
+Consolidated Zgounder and Boumadine
+Silver Equivalent Produced Consolidated (oz)
+1,543,429
+491,310
+214
+%
+5,001,280
+1,646,265
+204
+%
+Silver Equivalent Sold Consolidated (oz)
+1,290,023
+337,733
+282
+%
+4,857,347
+1,501,927
+223
+%
+Average Net Realized Silver Equivalent ($/oz) *
+58.39
+27.65
+111%
+41.61
+26.04
+60%
+Cash Costs per Silver Equivalent Ounce Sold
+4
+19.91
+26.57
+(25)%
+20.25
+21.71
+(7)%
+Adjusted Cash Costs per Silver Equivalent Ounce Sold
+4
+19.91
+21.51
+(7)%
+20.25
+19.62
+3%
+* Revenues / Silver Equivalent Sold Consolidated (oz)
+2025 Development and Exploration
+Zgounder
+Drilling
+: Aya completed 28,281 m of drilling at Zgounder in 2025, exceeding the upper end of its 25,000-metre target. Near-mine drilling confirmed high-grade silver mineralization at depth and along strike, while drilling in the open-pit area reinforced mineralization continuity.
+Expanded Footprint:
+Aya also expanded its regional footprint with six new exploration permits, increasing the total land package to 378 km² and supporting its strategy to grow resources and advance long-term development.
+Net Reserve and Resource growth
+: Following a multi-year drilling program, the Corporation updated its Mineral Resource and Reserve estimates, incorporating approximately 275,000 m of drilling since 2021. Proven and Probable (""P&P"") reserves increased 4% to 73 Moz Ag at 145 g/t Ag, and M&I resources (inclusive of reserves) increased 5% to 100 Moz Ag at 165 g/t Ag. Note that silver prices of $26/oz and $28/oz were assumed for Reserves and Resources, respectively.
+Updated Mine Plan with LOM Extending to 2036
+: Average annual production of 6 Moz Ag, or an estimated total of 66 Moz Ag over the 11-year LOM with an average cash cost of $16.26/oz Ag.
+Boumadine
+Drilling
+: In 2025, the Corporation completed 150,325 m of drilling at Boumadine, exceeding its annual target and extending mineralization across the Tizi and Imariren zones. Drilling results confirmed continuity of the deposit and identified new parallel structure east of the Main Trend, highlighting the project’s strong expansion potential.
+Expanded Footprint:
+The Corporation continued to expand its regional footprint, adding new permits and increasing the exploration area to 341 km², with further targets identified for 2026.
+Updated Resources
+: The February 2025 Mineral Resource Estimate outlined Indicated resources of 74 Moz AgEq
+12
+at 448 g/t and Inferred resources of 378 Moz AgEq
+12
+at 402 g/t, up 120% and 19%, respectively, excluding most of the 2025 drilling, underscoring additional upside potential.
+Preliminary Economic Assessment:
+During the year, Aya completed a PEA for Boumadine, outlining a district-scale, precious metals-rich project with mineralization open in all directions. The PEA’s base-case (assuming $2,800/oz gold and $30/oz silver)
+6
+economic analysis estimates a post-tax NPV
+5%
+and IRR of $1.5 B and 47%, respectively, potential total production of 340 Moz AgEq over an 11-year mine life (average annual production 30.6 Moz AgEq). The project includes the production of three marketable concentrates: zinc, lead, and pyrite, with revenue largely driven by precious metals, low capital intensity, competitive operating costs and a flexible open-pit and underground mining design. The associated NI 43-101 technical report was filed on Sedar+ on December 18, 2025, and feasibility-level work is currently underway.
+Environmental, Social and Governance
+The Corporation continued to advance its sustainability and health and safety performance in 2025, with a focus on proactive risk management, contractor engagement, and training, totaling 21,240 hours. Total Recordable Injury Frequency Rate (""TRIFR"") improved to 11.24 in Q4-2025 from 19.56 in Q4-2024. In Q4‑2025, Aya continued to support local communities through education, health, and cultural programs, while continuing to implement its ESMS and working towards ISO 14001 certification. The Corporation did not report any significant environmental incidents for the three months ended on December 31, 2025.
+2025 Guidance Review
+Aya met its overall 2025 production guidance (5.0-5.3 Moz Ag), delivering 5.0 Moz AgEq, including 0.17 Moz AgEq from the Boumadine pyrite reclaim operation (not included in original guidance). The average processed grade of 145 g/t Ag was below guidance (170-200 g/t Ag), reflecting the ramp-up blend of open-pit, underground, and stockpiled ore, as well as higher-than-expected dilution. The technical report filed on December 16, 2025, includes an updated mine plan and updated Mineral Reserve and Resource Estimate, incorporating revised grade expectations based on extensive drilling, refined geological interpretation, and current mining practices. Metallurgical performance slightly above the upper end of the guided range (84-88%), with 88.4% silver recovery for the year, including a 91.8% average in the second half. These strong throughput and recovery levels partially offset the impact of lower grades on cash costs per AgEq oz, which averaged $20.41 at Zgounder ($20.25/oz AgEq on a consolidated basis), above guidance ($15.00-$17.50/oz). In 2025, total exploration and development expenditures across the Corporation’s projects reached approximately $41 million, exceeding the guidance range of $25-30 million, reflecting the extended scope of work at Boumadine.
+2026 Operation Outlook
+Building on the operational and exploration achievements of 2025, Aya expects 2026 to be a year of strong execution, focused on operations and advancing exploration and development initiatives. Based on the current mine plan and operating assumptions, the Corporation reiterates the following 2026 outlook as follows:
+Total Production:
+between 6.2 and 6.8 Moz AgEq.
+Zgounder Silver Mine:
+production of 5.2 to 5.8 Moz Ag, at an average cash cost
+(
+4
+)
+of approximately $21.50/oz AgEq.
+Boumadine pyrite stockpile reclaim operation:
+production of approximately 1.0 Moz AgEq at a cash cost of approximately $10/oz AgEq.
+Planned capital and exploration expenditures
+are $36M and $60M, respectively, and remain subject to ongoing review and market conditions.
+Looking ahead, management believes that the current industry landscape, together with expectations for a supportive silver price environment, is expected to support strong margins and operating cash flow, providing confidence in Aya's strategy to pursue opportunities across its portfolio. Following a positive Preliminary Economic Assessment, Aya remains focused on executing the Boumadine feasibility-level study and associated technical programs to advance the project toward development. The PEA and Aya's work to date, highlights Boumadine's potential for meaningful scale with significant resource expansion upside. Supported by a strong balance sheet, Aya is well positioned to invest in its future through disciplined capital allocation and continued exploration investment, with a continued focus on delivering long-term value for all stakeholders.
+Outlook Assumptions
+AgEq ounces are at an 80:1 Au:Ag ratio
+Cash costs per silver equivalent outlook is based on various assumptions and estimates, including, but not limited to: production volumes, commodity prices (2026 - Ag: $50.00/oz, Au: $4,000/oz), foreign currency exchange rates (2025 - CAD/USD:1.40, MAD/USD:9.00) and operating costs.
+Q4-2025 Conference Call Details
+Aya will release its fourth-quarter and full-year 2025 results on Tuesday, March 31, 2026 before market opens. Management will host a conference call on the same day at 10 a.m. Eastern Time to discuss the Corporation’s financial and operational results.
+Participants may join the conference call via webcast or by dialing-in as follows:
+https://edge.media-server.com/mmc/p/qs9262uf
+Webcast link: Instructions for obtaining conference call dial-in numbers:
+Click on the following call link and complete the online registration form
+https://register-conf.media-server.com/register/BId539ee66fcc640f9bc13771002b5fab5
+Upon registering you will receive the dial-in info and a unique PIN to join the call as well as an email confirmation with the details.
+Select a method for joining the call: a) Dial-In: A dial in number and unique PIN are displayed to connect directly from your phone; or b) Call Me: Enter your phone number and click “Call Me” for an immediate callback from the system. The call will come from a US number.
+Qualified Person
+The technical information contained in this press release has been reviewed and approved by David Lalonde, B. Sc, Vice-President of Exploration, and by Raphael Beaudoin, P. Eng, Vice-President, Operations, both of whom are each a “Qualified Person” as defined under National Instrument 43-101 – Standards of Disclosure for Mineral Projects (“NI 43-101”), for accuracy and compliance with NI 43-101.
+The NI 43-101 technical reports referenced herein are available under the Corporation’s profile on SEDAR+ and on the Corporation’s website.
+About Aya Gold & Silver Inc.
+Aya Gold & Silver is a Canadian precious metals mining company anchored in Morocco and active across the full mining value chain. The Corporation has established an exploration track record through a systematic, technology-led, data-driven approach and is focused on expanding its resource base and land package along the Anti-Atlas fault — one of Africa’s most geologically rich, underexplored and mining-friendly regions.
+Aya operates Zgounder, a rare, silver-only mine, producing silver doré from its new processing facility. Aya’s growth pipeline includes the Boumadine polymetallic project, where feasibility study work is underway. The project hosts a substantial mineral resource, an extensive mineralized footprint, and significant potential for further discovery.
+Led by a proven team of mining professionals, Aya is guided by a vision of responsible mining and is committed to delivering sustainable value for shareholders, employees and host communities.
+For additional information, please visit Aya’s website at
+www.ayagoldsilver.com
+.
+Or contact
+Benoit La Salle, FCPA, MBA
+President & CEO
+benoit.lasalle@ayagoldsilver.com
+Alex Ball
+VP, Corporate Development & IR
+alex.ball@ayagoldsilver.com
+Forward-Looking Statements
+This press release contains “forward-looking statements” or “forward looking information” within the meaning of applicable securities laws and other statements that are not historical facts. Forward-looking statements are included to provide information about management’s current expectations, estimates and projections regarding Aya’s future growth and business prospects (including the timing and development of deposits and the success of exploration activities) and other opportunities as of the date of this press release.
+All statements, other than statements of historical fact included in this press release, regarding the Corporation’s strategy, future operations, technical assessments, prospects, plans and objectives of management are forward-looking statements that involve risks and uncertainties. Wherever possible, words such as “aim”, “anticipate”, “assume”, “believe”, “estimate”, “expect”, ""goal"", “guidance”, “intend”, “objective”, “plan”, ""potential"", “strategy”, ""target"", and similar expressions or statements that certain actions, events or results “may”, “could”, “would”, “might”, “will”, or are “likely” to be taken, occur or be achieved, have been used to identify such forward-looking information. Forward-looking statements in this press release include, but are not limited to, statements with respect to: the Corporation's 2026 guidance, processing targets and throughput; the Preliminary Economic Assessment for the Boumadine project (PEA) including without limitation, project economics, financial and operational parameters such as NPV, IRR, and life of mine (LOM); timeline for completion of the Boumadine feasibility study; the advancement toward development of the Boumadine project; the Zgounder mine plan targets, expected ore recovery, grade predictability, and external dilution; the Corporation's strategy, objectives and projections with regards to Zgounder, including to grow resources and advance long-term development at Zgounder Near Mine and Regional, annual production levels, life of mine (LOM), and operating cost profile; the Boumadine asset development and expansion potential; the Corporation's expected expansion of its Boumadine land position and advancement of new targets identified; the 2026 Corporation's operation outlook, including the focus on operations, advancing exploration, development initiatives, total production, and planned capital and operational expenditures; the commodities price environment, including silver price; allocation of the Corporation's capital; and the Corporation’s future operating results, economic performance, and objectives.
+Forward-looking information is based upon certain assumptions and other important factors that, if untrue, could cause the actual results, performance or achievements of the Corporation to be materially different from future results, performance or achievements expressed or implied by such information or statements. There can be no assurance that such information or statements will prove to be accurate. Key assumptions upon which the Corporation’s forward-looking information is based include without limitation, assumptions regarding development and exploration activities; the timing, extent, duration and economic viability of such operations, including any mineral resources or reserves identified thereby; the accuracy and reliability of estimates, projections, forecasts, studies and assessments; the Corporation’s ability to meet or achieve estimates, projections and forecasts; the availability and cost of inputs; the price and market for outputs; foreign exchange rates; taxation levels; the timely receipt of necessary approvals or permits; the ability to meet current and future obligations; the ability to obtain timely financing on reasonable terms when required; the current and future social, economic and political conditions; and other assumptions and factors generally associated with the mining industry.
+Readers are cautioned that the foregoing list is not exhaustive of all factors and assumptions which may have been used. Forward-looking statements are also subject to risks and uncertainties facing the Corporation’s business, any of which could have a material adverse effect on the Corporation’s business, financial condition, results of operations and growth prospects. Some of the risks the Corporation faces and the uncertainties that could cause actual results to differ materially from those expressed in the forward-looking statements include, among others: Aya’s ability to execute plans relating to its Zgounder Project and Boumadine Project, including the timing thereof; risks and hazards associated with the business of mineral exploration, development, and mining, including environmental hazards, potential unintended releases of contaminants, industrial accidents, unusual or unexpected geological or structural formations, pressures, cave-ins, and flooding; risks related to Aya’s operations in Morocco; the speculative nature of mineral exploration and development; diminishing quantities or grades of mineral reserves as properties are mined; the inability to determine, with certainty, the production of metals and cost estimates, or the prices to be received before mineral reserves or mineral resources are actually mined; inadequate or unreliable infrastructure (such as roads, bridges, power sources and water supplies); fluctuations in forward markets for silver and other commodities (such as natural gas, fuel oil and electricity); restrictions on mining in the jurisdictions in which Aya operates; change of laws and regulations governing our operation, exploration, and development activities, including international laws and legal norms, such as those relating to Indigenous peoples and human rights; the Corporation’s ability to mitigate the risks pertaining to fund repatriation; expectations with respect to any future pandemics on our operations, and assumptions related thereto; Aya’s ability to attract and retain qualified employees and contractors; Aya’s ability to obtain necessary permits and licenses; inherent risks associated with tailings facilities and heap leach operations, including failure or leakages; Aya’s growth strategy; Aya’s ability to obtain insurance; occupational health and safety risks; adverse publicity risks; third party risks; disruptions to Aya’s business operations; Aya’s reliance on technology and information systems; litigation risks; interest and exchange rates risks; tax risks; unforeseen expenses; public health crises; climate change; general economic conditions; commodity prices and exchange rate risks; gold and silver demand; volatility of share price; public company obligations; competition risk; policies and legislation; force majeure; climate risks; the effectiveness of our internal control over financial reporting; risks related to competition in the mining industry; changes in technology; asset impairment (or reversal) potential, being consistent with the Corporation’s current expectations; the inherent risks involved in exploration and development of mineral properties; and other risks described in the Corporation’s documents filed with Canadian securities regulatory authorities.
+In addition, readers are directed to carefully review the detailed risk discussion in the Corporation’s Annual Information Form and Management’s Discussion & Analysis for the year ended December 31, 2025, filed on SEDAR+, which discussions are incorporated by reference in this press release, for a fuller understanding of the risks and uncertainties that affect the Corporation’s business and operations.
+Although the Corporation believes its expectations are based upon reasonable assumptions and has attempted to identify important factors that could cause actual actions, events or results to differ materially from those described in forward-looking statements, there may be other factors that cause actions, events or results not to be as anticipated, estimated or intended. There can be no assurance that forward-looking information will prove to be accurate, as actual results and future events could differ materially from those anticipated in such information. As such, these risks are not exhaustive; however, they should be considered carefully. If any of these risks or uncertainties materialize, actual results may vary materially from those anticipated in the forward-looking statements found herein. Due to the risks, uncertainties, and assumptions inherent in forward-looking statements, readers should not place undue reliance on forward-looking statements.
+Forward-looking statements contained herein are presented for the purpose of assisting investors in understanding the Corporation’s business plans, financial performance and condition and may not be appropriate for other purposes.
+The forward-looking statements contained herein are made only as of the date hereof. The Corporation disclaims any intention or obligation to update or revise any forward-looking statements, whether as a result of new information, future events or otherwise, except to the extent required by applicable law. The Corporation qualifies all of its forward-looking statements by these cautionary statements.
+Technical Reports
+The complete NI 43-101 Technical Report pertaining to the Boumadine Project titled “Preliminary Economic Assessment for the Boumadine Polymetallic Project, Kingdom of Morocco” (the ""PEA"") was filed on December 18, 2025, and is available on Aya’s website and on www.sedarplus.ca.
+The complete NI 43-101 Technical Report pertaining to the Zgounder Project titled “Technical Report – Updated Mineral Resource and Mineral Reserves Estimate of the Zgounder Silver Mine Operation, Kingdom of Morocco” (the ""Zgounder Technical Report"") was filed on December 16, 2025, and is available on Aya’s website and on www.sedarplus.ca.
+Qualified Persons
+The independent Qualified Persons for the PEA, as defined by NI 43-101, are:
+Preetham Nayak P.Eng., Senior Study Manager for Lycopodium Minerals Canada Ltd
+Ruan Venter, Principal Process Engineer for Lycopodium Minerals Canada Ltd
+Zuned Shaikh P.Eng., Lead Mechanical Engineer for Lycopodium Minerals Canada Ltd
+Benjamin Berson, P.Eng., Lead Mining Engineer for WSP
+Alex Pheiffer, from SLR Consulting France SAS
+George Papageorgiou from Epoch
+Eugene Puritch from P&E Consultants Inc.
+Antoine Yassa from P&E Consultants Inc.
+Fred Brown from P&E Consultants Inc.
+Jarita Barry from P&E Consultants Inc.
+William Stone from P&E Consultants Inc.
+Cortney Palleske, P.Eng., Principal Geomechanics Consultant from RockEng
+The independent Qualified Persons for the Zgounder Technical Report, as defined by NI 43-101, are:
+Olivier Bertoli, M.Eng., Principal Geostatistician for RSC Consulting Ltd
+Abraham Whaanga, B.Sc., Sr Resource Geologist for RSC Consulting Ltd
+Honza Catchpole, PhD, P.Geo., Sr Exploration Geologist for RSC Consulting Ltd
+Notes to Investors Regarding the Use of Mineral Resources and Mineral Reserves
+The mineral resources estimate for Zgounder is effective as of June 30, 2025, as disclosed in a technical report titled “Technical Report – Updated Mineral Resource and Mineral Reserves Estimate of the Zgounder Silver Mine Operation, Kingdom of Morocco” dated as of December 16, 2025, and filed on SEDAR+ as of such date. The mineral reserves estimate for the Zgounder Technical Report is effective as of September 30, 2025, as disclosed in the Zgounder Technical Report. The key assumptions, parameters and methods used to estimate the mineral resources and mineral reserves for Zgounder and the identification of known legal, political, environmental or other risks that could materially affect the potential development of the mineral resources and mineral reserves are described in such Zgounder Technical Report.
+The PEA is based on the updated mineral resource estimate (“MRE”) for the Boumadine Project, effective as of February 24, 2025, disclosed in a technical report titled “Preliminary Economic Assessment for the Boumadine Polymetallic Project, Kingdom of Morocco” dated as of December 18, 2025, and filed on SEDAR+ as of such date. The key assumptions, parameters and methods used to estimate the MRE and the identification of known legal, political, environmental or other risks that could materially affect the potential development of the mineral resources are described in such PEA.
+The PEA is preliminary in nature, and it includes inferred mineral resources that are considered too speculative geologically to have the economic considerations applied to them that would enable them to be categorized as mineral reserves, and, as such, there is no certainty that the PEA results will be realized.
+Mineral resources are not mineral reserves and do not have demonstrated economic viability. The estimate of mineral resources may be materially affected by environmental, permitting, legal, title, taxation, socio-political, marketing, or other relevant issues. There is no certainty that mineral resources will be converted to mineral reserves.
+Investors are cautioned not to assume that part or all of an inferred mineral resource exists, or is economically or legally mineable.
+Additionally, where the Corporation discusses exploration and expansion potential, any potential quantity and grade is conceptual in nature and there has been insufficient exploration to define a mineral resource and it is uncertain if further exploration will result in the target being delineated as a mineral resource. Varying cut-off grades have been used depending on the mine, methods of extraction and type of ore contained in the reserves. Mineral resource metal grades and material densities have been estimated using industry-standard methods appropriate for each mineral project with support of various commercially available mining software packages. Additional details regarding mineral reserve and mineral resource estimation, classification, reporting parameters, key assumptions and associated risks for each of the Corporation’s mineral properties are provided in the respective NI 43-101 Technical Reports which are available at www.sedar.ca and the Corporation’s website at
+www.ayagoldsilver.com
+.
+Numbers may not add or multiply accurately due to rounding.
+Non-GAAP Measures
+The following tables present certain non-GAAP measures, as discussed in our press release. Reconciliations to the most directly comparable GAAP measures are provided below.
+The Corporation has included certain non-GAAP financial measures and non-GAAP ratios in this press release, including “Cash costs per silver equivalent ounce sold"" (“AgEq ounce”), “Adjusted cash cost per silver equivalent ounce sold"" (“AgEq ounce”), “Production cost per tonne”, and “Available liquidity”, to supplement its consolidated financial statements, which are prepared in accordance with IFRS. The terms IFRS and generally accepted accounting principles (“GAAP”) are used interchangeably throughout this document.
+The Corporation believes that these measures, together with IFRS measures, provide investors with enhanced transparency and a better ability to evaluate the Corporation’s underlying operating performance and liquidity. Cash cost per silver equivalent ounce sold and Production cost per tonne are widely used in the mining industry as performance benchmarks. However, our non-GAAP measures do not have standardized meanings prescribed under IFRS and may not be comparable to similar measures reported by other companies. Accordingly, they should not be considered in isolation or as a substitute for measures of performance prepared in accordance with IFRS.
+Silver Equivalent Ounces Sold (“AgEq”)
+Silver equivalent ounces are calculated by converting gold production into silver ounces using relative metal prices for the applicable reporting year. AgEq ounces allow the Corporation to present consolidated production and cost metrics on a comparable basis, as its operations may produce more than one metal. Silver equivalent ounces sold has been introduced in fiscal 2025 due to pyrite concentrate sales at Boumadine.
+AgEq ounces are provided for additional information purposes only.
+Cash Costs per AgEq Ounce Sold and Production Cost per Tonne
+Cash costs per AgEq ounce sold, Adjusted cash cost per AgEq ounce sold and production cost per tonne are non-GAAP measures used by management to monitor and evaluate operating performance at both the mine and consolidated levels, in conjunction with the most directly comparable IFRS measures where applicable.
+These metrics are widely reported in the mining industry as benchmarks for cost performance. Management and investors use them to assess the Corporation’s cost structure and operating efficiency, to compare operating performance with industry peers, and to evaluate the performance of individual mining operations within the Corporation’s portfolio.
+Where applicable, cost metrics are calculated in a manner consistent with the guidelines published by the World Gold Council (“WGC”).
+Cash Costs per AgEq Ounce Sold and Adjusted Cash Cost per AgEq Ounce Sold
+Cash costs per AgEq ounce sold are calculated by:
+Starting with cost of sales as reported in the consolidated statements of comprehensive income (IFRS measure):
+Excluding non-cash items of share-based compensation expense, depreciation and depletion and inventory write-down included in cost of sales as these items do not reflect current year cash expenditures;
+Adding treatment, smelting and refining costs as management believes these costs provide a more comprehensive representation of total cash costs associated with production; and
+Dividing the resulting amount by the total AgEq ounces sold during the period.
+Cash costs per AgEq ounce sold are intended to reflect the cash expenditures directly associated with production during the year and are used by management to evaluate the Corporation’s operating efficiency and cost performance.
+Adjusted cash cost per AqEq reflects cash cost per AqEq further adjusted to exclude ramp-up costs as explained below the table.
+Three-month periods ended
+December 31,
+Twelve-month periods ended
+December 31,
+Zgounder Silver Mine – Morocco
+2025
+2024
+2025
+2024
+Cost of sales (""COS"")
+13
+32,340
+11,084
+118,569
+33,735
+Share-based compensation
+(439)
+(580)
+(1,275)
+(580)
+Depreciation and depletion
+(6,784)
+(1,953)
+(20,347)
+(3,246)
+Inventory write-down
+(62)
+(294)
+(197)
+(294)
+Treatment, smelting and refining costs
+14
+259
+718
+1,254
+2,992
+Operating cash costs (A)
+25,314
+8,975
+98,004
+32,607
+Total silver sales (oz) (B)
+1,234,551
+337,733
+4,801,876
+1,501,927
+Cash cost per silver ounce sold (A/B)
+20.50
+26.57
+20.41
+21.71
+Additional COS due to ramp-up (C)
+-
+(1,710)
+-
+(3,137)
+Adjusted operating cash costs (A+C)
+25,314
+7,265
+98,004
+29,470
+Adjusted cash cost per silver ounce sold (A+C)/(B)
+20.50
+21.51
+20.41
+19.62
+Three-month periods ended
+Twelve-month periods ended
+December 31,
+December 31,
+Boumadine Pyrite Stockpile Project – Morocco
+2025
+2024
+2025
+2024
+Cost of sales
+1
+3
+366
+-
+366
+-
+Operating cash costs (D)
+366
+-
+366
+-
+Total silver equivalent sales (oz of AgEq) (E)
+55,471
+-
+55,471
+-
+Cash cost per AgEq ounce sold (D/E)
+6.59
+-
+6.59
+-
+Three-month periods ended
+December 31,
+Twelve-month periods ended
+December 31,
+Combined projects – Morocco
+2025
+2024
+2025
+2024
+Cost of sales
+1
+3
+32,706
+11,084
+118,935
+33,735
+Share-based compensation
+(439)
+(580)
+(1,275)
+(580)
+Depreciation and depletion
+(6,784)
+(1,953)
+(20,347)
+(3,246)
+Inventory write-down
+(62)
+(294)
+(197)
+(294)
+Treatment, smelting and refining costs
+1
+4
+259
+718
+1,254
+2,992
+Operating cash costs (F)
+25,680
+8,975
+98,370
+32,607
+Total silver equivalent sales (oz of AgEq) (G)
+1,290,022
+337,733
+4,857,347
+1,501,927
+Cash cost per AgEq ounce sold (F/G)
+19.91
+26.57
+20.25
+21.71
+Additional COS due to ramp-up (H)
+-
+(1,710)
+-
+(3,137)
+Adjusted operating cash costs (F+H)
+25,680
+7,265
+98,370
+29,470
+Adjusted cash cost per AgEq ounce sold (F+H)/(G)
+19.91
+21.51
+20.25
+19.62
+In H2-2024 additional operational costs for expansion preparations, mine ramp-up, health and safety activities, hiring of new staff, training and the two-month delay in the expansion of the Zgounder Mine. Underground mining costs also increased in the quarter as we used our mining contractor to increase the rate of stope development and catch up on bolting and screening. In aggregate these additional costs totaled approximately $3.1 million for the year ($1.7 million for Q4-2024). The additional costs represented $5.06 per oz sold in Q4-2024 and $2.09 per oz sold for fiscal 2024. Excluding these costs, the adjusted cash cost per silver ounce sold is $21.51 in Q4-2024 and $19.62 for fiscal 2024.
+Production Cost per Tonne
+Production cost per tonne is calculated by:
+Starting with cost of sales (IFRS measure), less cost of sales of Boumadine since no ore mined; and
+Dividing total production costs by the total tonnes mined during the period.
+Production cost per tonne is used by management to assess processing efficiency, cost control relative to throughput levels, and overall operational performance.
+Three-month periods ended
+Twelve-month periods ended
+December 31,
+December 31,
+2025
+2024
+2025
+2024
+Cost of sales (""COS"")
+1
+3
+32,706
+11,084
+118,935
+33,735
+Less: COS Boumadine
+366
+—
+366
+—
+COS Zgounder
+32,340
+11,084
+118,569
+33,735
+Ore mined (tonnes)
+385,216
+102,485
+1,036,570
+444,375
+Production Cost per Tonne
+84
+108
+114
+76
+Announced on November 19, 2025, this initiative is expected to be a limited duration of 20 to 24 months.
+The overall Boumadine polymetallic project remains at the exploration and evaluation stage and is not in commercial production.
+Silver-to-gold ratio of 71.
+Cash cost per silver ounce sold, cash cost per AgEq ounce sold, adjusted cash cost per silver equivalent ounce sold, and production cost per tonne are non-IFRS financial measures and do not have standardized meanings under IFRS and may not be comparable to similar measures used by other issuers. Refer to the ""Non-GAAP Measures"" section in this press release for reconciliations and detailed descriptions of these measures.
+For additional details, including definitions, refer to the Corporation’s press releases dated November 4, 2025 and December 18, 2025 relating to the Boumadine PEA.
+Assumed Base Case prices of $2,800/oz gold, $30/oz silver, $1.20/lb zinc, and $1.00/lb lead.
+Net Present Value (“NPV”) represents the discounted value of future cash flows from the project after tax, using a 5% discount rate, based on the assumptions in the Preliminary Economic Assessment. Internal Rate of Return (IRR) is the discount rate at which the net present value (NPV) of a project’s future cash flows equals zero.
+Non-GAAP Measure. For cash cost definition for Zgounder, refer to Aya's press release announcing filing of the updated technical report (Dec 16, 2025.)
+In the year and quarter ended December 31, 2024, loss per share had previously been calculated using total net loss rather than net loss attributable to Aya shareholders. The comparative EPS amounts have been adjusted from previously reported $(0.20) to $(0.17) for the year and from $(0.23) to $(0.20) for the quarter to reflect net loss attributable to Aya shareholders. This adjustment affects only the presentation of loss per share and has no impact on the Corporation's net loss, total equity, cash flows, or financial position.
+Working capital: Non-GAAP Measures, consisting of current assets of $232,450 less current liabilities of $120,050 (December 31, 2024, current assets of $76,540 less current liabilities of $53,116).
+Ore Mined: Includes an adjustment of 1,562 tonnes to correct an error in previously reported ore mined related to the depletion of historical underground ore inventory. The error relates to ore mined in Q1-2025 and was identified and corrected as part of the year-end reconciliation process.
+Boumadine Mineral Resource Estimate silver-to-gold ratio 80:1.
+Refer to Note 16 (cost of sales) to the audited Financial Statements for the year ended December 31, 2025.
+Refer to Note 15 to the audited Financial Statements for the year ended December 31, 2025, where treatment, smelting and refining costs are presented net of sales.
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\AYA\news_html\2026-03-31.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/AYA/news_html/2026-03-31.html,,NONE,Record Results for Q4-2025 and Full Year 2025,,,2024-12-31,2025-03-31
+stockwatch,AYA,AYA GOLD & SILVER INC.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881713.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
+sedar_gap,AYA,Aya Gold & Silver Inc.,2026-03-31,NEWS_RELEASES,,NewsRelease,News release - English.pdf,,,https://www.sedarplus.ca/csa-party/viewInstance/resource.html?node=W2339&drmKey=875369d6d779fc6d&drr=ss3e87b2e559be98b0ef06206bd19f3c74a680c71196e2414691cc08897a7e99a26e1c88a6694a63f2603b521b1e0dccbfux&id=0c11f8b7998bcd96128183ce409e3a5670fab039b1a95d29,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31

@@ -1,4 +1,4 @@
-﻿source,symbol,issuer,filing_date,doc_type,industry,category,synopsis,article_url,article_id,pdf_url,pdf_path,page_count,pdf_size_kb,downloaded,r2_url,news_text,news_html_path,news_html_r2_url,mat_summary,llm_flag,llm_summary,llm_project,llm_error,as_at_date,aif_filed
+source,symbol,issuer,filing_date,doc_type,industry,category,synopsis,article_url,article_id,pdf_url,pdf_path,page_count,pdf_size_kb,downloaded,r2_url,news_text,news_html_path,news_html_r2_url,mat_summary,llm_flag,llm_summary,llm_project,llm_error,as_at_date,aif_filed
 stockwatch,STGO,Steppe Gold Ltd.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881569.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\STGO\pdfs\AIF\2025-03-31_STGO_AIF.pdf,85,1381,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/STGO/2025-03-31_STGO_AIF.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,STGO,Steppe Gold Ltd.,2026-02-24,MATERIAL_CHANGE_REPORT_EN,gold and precious metals,MaterialChange,,,,https://www.stockwatch.com/News/Sedardoc/6131778.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\STGO\pdfs\MaterialChange\2026-02-24_STGO_MaterialChange_MATERIAL_CHANGE_REPORT_EN.pdf,2,216,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/STGO/2026-02-24_STGO_MaterialChange_MATERIAL_CHANGE_REPORT_EN.pdf,,,,CFO resignation announcement,,,,,2024-12-31,2025-03-31
 stockwatch,STGO,Steppe Gold Ltd.,2026-02-24,NEWS_RELEASE_EN,gold and precious metals,NewsRelease,Steppe Gold CFO resigns; interim CFO appointed,https://www.stockwatch.com/News/Item/Z-C!STGO-3788666/C/STGO,3788666,https://www.stockwatch.com/News/Sedardoc/6130861.pdf,,0,0,no,,"2026-02-24 19:22 ET - News Release
@@ -462,3 +462,131 @@ stockwatch,STGO,Steppe Gold Ltd.,2025-03-31,ON_FORMF1,gold and precious metals,O
 stockwatch,STGO,Steppe Gold Ltd.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881569.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\STGO\pdfs\AIF\2025-03-31_STGO_AIF_ANNUAL_INFORMATION_FORM_EN.pdf,85,1381,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/STGO/2025-03-31_STGO_AIF_ANNUAL_INFORMATION_FORM_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,STGO,Steppe Gold Ltd.,2025-03-31,MDA_EN,gold and precious metals,MD&A,,,,https://www.stockwatch.com/News/Sedardoc/5881550.pdf,C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\STGO\pdfs\MD&A\2025-03-31_STGO_MD&A_MDA_EN.pdf,43,754,yes,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/STGO/2025-03-31_STGO_MD&A_MDA_EN.pdf,,,,,,,,,2024-12-31,2025-03-31
 stockwatch,STGO,Steppe Gold Ltd.,2025-03-31,AUDITED_ANNUAL_FINANCIAL_STATEMENTS_EN,gold and precious metals,Other,,,,https://www.stockwatch.com/News/Sedardoc/5881529.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,STGO,Steppe Gold Ltd.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881569.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,STGO,Steppe Gold Ltd.,2026-03-31,NEWS_RELEASES,,NewsRelease,Steppe Gold Announces 2025 Annual Financial Results,https://www.stockwatch.com/News/Item/Z-C!STGO-3800657/C/STGO,3800657,https://www.sedarplus.ca/csa-party/viewInstance/resource.html?node=W2543&drmKey=bc2c13c02e4781f5&drr=ss3e87b2e559be98b0ef06206bd19f3c74a680c71196e2414691cc08897a7e99a26e1c88a6694a63f2603b521b1e0dccbfux&id=0c11f8b7998bcd967a5281d6fbb4f67b9de22eda4aa0b11e,,0,0,no,,"2026-03-31 17:01 ET - News Release
+Ulaanbaatar, Mongolia--(Newsfile Corp. - March 31, 2026) -
+Steppe Gold Ltd. (TSX: STGO) (OTCQX: STPGF) (FSE: 2J9) (""Steppe Gold""
+or the
+""Company"")
+is pleased to announce its financial results for the year ended December 31, 2025. The Company delivered strong operating performance, record revenues and a significant improvement in its financial position during the year.
+""We are pleased to report a year of solid operational and financial performance,"" said Tserenbadam Dugeree, Chief Executive Officer of Steppe Gold. ""The Company made meaningful progress on restructuring initiatives, strengthened its financial position and advanced certain infrastructure activities related to the ATO Phase 2 expansion. Strong performance from the Boroo and Ulaanbulag gold mines supported overall results, while the ATO Phase 1 operation approached the end of its mine life.
+ATO Phase 2 remains at a development stage and is subject to a range of material risks and uncertainties, including with respect to permitting, financing, construction execution, operating costs, and timing. There can be no assurance that the project will be completed on the currently contemplated schedule or budget, or at all. The Company continues to evaluate development plans and funding options, with a focus on preserving financial flexibility and managing downside risk.
+We remain focused on disciplined capital allocation, prudent liquidity management, and maintaining operational stability across the business during this transition period.""
+A full set of risk factors is included in the Company's annual information form dated March 31, 2026, filed on SEDAR+.
+HIGHLIGHTS
+Fourth quarter and year ended December 31, 2025
+(All amounts are in US dollars, expressed in thousands, unless otherwise indicated, except per unit amounts.)
+Gold production was 29,401 ounces for the fourth quarter and 76,059 ounces for the full year
+Gold sales were 37,337 ounces for the fourth quarter and 75,927 ounces for the full year
+Revenue was $160,037 for the fourth quarter and $254,130 for the full year
+Adjusted EBITDA of $122,369 for the fourth quarter and $173,918 for the full year
+Net income (loss) was $10,218 for the fourth quarter and $32,760 for the full year
+Site all-in sustaining costs (AISC) were $1,044 per ounce for the fourth quarter and $1,215 per ounce for the full year
+Working capital was $107,336 as at December 31, 2025
+Results Overview
+Fourth quarter results reflect higher realized gold prices and increased production driven by higher grades, as well as higher gold sales, including the sale of 7,966 ounces of gold produced in the prior quarter. Net income for the fourth quarter was $10,218, impacted by non-cash items totaling $84,001, primarily related to inventory write-downs, equipment impairment and fair value adjustments related to the streaming arrangement, which did not affect the Company's cash position.
+Financial Position
+As at December 31, 2025, the Company reported cash of $68,295 and working capital of $107,336, including bond investments maturing on December 31, 2026. The Company reported a net cash position of $35,169 and continues to actively manage its capital structure and engage with lenders regarding its financing arrangements.
+Subsequent Events
+Subsequent to the year ended December 31, 2025, the Company:
+entered into a royalty buyback option agreement with Boroo Singapore in respect of the Alturas Project;
+received the final installment of proceeds from the sale of the Tres Cruces Oxide Project;
+completed certain repayments of debt obligations, including full repayment of the BORO bond; and
+entered into agreements with Trade and Development Bank to restructure and defer certain loan repayments.
+Operations and Outlook
+The Company continues to advance the ATO Phase 2 expansion, including engineering, permitting and infrastructure planning, with a revised feasibility study expected in the second half of 2026. The project remains at a development stage and is subject to material risks and uncertainties, including permitting, financing, execution, costs and timing.
+At the Boroo and Ulaanbulag gold mines, permitting activities have supported the extension of mine life based on previously announced reserve estimates.
+A full set of risk factors is included in the Company's annual information form dated March 31, 2026, filed on SEDAR+.
+Financial Statements and MD&A
+The Company's consolidated financial results for the year ended December 31, 2025 have been filed on SEDAR+. The full version of the annual consolidated financial statements and associated management's discussion & analysis can be viewed on the Company's website at
+www.steppegold.com
+or under the Company's profile on SEDAR + at
+www.sedarplus.ca
+.
+About Steppe Gold Ltd.
+Steppe Gold is Mongolia's premier precious metals company.
+For further information, please contact:
+Tserenbadam Dugeree, Chief Executive Officer
+Ariuntsetseg Batsaikhan, Interim Chief Financial Officer
+Elisa Tagarvaa, Investor Relations Manager
+7th floor, Blue Sky Tower, Peace Avenue 17
+Sukhbaatar District 1, Ulaanbaatar 14241, Mongolia
+Tel: +976 7732 1914
+Non-IFRS Performance Measures
+EBITDA is defined as earnings before interest, taxes, depreciation and amortization. Adjusted EBITDA is defined as adjusted earnings before interest, taxes, depreciation and amortization.
+Further details of Non-IFRS Performance Measures noted above can be found in the Company's management's discussion & analysis.
+Cautionary Note Regarding Forward-Looking Statements
+This news release contains certain statements or disclosures relating to the Company that are based on the expectations of its management as well as assumptions made by and information currently available to the Company which may constitute forward-looking statements or information (""forward-looking statements"") under applicable securities laws. All such statements and disclosures, other than those of historical fact, which address activities, events, outcomes, results, or developments that the Company anticipates or expects may, or will, occur in the future (in whole or in part) should be considered forward-looking statements. In some cases, forward-looking statements can be identified by the use of the words ""continued"", ""focus"", ""scheduled"", ""will"", ""potential"", ""planned"", ""projected"" and similar expressions. In particular, but without limiting the foregoing, this news release contains forward-looking statements pertaining to the following: management of the Company's capital structure and financing arrangements; evaluation of developmental plans and funding options with respect to the ATO Phase 2 expansion; advancement of ATO Phase 2 expansion; focus on disciplined capital allocation and prudent liquidity management; maintaining operational stability; and optimization of the Company's operations and maintaining of financial discipline.
+The forward-looking statements contained in this news release reflect several material factors and expectations and assumptions of the Company including, without limitation: material adverse effects on the business, properties and assets of the Company; changes in business plans and strategies; market and capital finance conditions; risks inherent to any capital financing transactions; the Triple Flag litigation; changes in world commodity markets; currency fluctuations; costs and supply of materials relevant to the mining industry; change in government; and changes to regulations affecting the mining industry.
+The Company believes the material factors, expectations and assumptions reflected in the forward-looking statements are reasonable at this time, but no assurance can be given that these factors, expectations and assumptions will prove to be correct. The forward-looking statements included in this news release are not guarantees of future performance and should not be unduly relied upon. Such forward-looking statements involve known and unknown risks, uncertainties and other factors that may cause actual results or events to differ materially from those anticipated in such forward-looking statements, including, without limitation: changes in world commodity markets, equity markets, costs and supply of materials relevant to the mining industry; litigation risks; changes in government; changes to regulations affecting the mining industry; and certain other risks detailed from time to time in the Company's public disclosure documents, including, without limitation, those risks identified in this news release and in the Company's annual information form dated March 31, 2026, copies of which are available on the Company's SEDAR+ profile at
+www.sedarplus.ca
+. Readers are cautioned that the foregoing list of factors is not exhaustive and are cautioned not to place undue reliance on these forward-looking statements.
+The forward-looking statements contained in this news release are made as of the date hereof and the Company undertakes no obligation to update publicly or revise any forward-looking statements, whether as a result of new information, future events or otherwise, unless so required by applicable securities laws.
+The Toronto Stock Exchange has not reviewed and does not accept responsibility for the adequacy or accuracy of the content of this news release.
+To view the source version of this press release, please visit
+https://www.newsfilecorp.com/release/290694
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\STGO\news_html\2026-03-31.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/STGO/news_html/2026-03-31.html,,NONE,2025 Annual Financial Results,,,2024-12-31,2025-03-31
+stockwatch,STGO,Steppe Gold Ltd.,2025-03-31,ANNUAL_INFORMATION_FORM_EN,gold and precious metals,AIF,,,,https://www.stockwatch.com/News/Sedardoc/5881569.pdf,,0,0,no,,,,,,,,,,2024-12-31,2025-03-31
+stockwatch,STGO,Steppe Gold Ltd.,2026-03-31,NEWS_RELEASES,,NewsRelease,Steppe Gold Announces 2025 Annual Financial Results,https://www.stockwatch.com/News/Item/Z-C!STGO-3800657/C/STGO,3800657,https://www.sedarplus.ca/csa-party/viewInstance/resource.html?node=W3065&drmKey=bc2c13c02e4781f5&drr=ss3e87b2e559be98b0ef06206bd19f3c74a680c71196e2414691cc08897a7e99a26e1c88a6694a63f2603b521b1e0dccbfux&id=0c11f8b7998bcd967a5281d6fbb4f67b140d123aad673ef1,,0,0,no,,"2026-03-31 17:01 ET - News Release
+Ulaanbaatar, Mongolia--(Newsfile Corp. - March 31, 2026) -
+Steppe Gold Ltd. (TSX: STGO) (OTCQX: STPGF) (FSE: 2J9) (""Steppe Gold""
+or the
+""Company"")
+is pleased to announce its financial results for the year ended December 31, 2025. The Company delivered strong operating performance, record revenues and a significant improvement in its financial position during the year.
+""We are pleased to report a year of solid operational and financial performance,"" said Tserenbadam Dugeree, Chief Executive Officer of Steppe Gold. ""The Company made meaningful progress on restructuring initiatives, strengthened its financial position and advanced certain infrastructure activities related to the ATO Phase 2 expansion. Strong performance from the Boroo and Ulaanbulag gold mines supported overall results, while the ATO Phase 1 operation approached the end of its mine life.
+ATO Phase 2 remains at a development stage and is subject to a range of material risks and uncertainties, including with respect to permitting, financing, construction execution, operating costs, and timing. There can be no assurance that the project will be completed on the currently contemplated schedule or budget, or at all. The Company continues to evaluate development plans and funding options, with a focus on preserving financial flexibility and managing downside risk.
+We remain focused on disciplined capital allocation, prudent liquidity management, and maintaining operational stability across the business during this transition period.""
+A full set of risk factors is included in the Company's annual information form dated March 31, 2026, filed on SEDAR+.
+HIGHLIGHTS
+Fourth quarter and year ended December 31, 2025
+(All amounts are in US dollars, expressed in thousands, unless otherwise indicated, except per unit amounts.)
+Gold production was 29,401 ounces for the fourth quarter and 76,059 ounces for the full year
+Gold sales were 37,337 ounces for the fourth quarter and 75,927 ounces for the full year
+Revenue was $160,037 for the fourth quarter and $254,130 for the full year
+Adjusted EBITDA of $122,369 for the fourth quarter and $173,918 for the full year
+Net income (loss) was $10,218 for the fourth quarter and $32,760 for the full year
+Site all-in sustaining costs (AISC) were $1,044 per ounce for the fourth quarter and $1,215 per ounce for the full year
+Working capital was $107,336 as at December 31, 2025
+Results Overview
+Fourth quarter results reflect higher realized gold prices and increased production driven by higher grades, as well as higher gold sales, including the sale of 7,966 ounces of gold produced in the prior quarter. Net income for the fourth quarter was $10,218, impacted by non-cash items totaling $84,001, primarily related to inventory write-downs, equipment impairment and fair value adjustments related to the streaming arrangement, which did not affect the Company's cash position.
+Financial Position
+As at December 31, 2025, the Company reported cash of $68,295 and working capital of $107,336, including bond investments maturing on December 31, 2026. The Company reported a net cash position of $35,169 and continues to actively manage its capital structure and engage with lenders regarding its financing arrangements.
+Subsequent Events
+Subsequent to the year ended December 31, 2025, the Company:
+entered into a royalty buyback option agreement with Boroo Singapore in respect of the Alturas Project;
+received the final installment of proceeds from the sale of the Tres Cruces Oxide Project;
+completed certain repayments of debt obligations, including full repayment of the BORO bond; and
+entered into agreements with Trade and Development Bank to restructure and defer certain loan repayments.
+Operations and Outlook
+The Company continues to advance the ATO Phase 2 expansion, including engineering, permitting and infrastructure planning, with a revised feasibility study expected in the second half of 2026. The project remains at a development stage and is subject to material risks and uncertainties, including permitting, financing, execution, costs and timing.
+At the Boroo and Ulaanbulag gold mines, permitting activities have supported the extension of mine life based on previously announced reserve estimates.
+A full set of risk factors is included in the Company's annual information form dated March 31, 2026, filed on SEDAR+.
+Financial Statements and MD&A
+The Company's consolidated financial results for the year ended December 31, 2025 have been filed on SEDAR+. The full version of the annual consolidated financial statements and associated management's discussion & analysis can be viewed on the Company's website at
+www.steppegold.com
+or under the Company's profile on SEDAR + at
+www.sedarplus.ca
+.
+About Steppe Gold Ltd.
+Steppe Gold is Mongolia's premier precious metals company.
+For further information, please contact:
+Tserenbadam Dugeree, Chief Executive Officer
+Ariuntsetseg Batsaikhan, Interim Chief Financial Officer
+Elisa Tagarvaa, Investor Relations Manager
+7th floor, Blue Sky Tower, Peace Avenue 17
+Sukhbaatar District 1, Ulaanbaatar 14241, Mongolia
+Tel: +976 7732 1914
+Non-IFRS Performance Measures
+EBITDA is defined as earnings before interest, taxes, depreciation and amortization. Adjusted EBITDA is defined as adjusted earnings before interest, taxes, depreciation and amortization.
+Further details of Non-IFRS Performance Measures noted above can be found in the Company's management's discussion & analysis.
+Cautionary Note Regarding Forward-Looking Statements
+This news release contains certain statements or disclosures relating to the Company that are based on the expectations of its management as well as assumptions made by and information currently available to the Company which may constitute forward-looking statements or information (""forward-looking statements"") under applicable securities laws. All such statements and disclosures, other than those of historical fact, which address activities, events, outcomes, results, or developments that the Company anticipates or expects may, or will, occur in the future (in whole or in part) should be considered forward-looking statements. In some cases, forward-looking statements can be identified by the use of the words ""continued"", ""focus"", ""scheduled"", ""will"", ""potential"", ""planned"", ""projected"" and similar expressions. In particular, but without limiting the foregoing, this news release contains forward-looking statements pertaining to the following: management of the Company's capital structure and financing arrangements; evaluation of developmental plans and funding options with respect to the ATO Phase 2 expansion; advancement of ATO Phase 2 expansion; focus on disciplined capital allocation and prudent liquidity management; maintaining operational stability; and optimization of the Company's operations and maintaining of financial discipline.
+The forward-looking statements contained in this news release reflect several material factors and expectations and assumptions of the Company including, without limitation: material adverse effects on the business, properties and assets of the Company; changes in business plans and strategies; market and capital finance conditions; risks inherent to any capital financing transactions; the Triple Flag litigation; changes in world commodity markets; currency fluctuations; costs and supply of materials relevant to the mining industry; change in government; and changes to regulations affecting the mining industry.
+The Company believes the material factors, expectations and assumptions reflected in the forward-looking statements are reasonable at this time, but no assurance can be given that these factors, expectations and assumptions will prove to be correct. The forward-looking statements included in this news release are not guarantees of future performance and should not be unduly relied upon. Such forward-looking statements involve known and unknown risks, uncertainties and other factors that may cause actual results or events to differ materially from those anticipated in such forward-looking statements, including, without limitation: changes in world commodity markets, equity markets, costs and supply of materials relevant to the mining industry; litigation risks; changes in government; changes to regulations affecting the mining industry; and certain other risks detailed from time to time in the Company's public disclosure documents, including, without limitation, those risks identified in this news release and in the Company's annual information form dated March 31, 2026, copies of which are available on the Company's SEDAR+ profile at
+www.sedarplus.ca
+. Readers are cautioned that the foregoing list of factors is not exhaustive and are cautioned not to place undue reliance on these forward-looking statements.
+The forward-looking statements contained in this news release are made as of the date hereof and the Company undertakes no obligation to update publicly or revise any forward-looking statements, whether as a result of new information, future events or otherwise, unless so required by applicable securities laws.
+The Toronto Stock Exchange has not reviewed and does not accept responsibility for the adequacy or accuracy of the content of this news release.
+To view the source version of this press release, please visit
+https://www.newsfilecorp.com/release/290694
+© 2026 Canjex Publishing Ltd. All rights reserved.",C:\Users\Admin\Mineral Media\Mineral Media Shared Library - Documents\13 - DS AI\2. SEDAR+\3. Company Onboarding\Results\STGO\news_html\2026-03-31.html,https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/STGO/news_html/2026-03-31.html,,NONE,2025 Annual Financial Results,,,2024-12-31,2025-03-31

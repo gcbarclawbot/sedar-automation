@@ -109,7 +109,8 @@ function renderAll(data) {
   const coName = allF[0]?.issuer || symbol;
   const exchangeBadge = exchange ? `<span class="badge" style="background:rgba(99,102,241,.15);color:var(--accent);font-size:10px">${esc(exchange)}: ${esc(symbol)}</span>` : '';
   const sedarBadge    = sedar_party ? `<span class="badge" style="background:rgba(100,116,139,.12);color:var(--muted);font-size:10px">SEDAR #${esc(sedar_party)}</span>` : '';
-  document.getElementById('coName').innerHTML = `${esc(coName)} ${exchangeBadge} ${sedarBadge}`;
+  const usBadge       = state?.is_us_listing ? `<span class="badge" style="background:rgba(251,146,60,.15);color:#fb923c;font-size:10px">🇺🇸 US PRIMARY LISTING</span>` : '';
+  document.getElementById('coName').innerHTML = `${esc(coName)} ${exchangeBadge} ${sedarBadge} ${usBadge}`;
 
   const aifDate = state.aif_filing_date || '—';
   const asAt    = state.as_at_date || '—';
@@ -129,14 +130,19 @@ function renderAll(data) {
 
   // Left column docs
   renderAIF(cat['AIF'] || [], state);
+  renderPresentation(state);
   renderDocList('mdaBody', 'cntMda', cat['MD&A'] || [], prev_last_run_date,
     { dedupeAmended: true, maxShow: 2 });
 
   // NI43-101: only actual technical reports, label with matched project from news releases
   const allNews = cat['NewsRelease'] || [];
   const techReports = (cat['NI43-101']||[]).filter(f => {
-    const dt = (f.doc_type||'').toUpperCase();
-    return dt.includes('TECHNICAL_REPORT') && !dt.includes('CONSENT') && !dt.includes('CERTIFICATE');
+    const dt  = (f.doc_type||'').toUpperCase();
+    const syn = (f.synopsis||'').toUpperCase();
+    // Exclude consent/certificate forms (both as doc_type and as synopsis under TECHNICAL_REPORTS_NI_43101)
+    if (dt.includes('CONSENT') || dt.includes('CERTIFICATE')) return false;
+    if (syn.includes('CONSENT') || syn.includes('CERTIFICATE')) return false;
+    return dt.includes('TECHNICAL_REPORT');
   });
   renderDocList('techBody', 'cntTech', techReports, prev_last_run_date, {
     cardId: 'cardTech',
@@ -181,8 +187,12 @@ function renderAll(data) {
 // ---------------------------------------------------------------------------
 function renderAIF(aifs, state) {
   const el = document.getElementById('aifBody');
-  const filed = state.aif_filing_date || '—';
-  const asAt  = state.as_at_date || '—';
+  const filed    = state.aif_filing_date || '—';
+  const asAt     = state.as_at_date || '—';
+  const isUS     = !!state.is_us_listing;
+  const aifLabel = isUS ? '10-K' : 'AIF';
+  const titleEl  = document.getElementById('aifCardTitle');
+  if (titleEl) titleEl.textContent = isUS ? 'Annual Report (10-K)' : 'Annual Information Form';
 
   // Sort AIFs newest first, prefer amended versions for same filing date
   const sorted = [...aifs].sort((a,b) => b.filing_date.localeCompare(a.filing_date));
@@ -194,7 +204,7 @@ function renderAIF(aifs, state) {
   let html = `<div class="aif-inner">
     <div style="font-size:13px;font-weight:700;color:#cbd5e1;margin-bottom:2px;">As at ${fmtDate(asAt)}</div>
     <div style="font-size:11px;color:var(--muted);">Filed ${fmtDate(filed)}</div>
-    ${pdfHref ? `<a class="aif-link" href="${pdfHref}" target="_blank" style="margin-top:5px;display:inline-block;">📄 Open AIF ↗</a>` : ''}
+    ${pdfHref ? `<a class="aif-link" href="${pdfHref}" target="_blank" style="margin-top:5px;display:inline-block;">📄 Open ${aifLabel} ↗</a>` : ''}
   </div>`;
 
   // Subsequent AIFs (filed after baseline during tracking period)
@@ -216,6 +226,37 @@ function renderAIF(aifs, state) {
 // Deduplicate amended filings: if an amended version exists for same date,
 // keep only the amended one
 // ---------------------------------------------------------------------------
+// Presentation card function to add to dashboard.js
+
+function renderPresentation(state) {
+  const el = document.getElementById('presentationBody');
+  const card = document.getElementById('cardPresentation');
+  
+  const presUrl = state.presentation_url || '';
+  const localPath = state.presentation_local || '';
+  
+  if (!presUrl && !localPath) {
+    card.style.display = 'none';
+    return;
+  }
+  
+  card.style.display = 'block';
+  const filename = localPath ? localPath.split('/').pop().split('\\').pop() : 'presentation.pdf';
+  const cleanName = filename.replace(/^\d{4}-\d{2}-\d{2}_/, '').replace(/\.(pdf|PDF)$/, '');
+  
+  let html = `<div class="presentation-inner">
+    <div style="font-size:13px;font-weight:700;color:#cbd5e1;margin-bottom:2px;">${esc(cleanName)}</div>
+    <div style="font-size:11px;color:var(--muted);">Corporate presentation</div>`;
+  
+  if (presUrl) {
+    html += `
+    <a class="aif-link" href="${esc(presUrl)}" target="_blank" style="margin-top:5px;display:inline-block;">📄 Open Presentation ↗</a>`;
+  }
+  
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
 function dedupeAmended(sorted) {
   // Group by filing_date
   const byDate = {};
@@ -315,7 +356,11 @@ function renderNews(news, state, prevRun, ni43101Rows, aifRows) {
   const aifFiledDate = state.aif_filing_date || '';
   const asAtDate     = state.as_at_date || aifFiledDate;
   const aifYear      = asAtDate ? asAtDate.slice(0,4) : '';
-  feedSub.textContent = `${news.length} releases since AIF as at ${fmtDate(asAtDate)}`;
+  const _feedIsUS    = !!(state?.is_us_listing);
+  const _feedLabel   = _feedIsUS ? '10-K' : 'AIF';
+  const feedTitleEl  = document.getElementById('feedTitle');
+  if (feedTitleEl) feedTitleEl.textContent = `News Feed since ${_feedLabel}`;
+  feedSub.textContent = `${news.length} releases since ${_feedLabel} as at ${fmtDate(asAtDate)}`;
 
   const changed = news.filter(f => f.llm_flag === 'CHANGED');
   const none    = news.filter(f => !f.llm_flag || f.llm_flag === 'NONE' || f.llm_flag === 'POSSIBLE');
@@ -394,6 +439,8 @@ function renderNews(news, state, prevRun, ni43101Rows, aifRows) {
     const aifs = currentData?.filings_by_category?.['AIF'] || [];
     return bestPdfLink(aifs[0]) || '';
   })();
+  const _isUS      = !!(currentData?.state?.is_us_listing);
+  const _aifLabel  = _isUS ? '10-K' : 'AIF';
   // AIF year marker suppressed - the AIF baseline block itself is the visual anchor
   html += `<div style="display:flex;align-items:flex-start;gap:8px;padding:10px 0 6px;margin-top:4px;border-top:2px solid var(--accent);">
     <div style="width:88px;flex-shrink:0;text-align:right;padding-right:10px;">
@@ -402,10 +449,10 @@ function renderNews(news, state, prevRun, ni43101Rows, aifRows) {
     </div>
     <span style="font-size:16px;flex-shrink:0">📋</span>
     <div style="flex:1;">
-      <div style="font-size:12px;font-weight:700;color:var(--accent)">AIF Resource Baseline</div>
+      <div style="font-size:12px;font-weight:700;color:var(--accent)">${_aifLabel} Resource Baseline</div>
       <div style="font-size:11px;color:var(--muted)">Filed ${fmtDate(aifFiledDate)} — snapshot of R&R as at ${fmtDate(asAtDate)}</div>
       <div style="margin-top:4px;">
-        ${aifPdfLink ? `<a href="${aifPdfLink}" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">📄 Open AIF ↗</a>` : ''}
+        ${aifPdfLink ? `<a href="${aifPdfLink}" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">📄 Open ${_aifLabel} ↗</a>` : ''}
       </div>
     </div>
   </div>`;
