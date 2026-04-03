@@ -136,7 +136,8 @@ def parse_progress(log_lines: list[str]) -> dict:
         "STAGE 3/5": (3, "SEDAR+ gap fill (14 days)"),
         "STAGE 4/5": (4, "Fetching news release text"),
         "STAGE 5/5": (5, "LLM classification"),
-        "COMPLETE":  (6, "Complete"),
+        "STAGE 6/6": (6, "Presentation scan"),
+        "COMPLETE":  (7, "Complete"),
     }
     current_stage = 0
     current_label = "Starting..."
@@ -159,7 +160,7 @@ def parse_progress(log_lines: list[str]) -> dict:
             status = "error"
             detail = line.split(" ERROR ")[-1].strip() if " ERROR " in line else line.strip()
 
-    total = 5
+    total = 6
     pct = min(int((current_stage / (total + 1)) * 100), 99) if status == "running" else 100
     if status == "done":
         pct = 100

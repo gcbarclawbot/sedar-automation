@@ -1693,6 +1693,60 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
 # ---------------------------------------------------------------------------
 # Presentation finder phase
 # ---------------------------------------------------------------------------
+def _extract_presentation_date(pdf_path: Path) -> str:
+    """
+    Extract presentation date from first 1-2 pages of a PDF.
+    Returns human string like 'April 2026', 'Q1 2026', or '' if not found.
+    """
+    MONTHS_EN = ['January','February','March','April','May','June',
+                 'July','August','September','October','November','December']
+    MONTHS_FR = ['janvier','fevrier','mars','avril','mai','juin',
+                 'juillet','aout','septembre','octobre','novembre','decembre']
+
+    text = ''
+    try:
+        import fitz
+        doc = fitz.open(str(pdf_path))
+        for i in range(min(2, len(doc))):
+            text += doc[i].get_text()
+        doc.close()
+    except Exception:
+        try:
+            import pdfplumber
+            with pdfplumber.open(str(pdf_path)) as pdf:
+                for i in range(min(2, len(pdf.pages))):
+                    text += pdf.pages[i].extract_text() or ''
+        except Exception:
+            return ''
+
+    # Try on raw text and on version with single-char spaces collapsed
+    # (handles PDFs that render each char separately: "A P R I L  2 0 2 6")
+    collapsed = re.sub(r'(?<=\S) (?=\S)', '', text[:3000])
+
+    for t in [text[:3000], collapsed]:
+        # French months
+        for i, mfr in enumerate(MONTHS_FR):
+            m = re.search(rf'\b{mfr}\.?\s+(20\d{{2}})\b', t, re.IGNORECASE)
+            if m:
+                return MONTHS_EN[i] + ' ' + m.group(1)
+        # English months
+        for mn in MONTHS_EN:
+            m = re.search(rf'\b{mn[:3]}[a-z]*\.?[,\s\d]{{0,5}}(20\d{{2}})\b', t, re.IGNORECASE)
+            if m:
+                return mn + ' ' + m.group(1)
+        # Quarter
+        m = re.search(r'\b(Q[1-4])\s*(20\d{2})\b', t, re.IGNORECASE)
+        if m:
+            return m.group(1).upper() + ' ' + m.group(2)
+        # "First/Second/Third/Fourth Quarter YYYY"
+        for word, q in [('first','Q1'),('second','Q2'),('third','Q3'),('fourth','Q4')]:
+            m = re.search(rf'\b{word}\s+quarter,?\s*(20\d{{2}})\b', t, re.IGNORECASE)
+            if m:
+                return q + ' ' + m.group(1)
+
+    return ''
+
+
 def find_presentation_phase(symbol: str) -> dict:
     """
     Scan the company website for a corporate presentation PDF.
@@ -1827,11 +1881,13 @@ def find_presentation_phase(symbol: str) -> dict:
             dest_path.write_bytes(pdf_resp.content)
 
             r2_url = upload_to_r2(dest_path, symbol)
-            log.info(f"  {symbol}: presentation found - {raw_fname} ({size_kb}KB) -> R2")
+            pres_date = _extract_presentation_date(dest_path)
+            log.info(f"  {symbol}: presentation found - {raw_fname} ({size_kb}KB) date={pres_date or 'unknown'} -> R2")
             return {
                 "presentation_url":     r2_url,
                 "presentation_local":   str(dest_path),
                 "presentation_size_kb": size_kb,
+                "presentation_date":    pres_date,
             }
         except Exception as e:
             log.debug(f"  {symbol}: PDF download error: {e}")

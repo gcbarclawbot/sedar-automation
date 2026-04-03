@@ -231,31 +231,38 @@ function renderAIF(aifs, state) {
 function renderPresentation(state) {
   const el = document.getElementById('presentationBody');
   const card = document.getElementById('cardPresentation');
-  
-  const presUrl = state.presentation_url || '';
-  const localPath = state.presentation_local || '';
-  
-  if (!presUrl && !localPath) {
+
+  const presUrl  = state.presentation_url  || '';
+  const sizeKb   = parseInt(state.presentation_size_kb || 0);
+  const presDate = state.presentation_date || '';  // e.g. "April 2026" or "Q1 2026"
+
+  if (!presUrl) {
     card.style.display = 'none';
     return;
   }
-  
+
   card.style.display = 'block';
-  const filename = localPath ? localPath.split('/').pop().split('\\').pop() : 'presentation.pdf';
-  const cleanName = filename.replace(/^\d{4}-\d{2}-\d{2}_/, '').replace(/\.(pdf|PDF)$/, '');
-  
-  let html = `<div class="presentation-inner">
-    <div style="font-size:13px;font-weight:700;color:#cbd5e1;margin-bottom:2px;">${esc(cleanName)}</div>
-    <div style="font-size:11px;color:var(--muted);">Corporate presentation</div>`;
-  
-  if (presUrl) {
-    html += `
-    <a class="aif-link" href="${esc(presUrl)}" target="_blank" style="margin-top:5px;display:inline-block;">📄 Open Presentation ↗</a>`;
+
+  const sizeMb = sizeKb >= 1024 ? (sizeKb / 1024).toFixed(1) + '\u00a0MB' : (sizeKb > 0 ? sizeKb + '\u00a0KB' : '');
+
+  let html = '<div class="aif-inner">';
+
+  if (presDate) {
+    html += '<div style="font-size:13px;font-weight:700;color:#cbd5e1;margin-bottom:2px;">' + esc(presDate) + '</div>';
   }
-  
-  html += `</div>`;
+
+  html += '<div style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;">';
+  html += '<span>Corporate presentation</span>';
+  if (sizeMb) html += '<span style="background:var(--border);padding:1px 6px;border-radius:4px;">' + sizeMb + '</span>';
+  html += '</div>';
+
+  html += '<a class="aif-link" href="' + esc(presUrl) + '" target="_blank" style="margin-top:5px;display:inline-block;">\uD83D\uDCC4 Open Presentation \u2197</a>';
+
+  html += '</div>';
   el.innerHTML = html;
 }
+
+
 
 function dedupeAmended(sorted) {
   // Group by filing_date
