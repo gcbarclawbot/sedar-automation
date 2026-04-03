@@ -109,34 +109,39 @@ async function renderHome() {
       return mb - ma;
     });
     document.getElementById('homeCount').textContent = list.length;
-    // Split into 3 columns as evenly as possible
-    const n    = list.length;
-    const col0 = Math.ceil(n / 3);
-    const col1 = Math.ceil((n - col0) / 2);
-    const col2 = n - col0 - col1;
-    const cols = [
-      list.slice(0, col0),
-      list.slice(col0, col0 + col1),
-      list.slice(col0 + col1)
-    ];
+    // Split into 5 columns as evenly as possible
+    const n = list.length;
+    const perCol = Math.ceil(n / 5);
+    const cols = [];
+    for (let i = 0; i < 5; i++) {
+      const start = i * perCol;
+      const end = Math.min(start + perCol, n);
+      cols.push(list.slice(start, end));
+    }
     const fmtMcap = v => {
       const n = parseFloat(v);
       if (!n) return '—';
-      if (n >= 1000) return '$' + (n / 1000).toFixed(1) + 'B';
-      return '$' + Math.round(n) + 'M';
+      if (n >= 1e9) return '$' + Math.round(n / 1e9) + 'B';
+      if (n >= 1e6) return '$' + Math.round(n / 1e6) + 'M';
+      return '$' + Math.round(n / 1e3) + 'K';
     };
-    const fmtRun = v => v ? v.slice(0, 10) : '—';
+    const fmtRun = v => {
+      if (!v) return '—';
+      const d = new Date(v + 'T00:00:00');
+      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      return d.getDate() + ' ' + months[d.getMonth()] + ' ' + String(d.getFullYear()).slice(2);
+    };
     document.getElementById('homeGrid').innerHTML = cols.map(col => {
       if (!col.length) return '<div></div>';
       const rows = col.map(c => `
         <tr onclick="goTicker('${esc(c.symbol)}')" title="${esc(c.company_name || c.symbol)}">
-          <td><span class="sym">${esc(c.symbol)}</span><br><span class="exch">${esc(c.exchange)}</span></td>
+          <td><span class="sym">${esc(c.symbol)}</span><span class="exch">/${esc(c.exchange)}</span></td>
           <td class="co-nm">${esc(c.company_name || '')}</td>
           <td class="r mcap">${fmtMcap(c.market_cap)}</td>
           <td class="r lrun">${fmtRun(c.last_run_date)}</td>
         </tr>`).join('');
       return `<table class="home-table">
-        <thead><tr><th>Ticker</th><th>Company</th><th class="r">Mkt Cap</th><th class="r">Last Run</th></tr></thead>
+        <thead><tr><th>Ticker</th><th>Company</th><th class="r">Cap</th><th class="r">Run</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>`;
     }).join('');
@@ -185,7 +190,7 @@ function renderAll(data) {
   const sedarBadge    = sedar_party ? `<span class="badge" style="background:rgba(100,116,139,.12);color:var(--muted);font-size:10px">SEDAR #${esc(sedar_party)}</span>` : '';
   const usBadge       = state?.is_us_listing ? `<span class="badge" style="background:rgba(251,146,60,.15);color:#fb923c;font-size:10px">🇺🇸 US PRIMARY LISTING</span>` : '';
   const mcapNum       = parseFloat(market_cap) || 0;
-  const mcapStr       = mcapNum >= 1000 ? '$' + (mcapNum/1000).toFixed(1) + 'B' : mcapNum ? '$' + Math.round(mcapNum) + 'M' : '';
+  const mcapStr       = mcapNum >= 1e9 ? '$' + Math.round(mcapNum/1e9) + 'B' : mcapNum >= 1e6 ? '$' + Math.round(mcapNum/1e6) + 'M' : mcapNum >= 1e3 ? '$' + Math.round(mcapNum/1e3) + 'K' : '';
   const mcapBadge     = mcapStr ? `<span class="badge" style="background:rgba(34,197,94,.12);color:var(--green);font-size:10px">${mcapStr}</span>` : '';
   document.getElementById('coName').innerHTML = `${esc(coName)} ${exchangeBadge} ${sedarBadge} ${usBadge} ${mcapBadge}`;
 
