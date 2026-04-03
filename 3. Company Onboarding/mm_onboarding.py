@@ -1374,16 +1374,13 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
             except Exception as e:
                 log.warning(f"    PDF error for {symbol}: {e}")
 
-    # Deduplicate within sw_filings:
-    # - NewsRelease: deduplicate by (filing_date, doc_type, synopsis) - same release filed with different pdf_url
-    # - Other types: deduplicate by (filing_date, doc_type, pdf_url)
+    # Deduplicate within sw_filings by (filing_date, doc_type, pdf_url) for ALL types.
+    # Using pdf_url (not synopsis) ensures two distinct news releases on the same day
+    # are NOT collapsed - each has a unique SEDAR pdf_url even if synopsis is blank.
     seen_keys: set = set()
     deduped = []
     for f in sw_filings:
-        if f.get("category") == "NewsRelease":
-            fkey = (f.get("filing_date",""), f.get("doc_type",""), f.get("synopsis",""))
-        else:
-            fkey = (f.get("filing_date",""), f.get("doc_type",""), f.get("pdf_url",""))
+        fkey = (f.get("filing_date",""), f.get("doc_type",""), f.get("pdf_url",""))
         if fkey in seen_keys:
             continue
         seen_keys.add(fkey)
