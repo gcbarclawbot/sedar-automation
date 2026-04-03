@@ -529,6 +529,20 @@ SW_TYPE_MAP = {
     "FILING_STATEMENT_FR":                  "Acquisition",
     "NEWS_RELEASE_EN":                      "NewsRelease",
     "NEWS_RELEASE_FR":                      "NewsRelease",
+    # Human-readable labels used by Stockwatch for older SEDAR filings
+    "News release - English":               "NewsRelease",
+    "News release - French":                "NewsRelease",
+    "News release":                         "NewsRelease",
+    "Interim MD&A - English":               "MD&A",
+    "Interim MD&A - French":                "MD&A",
+    "Annual MD&A - English":                "MD&A",
+    "Annual MD&A - French":                 "MD&A",
+    "Interim MD&A (amended) - English":     "MD&A",
+    "Interim financial statements/report - English": "Other",
+    "Audited annual financial statements - English":  "Other",
+    "Management information circular - English":      "Other",
+    "Notice of meeting - English":                    "Other",
+    "Form of proxy - English":                        "Other",
 }
 
 # Categories we download PDFs for (news releases are log-only)
@@ -579,7 +593,7 @@ def _classify_sw_type(doc_type: str) -> str:
         return "Prospectus"
     if "ACQUISITION" in dt or "FILING_STATEMENT" in dt:
         return "Acquisition"
-    if "NEWS_RELEASE" in dt or "PRESS_RELEASE" in dt:
+    if "NEWS_RELEASE" in dt or "PRESS_RELEASE" in dt or "NEWS RELEASE" in dt:
         return "NewsRelease"
     if "ANNUAL_INFORMATION_FORM" in dt:
         return "AIF"
