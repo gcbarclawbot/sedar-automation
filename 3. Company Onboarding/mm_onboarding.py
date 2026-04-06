@@ -53,6 +53,10 @@ Git:     gcbarclawbot/sedar-automation
 import sys
 import os
 import csv
+css_field_limit = sys.maxsize
+while True:
+    try: csv.field_size_limit(css_field_limit); break
+    except OverflowError: css_field_limit = int(css_field_limit / 10)
 import re
 import json
 import time
@@ -2201,7 +2205,8 @@ def main():
             log.error(f"  {sym}: onboarding failed: {e}")
             summaries.append({"symbol": sym, "error": str(e)})
         finally:
-            lock_file.unlink(missing_ok=True)
+            try: lock_file.unlink(missing_ok=True)
+            except Exception: pass
             _write_batch_meta(i, "")
 
     # Write master summary

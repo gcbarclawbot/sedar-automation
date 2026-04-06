@@ -19,6 +19,10 @@ Start:
 """
 
 import sys, os, re, csv, json, time, subprocess, threading
+_csv_limit = sys.maxsize
+while True:
+    try: csv.field_size_limit(_csv_limit); break
+    except OverflowError: _csv_limit = int(_csv_limit / 10)
 from pathlib import Path
 from datetime import datetime, date
 import pytz
