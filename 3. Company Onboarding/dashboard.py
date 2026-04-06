@@ -258,21 +258,27 @@ def api_company(symbol):
         "log_tail":   log_tail,
     })
 
-@app.route("/api/news-html/<symbol>/<date_key>")
-def api_news_html(symbol, date_key):
+@app.route("/api/news-html/<symbol>/<date_key>", defaults={"file_index": None})
+@app.route("/api/news-html/<symbol>/<date_key>/<int:file_index>")
+def api_news_html(symbol, date_key, file_index):
     """Serve cleaned news release HTML for a given symbol + date (YYYY-MM-DD)."""
     symbol = symbol.upper()
-    # Try exact match first, then _0, _1 suffixes
+    # Use explicit file_index when provided, else try exact match then _0, _1 suffixes
     html_dir = RESULTS_DIR / symbol / "news_html"
-    html_path = html_dir / f"{date_key}.html"
-    if not html_path.exists():
-        for suffix in range(5):
-            candidate = html_dir / f"{date_key}_{suffix}.html"
-            if candidate.exists():
-                html_path = candidate
-                break
-        else:
+    if file_index is not None:
+        html_path = html_dir / f"{date_key}_{file_index}.html"
+        if not html_path.exists():
             return Response("", status=404)
+    else:
+        html_path = html_dir / f"{date_key}.html"
+        if not html_path.exists():
+            for suffix in range(5):
+                candidate = html_dir / f"{date_key}_{suffix}.html"
+                if candidate.exists():
+                    html_path = candidate
+                    break
+            else:
+                return Response("", status=404)
     raw_html = html_path.read_text(encoding="utf-8")
     # Wrap in a minimal styled page for iframe rendering
     page = f"""<!DOCTYPE html>

@@ -638,9 +638,11 @@ function newsItem(f, idx, prevRun) {
 
   const dateKey = f.filing_date.slice(0,10);
   const hasHtml = f.news_html_path ? true : false;
-  const htmlR2 = (f.news_html_r2_url || '').replace(/'/g, '');
+  // Extract file index from path like "2026-02-23_1.html" -> 1
+  const htmlIdxM = f.news_html_path ? f.news_html_path.match(/_(\d+)\.html$/) : null;
+  const htmlIdx = htmlIdxM ? htmlIdxM[1] : '';
   const isReadable = hasText || hasHtml;
-  const clickHandler = isReadable ? `onclick="openNewsModal('${esc(currentSymbol)}','${dateKey}','${esc(dateFmt)}',${hasHtml},'${htmlR2}')"` : '';
+  const clickHandler = isReadable ? `onclick="openNewsModal('${esc(currentSymbol)}','${dateKey}','${esc(dateFmt)}',${hasHtml},'${htmlIdx}')"` : '';
   const cursorStyle = isReadable ? 'cursor:pointer;' : '';
 
   return `<div class="news-item ${cls}${isNew?' is-new':''}" ${clickHandler} style="${cursorStyle}">
@@ -659,7 +661,7 @@ function newsItem(f, idx, prevRun) {
   </div>`;
 }
 
-function openNewsModal(symbol, dateKey, dateFmt, hasHtml, directHtmlUrl) {
+function openNewsModal(symbol, dateKey, dateFmt, hasHtml, fileIndex) {
   const modal = document.getElementById('newsModal');
   const frame = document.getElementById('modalFrame');
   const title = document.getElementById('modalTitle');
@@ -729,10 +731,9 @@ function openNewsModal(symbol, dateKey, dateFmt, hasHtml, directHtmlUrl) {
 
   // Use setTimeout to let the blank load flush before setting real content
   setTimeout(() => {
-    if (directHtmlUrl) {
-      frame.src = directHtmlUrl;
-    } else if (hasHtml) {
-      frame.src = `/api/news-html/${symbol}/${dateKey}`;
+    if (hasHtml) {
+      const idx = (fileIndex !== undefined && fileIndex !== null && fileIndex !== '') ? `/${fileIndex}` : '';
+      frame.src = `/api/news-html/${symbol}/${dateKey}${idx}`;
     } else {
       // Fallback: plain text in a styled srcdoc
       const filing = Object.values(currentData?.filings_by_category || {}).flat()
