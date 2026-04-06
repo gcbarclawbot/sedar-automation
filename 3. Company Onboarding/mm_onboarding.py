@@ -547,6 +547,12 @@ SW_TYPE_MAP = {
     "Management information circular - English":      "Other",
     "Notice of meeting - English":                    "Other",
     "Form of proxy - English":                        "Other",
+    # Human-readable NI 43-101 technical report labels (older SEDAR filings)
+    "Technical report (NI 43-101) - English":         "NI43-101",
+    "Technical report (NI 43-101) - French":          "NI43-101",
+    "Technical report (NI 43-101) (amended) - English": "NI43-101",
+    "Consent of qualified person (NI 43-101) - English": "NI43-101",
+    "Consent of qualified person (NI 43-101) - French":  "NI43-101",
 }
 
 # Categories we download PDFs for (news releases are log-only)
@@ -557,6 +563,9 @@ NI43101_DOWNLOAD_TYPES = {
     "TECHNICAL_REPORT_NI_43101_EN",
     "TECHNICAL_REPORT_NI_43101_FR",
     "AMENDED_AND_RESTATED_TECHNICAL_REPORT_EN",
+    # Human-readable variants (older SEDAR filings)
+    "Technical report (NI 43-101) - English",
+    "Technical report (NI 43-101) (amended) - English",
 }
 
 def _is_french(doc_type: str, synopsis: str = "") -> bool:
