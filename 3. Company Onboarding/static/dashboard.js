@@ -429,7 +429,7 @@ function renderDocList(bodyId, cntId, filings, prevRun, opts = {}) {
     const label   = opts.labelFn ? opts.labelFn(f) : cleanDocType(f.doc_type);
     const synopsis = (f.synopsis || '').trim();
     // For NI43-101s: show synopsis (often contains project name); skip generic boilerplate
-    const showSynopsis = synopsis && !/^(annual information form|interim mda|mda|material change report)/i.test(synopsis);
+    const showSynopsis = synopsis && !/^(annual information form|interim mda|mda|material change report)/i.test(synopsis) && !synopsis.toLowerCase().endsWith('.pdf');
     let dateFmt = f.filing_date.slice(0,10);
     try { const d = new Date(dateFmt); dateFmt = d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}); } catch(e) {}
     const pdfHref = bestPdfLink(f);
@@ -638,8 +638,9 @@ function newsItem(f, idx, prevRun) {
 
   const dateKey = f.filing_date.slice(0,10);
   const hasHtml = f.news_html_path ? true : false;
+  const htmlR2 = (f.news_html_r2_url || '').replace(/'/g, '');
   const isReadable = hasText || hasHtml;
-  const clickHandler = isReadable ? `onclick="openNewsModal('${esc(currentSymbol)}','${dateKey}','${esc(dateFmt)}',${hasHtml})"` : '';
+  const clickHandler = isReadable ? `onclick="openNewsModal('${esc(currentSymbol)}','${dateKey}','${esc(dateFmt)}',${hasHtml},'${htmlR2}')"` : '';
   const cursorStyle = isReadable ? 'cursor:pointer;' : '';
 
   return `<div class="news-item ${cls}${isNew?' is-new':''}" ${clickHandler} style="${cursorStyle}">
@@ -658,7 +659,7 @@ function newsItem(f, idx, prevRun) {
   </div>`;
 }
 
-function openNewsModal(symbol, dateKey, dateFmt, hasHtml) {
+function openNewsModal(symbol, dateKey, dateFmt, hasHtml, directHtmlUrl) {
   const modal = document.getElementById('newsModal');
   const frame = document.getElementById('modalFrame');
   const title = document.getElementById('modalTitle');
@@ -728,7 +729,9 @@ function openNewsModal(symbol, dateKey, dateFmt, hasHtml) {
 
   // Use setTimeout to let the blank load flush before setting real content
   setTimeout(() => {
-    if (hasHtml) {
+    if (directHtmlUrl) {
+      frame.src = directHtmlUrl;
+    } else if (hasHtml) {
       frame.src = `/api/news-html/${symbol}/${dateKey}`;
     } else {
       // Fallback: plain text in a styled srcdoc

@@ -1119,17 +1119,28 @@ def sedar_gap_fill(symbol: str, company_name: str, party_number: str,
                     if view_id_m:
                         href = re.sub(r"[&?]id=[^&]*", "", href) + f"&id={view_id_m.group(1)}"
 
-                    # Download PDF via requests - skip NewsReleases entirely,
-                    # Stockwatch /News/Search covers these up to today with full HTML
+                    # Download PDF via CDP browser (SEDAR+ download URLs need Playwright auth)
+                    # Skip NewsReleases - Stockwatch /News/Search covers these with full HTML
                     gap_r2 = ""
                     pdf_bytes = None
                     if category != "NewsRelease":
                         try:
-                            r = req_session.get(href, timeout=60)
-                            if r.status_code == 200 and r.content[:4] == b"%PDF":
-                                pdf_bytes = r.content
-                        except Exception:
-                            pass
+                            import tempfile as _tempfile
+                            with page.expect_download(timeout=60000) as dl_info:
+                                try:
+                                    page.goto(href, wait_until="load", timeout=30000)
+                                except Exception:
+                                    pass  # "Download is starting" exception is expected
+                            dl = dl_info.value
+                            with _tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
+                                tmp_path = tmp.name
+                            dl.save_as(tmp_path)
+                            raw = Path(tmp_path).read_bytes()
+                            Path(tmp_path).unlink(missing_ok=True)
+                            if raw[:4] == b"%PDF":
+                                pdf_bytes = raw
+                        except Exception as e:
+                            log.debug(f"  SEDAR gap PDF download failed {href}: {e}")
 
                     pdf_url  = href
                     pdf_path = ""
