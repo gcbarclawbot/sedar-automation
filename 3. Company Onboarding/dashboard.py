@@ -262,9 +262,17 @@ def api_company(symbol):
 def api_news_html(symbol, date_key):
     """Serve cleaned news release HTML for a given symbol + date (YYYY-MM-DD)."""
     symbol = symbol.upper()
-    html_path = RESULTS_DIR / symbol / "news_html" / f"{date_key}.html"
+    # Try exact match first, then _0, _1 suffixes
+    html_dir = RESULTS_DIR / symbol / "news_html"
+    html_path = html_dir / f"{date_key}.html"
     if not html_path.exists():
-        return Response("", status=404)
+        for suffix in range(5):
+            candidate = html_dir / f"{date_key}_{suffix}.html"
+            if candidate.exists():
+                html_path = candidate
+                break
+        else:
+            return Response("", status=404)
     raw_html = html_path.read_text(encoding="utf-8")
     # Wrap in a minimal styled page for iframe rendering
     page = f"""<!DOCTYPE html>
