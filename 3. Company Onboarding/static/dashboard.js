@@ -224,7 +224,7 @@ function renderAll(data) {
     // Exclude consent/certificate forms (both as doc_type and as synopsis under TECHNICAL_REPORTS_NI_43101)
     if (dt.includes('CONSENT') || dt.includes('CERTIFICATE')) return false;
     if (syn.includes('CONSENT') || syn.includes('CERTIFICATE')) return false;
-    return dt.includes('TECHNICAL_REPORT');
+    return dt.includes('TECHNICAL_REPORT') || dt.includes('TECHNICAL REPORT');
   });
   renderDocList('techBody', 'cntTech', techReports, prev_last_run_date, {
     cardId: 'cardTech',
@@ -516,7 +516,7 @@ function renderNews(news, state, prevRun, ni43101Rows, aifRows) {
     const sameDayTechReport = (ni43101Rows || [])
       .some(t => {
         const dt = (t.doc_type||'').toUpperCase();
-        if (!dt.includes('TECHNICAL_REPORT')) return false;
+        if (!dt.includes('TECHNICAL_REPORT') && !dt.includes('TECHNICAL REPORT')) return false;
         const tDate = new Date(t.filing_date.slice(0,10));
         const fDate = new Date(f.filing_date.slice(0,10));
         const diffDays = (fDate - tDate) / 86400000;
@@ -580,7 +580,7 @@ function newsItem(f, idx, prevRun) {
   const sameDayTech = (currentData?.filings_by_category?.['NI43-101'] || [])
     .some(t => {
       const dt = (t.doc_type||'').toUpperCase();
-      if (!dt.includes('TECHNICAL_REPORT')) return false;
+      if (!dt.includes('TECHNICAL_REPORT') && !dt.includes('TECHNICAL REPORT')) return false;
       const tDate = new Date(t.filing_date.slice(0,10));
       const fDate = new Date(f.filing_date.slice(0,10));
       const diffDays = (fDate - tDate) / 86400000;
@@ -616,7 +616,7 @@ function newsItem(f, idx, prevRun) {
     const techReports = (currentData.filings_by_category?.['NI43-101'] || [])
       .filter(t => {
         const dt = (t.doc_type||'').toUpperCase();
-        return dt.includes('TECHNICAL_REPORT') && !dt.includes('CONSENT') && !dt.includes('CERTIFICATE');
+        return (dt.includes('TECHNICAL_REPORT') || dt.includes('TECHNICAL REPORT')) && !dt.includes('CONSENT') && !dt.includes('CERTIFICATE');
       })
       .filter(t => {
         // Match NI43-101 filed 0-3 days before the news release (same-day + Fri→Mon patterns)
@@ -677,7 +677,7 @@ function openNewsModal(symbol, dateKey, dateFmt, hasHtml) {
     const matchedNi = (currentData?.filings_by_category?.['NI43-101'] || [])
       .find(t => {
         const dt = (t.doc_type||'').toUpperCase();
-        if (!dt.includes('TECHNICAL_REPORT') || dt.includes('CONSENT') || dt.includes('CERTIFICATE')) return false;
+        if ((!dt.includes('TECHNICAL_REPORT') && !dt.includes('TECHNICAL REPORT')) || dt.includes('CONSENT') || dt.includes('CERTIFICATE')) return false;
         const tDate = new Date(t.filing_date.slice(0,10));
         const diff = (fDate - tDate) / 86400000;
         return diff >= 0 && diff <= 3;
