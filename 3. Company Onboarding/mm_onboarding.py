@@ -563,6 +563,8 @@ NI43101_DOWNLOAD_TYPES = {
     "TECHNICAL_REPORT_NI_43101_EN",
     "TECHNICAL_REPORT_NI_43101_FR",
     "AMENDED_AND_RESTATED_TECHNICAL_REPORT_EN",
+    "AMENDED_RESTATED_TECHNICAL_REPORT_NI_43101_EN",
+    "AMENDED_RESTATED_TECHNICAL_REPORT_NI_43101_FR",
     # Human-readable variants (older SEDAR filings)
     "Technical report (NI 43-101) - English",
     "Technical report (NI 43-101) (amended) - English",
@@ -1541,6 +1543,74 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
                         f["news_html_r2_url"] = upload_html_to_r2(html_path, symbol)
                     matched += 1
         log.info(f"  News text: {matched}/{len(all_news)} matched")
+
+        # Wire-only releases: add news releases from Stockwatch that have no SEDAR filing
+        # (e.g. press releases distributed via Newsfile/GlobeNewswire, not filed on SEDAR+)
+        # Key by article_id so multiple wire-only releases on the same day all get added
+        sedar_article_ids: set = set(
+            f.get("article_id", "")
+            for f in all_filings if f.get("category") == "NewsRelease" and f.get("article_id")
+        )
+        wire_added = 0
+        for date_key, items in news_text_map.items():
+            consumed_on_day = consumed_articles.get(date_key, set())
+            for i, item in enumerate(items):
+                art_id = item.get("article_id", "")
+                already_have = (i in consumed_on_day) or (art_id and art_id in sedar_article_ids)
+                if not already_have:
+                    # This is a wire-only release - add it as a NewsRelease row
+                    headline = item.get("headline", "")
+                    # Skip regulatory/halt/resumption notices
+                    skip_patterns = re.compile(
+                        r'(trading halt|trade halt|halt trading|trading resumption|trade resumption|'
+                        r'resume trading|canadian investment regulatory|ciro|iiroc|'
+                        r'cease trade|halt notice)',
+                        re.I)
+                    if skip_patterns.search(headline):
+                        continue
+                    raw_html = item.get("html", "")
+                    html_path_str = ""
+                    html_r2_url = ""
+                    if raw_html:
+                        html_path = html_dir / f"{date_key}_{i}.html"
+                        html_path.write_text(raw_html, encoding="utf-8")
+                        html_path_str = str(html_path)
+                        html_r2_url = upload_html_to_r2(html_path, symbol)
+                    wire_row = {
+                        "source":           "stockwatch",
+                        "symbol":           symbol,
+                        "issuer":           company_name,
+                        "filing_date":      date_key,
+                        "doc_type":         "NEWS_RELEASE_EN",
+                        "industry":         "not applicable",
+                        "category":         "NewsRelease",
+                        "synopsis":         headline,
+                        "article_url":      item.get("article_url", ""),
+                        "article_id":       item.get("article_id", ""),
+                        "pdf_url":          "",
+                        "pdf_path":         "",
+                        "page_count":       0,
+                        "pdf_size_kb":      0,
+                        "downloaded":       "no",
+                        "r2_url":           "",
+                        "news_text":        item.get("text", ""),
+                        "news_html_path":   html_path_str,
+                        "news_html_r2_url": html_r2_url,
+                        "mat_summary":      "",
+                        "llm_flag":         "",
+                        "llm_summary":      "",
+                        "llm_project":      "",
+                        "llm_error":        "",
+                        "as_at_date":       str(as_at_date),
+                        "aif_filed":        str(aif_date) if aif_date else "",
+                    }
+                    all_filings.append(wire_row)
+                    if art_id:
+                        sedar_article_ids.add(art_id)  # prevent double-add
+                    wire_added += 1
+                    log.info(f"  Wire-only release added: {date_key} - {headline[:70]}")
+        if wire_added:
+            log.info(f"  Wire-only releases: {wire_added} added")
 
         # PDF fallback: for any NewsRelease still missing text, download its
         # Sedardoc PDF and extract plain text for the LLM

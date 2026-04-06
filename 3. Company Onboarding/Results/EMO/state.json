@@ -1,13 +1,13 @@
 {
-  "last_run": "2026-04-02T09:24:32",
-  "last_run_date": "2026-04-02",
+  "last_run": "2026-04-06T10:14:15",
+  "last_run_date": "2026-04-06",
   "run_mode": "UPDATE",
-  "aif_filing_date": "2024-04-02",
+  "aif_filing_date": "2024-04-06",
   "as_at_date": "2024-01-31",
-  "sw_covered_to": "2026-03-19",
+  "has_aif": false,
+  "sw_covered_to": "2026-03-23",
   "new_filings_this_run": 0,
   "presentation_url": "https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/EMO/2026-04-03_corporate-presentation.pdf",
   "presentation_local": "C:\\Users\\Admin\\Mineral Media\\Mineral Media Shared Library - Documents\\13 - DS AI\\2. SEDAR+\\3. Company Onboarding\\Results\\EMO\\pdfs\\Presentations\\2026-04-03_corporate-presentation.pdf",
-  "presentation_size_kb": 3714,
-  "presentation_date": "April 2026"
+  "presentation_size_kb": 3714
 }

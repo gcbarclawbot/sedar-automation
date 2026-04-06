@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-04-02T23:25:58",
-  "last_run_date": "2026-04-03",
+  "last_run": "2026-04-06T09:34:03",
+  "last_run_date": "2026-04-06",
   "run_mode": "FULL",
   "aif_filing_date": "2025-03-27",
   "as_at_date": "2024-12-31",
-  "sw_covered_to": "2026-03-14",
-  "new_filings_this_run": 70,
-  "is_us_listing": false
+  "has_aif": true,
+  "sw_covered_to": "2026-03-23",
+  "new_filings_this_run": 90
 }

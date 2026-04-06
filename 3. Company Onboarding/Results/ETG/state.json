@@ -1,9 +1,14 @@
 {
-  "last_run": "2026-04-02T09:39:55",
-  "last_run_date": "2026-04-02",
+  "last_run": "2026-04-06T10:06:39",
+  "last_run_date": "2026-04-06",
   "run_mode": "UPDATE",
   "aif_filing_date": "2026-03-05",
   "as_at_date": "2025-12-31",
-  "sw_covered_to": "2026-03-19",
-  "new_filings_this_run": 1
+  "has_aif": true,
+  "sw_covered_to": "2026-03-23",
+  "new_filings_this_run": 1,
+  "presentation_url": "https://pub-e6549556cd074443b759440dcb9b174f.r2.dev/onboarding/ETG/2026-04-06_presentation.pdf",
+  "presentation_local": "C:\\Users\\Admin\\Mineral Media\\Mineral Media Shared Library - Documents\\13 - DS AI\\2. SEDAR+\\3. Company Onboarding\\Results\\ETG\\pdfs\\Presentations\\2026-04-06_presentation.pdf",
+  "presentation_size_kb": 1794,
+  "presentation_date": "March 2026"
 }
