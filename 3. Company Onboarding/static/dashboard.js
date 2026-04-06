@@ -11,7 +11,8 @@ let logExpanded   = false;
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('tickerIn');
   const params = new URLSearchParams(window.location.search);
-  const sym = params.get('ticker') || localStorage.getItem('lastTicker') || '';
+  // Only restore last ticker if URL explicitly has ?ticker= param
+  const sym = params.get('ticker') || '';
   if (sym) { input.value = sym.toUpperCase(); loadCompany(sym.toUpperCase()); }
   else { showHome(); }
   input.addEventListener('keydown', e => { if (e.key === 'Enter') loadCompany(input.value.trim().toUpperCase()); });
