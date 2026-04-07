@@ -459,7 +459,10 @@ function renderNews(news, state, prevRun, ni43101Rows, aifRows) {
   const _feedLabel   = _feedIsUS ? '10-K' : 'AIF';
   const feedTitleEl  = document.getElementById('feedTitle');
   if (feedTitleEl) feedTitleEl.textContent = `News Feed since ${_feedLabel}`;
-  feedSub.textContent = `${news.length} releases since ${_feedLabel} as at ${fmtDate(asAtDate)}`;
+  const fromLabel = state.custom_from_date
+    ? `${news.length} releases since ${fmtDate(state.custom_from_date)}`
+    : `${news.length} releases since ${_feedLabel} as at ${fmtDate(asAtDate)}`;
+  feedSub.textContent = fromLabel;
 
   const changed = news.filter(f => f.llm_flag === 'CHANGED');
   const none    = news.filter(f => !f.llm_flag || f.llm_flag === 'NONE' || f.llm_flag === 'POSSIBLE');

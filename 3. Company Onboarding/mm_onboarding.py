@@ -783,8 +783,8 @@ class StockwatchSedarSession:
         filings  = self._parse_results(html)
         log.info(f"    â†’ {len(filings)} rows")
 
-        if len(filings) == 200:
-            # Date window too large - split in half and recurse
+        if len(filings) >= 190:
+            # Near or at the 200-row limit - split in half and recurse to ensure full coverage
             mid = date_from + (date_to - date_from) / 2
             mid = date(mid.year, mid.month, mid.day)
             log.info(f"    200 rows - splitting: {date_from}â†’{mid} and {mid+timedelta(1)}â†’{date_to}")
@@ -1835,6 +1835,8 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         "sw_covered_to":     str(sw_to),
         "new_filings_this_run": len(all_filings),
     }
+    if custom_from:
+        state["custom_from_date"] = str(custom_from)
 
     # Preserve existing presentation data on UPDATE runs; scan on FULL or if missing
     if is_update and prev_state.get("presentation_url"):
