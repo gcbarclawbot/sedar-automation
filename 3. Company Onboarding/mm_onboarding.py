@@ -563,12 +563,20 @@ SW_TYPE_MAP = {
     "Material change report - French":                "MaterialChange",
     "Annual information form - English":              "AIF",
     "Annual information form - French":               "AIF",
-    "Annual report - English":                        "Other",
-    "Annual report - French":                         "Other",
+    # Annual reports (pre-NI 43-101 era - primary vehicle for resource disclosures)
+    "ANNUAL_REPORT_EN":                               "AnnualReport",
+    "ANNUAL_REPORT_FR":                               "AnnualReport",
+    "Annual report - English":                        "AnnualReport",
+    "Annual report - French":                         "AnnualReport",
+    # Audited financial statements
+    "AUDITED_ANNUAL_FINANCIAL_STATEMENTS_EN":         "FinancialStatements",
+    "AUDITED_ANNUAL_FINANCIAL_STATEMENTS_FR":         "FinancialStatements",
+    "Audited annual financial statements - English":  "FinancialStatements",
+    "Audited annual financial statements - French":   "FinancialStatements",
 }
 
 # Categories we download PDFs for (news releases are log-only)
-DOWNLOAD_CATEGORIES = {"AIF", "NI43-101", "MD&A", "MaterialChange", "Prospectus", "Acquisition"}
+DOWNLOAD_CATEGORIES = {"AIF", "NI43-101", "MD&A", "MaterialChange", "Prospectus", "Acquisition", "AnnualReport", "FinancialStatements"}
 
 # Within NI43-101 category, only download the actual technical report (not consents/certs)
 NI43101_DOWNLOAD_TYPES = {
@@ -624,6 +632,10 @@ def _classify_sw_type(doc_type: str) -> str:
         return "NewsRelease"
     if "ANNUAL_INFORMATION_FORM" in dt:
         return "AIF"
+    if "ANNUAL_REPORT" in dt:
+        return "AnnualReport"
+    if "AUDITED_ANNUAL_FINANCIAL" in dt or "FINANCIAL_STATEMENTS" in dt:
+        return "FinancialStatements"
     return "Other"
 
 # ---------------------------------------------------------------------------
@@ -823,7 +835,7 @@ class StockwatchSedarSession:
             ("ctl00$MainContent$tSymbolFrom", date_from.strftime("%Y%m%d")),
             ("ctl00$MainContent$tSymbolTo",   date_to.strftime("%Y%m%d")),
             ("ctl00$MainContent$dSymbolFeed", "C"),   # Canada
-            ("ctl00$MainContent$dType",       "200"), # News releases only
+            ("ctl00$MainContent$dType",       "0"),   # All types (news releases, takeover bids, acquisitions etc.)
             ("ctl00$MainContent$bSymbol.x",   "0"),
             ("ctl00$MainContent$bSymbol.y",   "0"),
         ]
@@ -845,8 +857,11 @@ class StockwatchSedarSession:
             pub_dt   = cells[0].get_text(strip=True)  # "2026-03-12 07:00"
             date_key = pub_dt[:10]                      # "2026-03-12"
             news_type= cells[4].get_text(strip=True) if len(cells) > 4 else ""
-            if "News Release" not in news_type and "200" not in news_type:
-                continue  # skip "In the News" etc.
+            # Pass: News Releases (200/201), Takeover Bids (355), Acquisitions (310)
+            is_news_release = "News Release" in news_type or "200" in news_type
+            is_corporate_action = any(x in news_type for x in ["Takeover Bid", "355", "Acquisition310", "310"])
+            if not is_news_release and not is_corporate_action:
+                continue  # skip "In the News", broker research, halt/resume etc.
             headline = cells[5].get_text(strip=True) if len(cells) > 5 else ""
             link     = cells[5].find("a") if len(cells) > 5 else None
             art_url  = link["href"] if link else ""

@@ -257,7 +257,7 @@ function renderAll(data) {
       labelFn: f => f.mat_summary ? `${f.mat_summary}` : 'Material Change'
     });
 
-  const others = [...(cat['Prospectus']||[]), ...(cat['Acquisition']||[])];
+  const others = [...(cat['Prospectus']||[]), ...(cat['Acquisition']||[]), ...(cat['AnnualReport']||[]), ...(cat['FinancialStatements']||[])];
   renderDocList('otherBody', 'cntOther', others, prev_last_run_date,
     { cardId: 'cardOther' });
 
