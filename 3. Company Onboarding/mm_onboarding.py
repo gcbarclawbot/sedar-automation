@@ -1216,7 +1216,7 @@ def sedar_gap_fill(symbol: str, company_name: str, party_number: str,
 def onboard_company(symbol: str, company_name: str, exchange: str,
                     party_number: str, sw_session: StockwatchSedarSession,
                     req_session: requests.Session,
-                    sw_symbol: str = "") -> dict:
+                    sw_symbol: str = "", from_date: str = "") -> dict:
     """
     Full onboarding pipeline for one company. Auto-detects first run vs update.
     - First run: full history from AIF as-at date to today
@@ -1340,7 +1340,19 @@ def onboard_company(symbol: str, company_name: str, exchange: str,
         as_at_date = infer_as_at_date(aif_date)
         aif_info   = None  # sentinel: no AIF found
 
-    if is_update:
+    # --from-date override: forces full run from specified date
+    custom_from: date | None = None
+    if from_date:
+        try:
+            custom_from = date.fromisoformat(from_date)
+            log.info(f"  Custom start date override: {custom_from} (ignoring AIF as-at / last run)")
+            is_update = False  # treat as full run so we re-fetch everything
+        except ValueError:
+            log.warning(f"  Invalid --from-date '{from_date}' - ignoring, using default")
+
+    if custom_from:
+        sw_from = custom_from
+    elif is_update:
         # Update mode: only fetch since last run date (with 1-day overlap for safety)
         last_run = datetime.strptime(prev_state["last_run_date"], "%Y-%m-%d").date()
         sw_from  = last_run - timedelta(days=1)
@@ -2156,6 +2168,9 @@ def main():
     ap.add_argument("--reclassify", action="store_true",
                     help="Re-run LLM classification only on existing news releases (no scraping). "
                          "Use after updating prompt.txt. Works with --symbol or processes all companies.")
+    ap.add_argument("--from-date", type=str, default="",
+                    help="Override start date (YYYY-MM-DD). Forces a full run from this date regardless "
+                         "of AIF as-at date or last run. Useful for deep historical backfills.")
     args = ap.parse_args()
 
     log.info("=" * 70)
@@ -2289,7 +2304,7 @@ def main():
         lock_file.write_text(datetime.now().isoformat(), encoding="utf-8")
         _write_batch_meta(i - 1, sym)
         try:
-            summary = onboard_company(sym, name, exch, party, sw_session, req_session, sw_symbol=company.get("sw_symbol", ""))
+            summary = onboard_company(sym, name, exch, party, sw_session, req_session, sw_symbol=company.get("sw_symbol", ""), from_date=getattr(args, "from_date", ""))
             summaries.append(summary)
         except Exception as e:
             log.error(f"  {sym}: onboarding failed: {e}")
