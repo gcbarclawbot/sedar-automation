@@ -553,6 +553,15 @@ SW_TYPE_MAP = {
     "Technical report (NI 43-101) (amended) - English": "NI43-101",
     "Consent of qualified person (NI 43-101) - English": "NI43-101",
     "Consent of qualified person (NI 43-101) - French":  "NI43-101",
+    "Certificate of qualified person (NI 43-101) - English": "NI43-101",
+    "Certificate of qualified person (NI 43-101) - French":  "NI43-101",
+    # Human-readable material change / AIF labels (older SEDAR filings)
+    "Material change report - English":               "MaterialChange",
+    "Material change report - French":                "MaterialChange",
+    "Annual information form - English":              "AIF",
+    "Annual information form - French":               "AIF",
+    "Annual report - English":                        "Other",
+    "Annual report - French":                         "Other",
 }
 
 # Categories we download PDFs for (news releases are log-only)
